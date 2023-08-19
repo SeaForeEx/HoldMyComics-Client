@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
-import BookCard from './BookCard';
+import BookCard from '../../components/cards/BookCard';
 import { getAllBooks } from '../../utils/data/bookData';
 
 function Books() {
@@ -24,24 +24,25 @@ function Books() {
       <h1 style={{ marginTop: '40px' }}>Books</h1>
 
       <div>
-        {books.map((book) => (
-          <section
-            key={`book--${book.id}`}
-            className="book"
-            style={{ margin: '40px' }}
-            id="book-section"
-          >
-            <BookCard
-              id={book.id}
-              imageUrl={book.image_url}
-              publisher={book.publisher}
-              title={book.title}
-              price={book.price}
-              description={book.description}
-              onUpdate={displayBooks}
-            />
-          </section>
-        ))}
+        <div className="d-flex flex-wrap">
+          {books.map((book) => (
+            <section
+              key={`book--${book.id}`}
+              className="book"
+              style={{ margin: '10px' }}
+            >
+              <BookCard
+                id={book.id}
+                imageUrl={book.image_url}
+                publisher={book.publisher}
+                title={book.title}
+                price={book.price}
+                description={book.description}
+                onUpdate={displayBooks}
+              />
+            </section>
+          ))}
+        </div>
       </div>
     </article>
   );

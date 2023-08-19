@@ -1,7 +1,9 @@
 import { clientCredentials } from '../client';
 
+const endpoint = clientCredentials.databaseURL;
+
 const createCustomer = (customer) => new Promise((resolve, reject) => {
-  fetch(`${clientCredentials.databaseURL}/customers`, {
+  fetch(`${endpoint}/customers`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -14,7 +16,7 @@ const createCustomer = (customer) => new Promise((resolve, reject) => {
 });
 
 const getCustomersByStoreId = (storeId) => new Promise((resolve, reject) => {
-  fetch(`${clientCredentials.databaseURL}/customers?storeId=${storeId}`, {
+  fetch(`${endpoint}/customers?storeId=${storeId}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -26,7 +28,7 @@ const getCustomersByStoreId = (storeId) => new Promise((resolve, reject) => {
 });
 
 const getSingleCustomer = (id) => new Promise((resolve, reject) => {
-  fetch(`${clientCredentials.databaseURL}/customers/${id}`, {
+  fetch(`${endpoint}/customers/${id}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -38,7 +40,7 @@ const getSingleCustomer = (id) => new Promise((resolve, reject) => {
 });
 
 const updateCustomer = (customer) => new Promise((resolve, reject) => {
-  fetch(`${clientCredentials.databaseURL}/customers/${customer.id}`, {
+  fetch(`${endpoint}/customers/${customer.id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -50,7 +52,7 @@ const updateCustomer = (customer) => new Promise((resolve, reject) => {
 });
 
 const deleteCustomer = (customer) => new Promise((resolve, reject) => {
-  fetch(`${clientCredentials.databaseURL}/customers/${customer}`, {
+  fetch(`${endpoint}/customers/${customer}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application.json',
@@ -60,6 +62,13 @@ const deleteCustomer = (customer) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getCustomerBooks = (id) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/customers/${id}/get_books`)
+    .then((response) => response.json())
+    .then(resolve)
+    .catch(reject);
+});
+
 export {
-  createCustomer, getSingleCustomer, getCustomersByStoreId, updateCustomer, deleteCustomer,
+  createCustomer, getSingleCustomer, getCustomersByStoreId, updateCustomer, deleteCustomer, getCustomerBooks,
 };

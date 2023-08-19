@@ -13,7 +13,6 @@ const BookCard = ({
   publisher,
   title,
   price,
-  description,
 }) => {
   const router = useRouter();
 
@@ -29,10 +28,9 @@ const BookCard = ({
       <Card className="text-center">
         <Card.Body>
           <img src={imageUrl} alt="comic book cover" />
-          <h3>{title}</h3>
+          <h5>{title}</h5>
           <p>{publisher}</p>
           <p>{price}</p>
-          <p>{description}</p>
           <Button
             style={{ margin: '10px', backgroundColor: '#003049' }}
             onClick={() => {
@@ -52,7 +50,6 @@ BookCard.propTypes = {
   title: PropTypes.string.isRequired,
   publisher: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  description: PropTypes.string.isRequired,
 };
 
 export default BookCard;

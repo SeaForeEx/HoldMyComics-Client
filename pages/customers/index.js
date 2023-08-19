@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
-import CustomerCard from './CustomerCard';
+import CustomerCard from '../../components/cards/CustomerCard';
 import { getCustomersByStoreId } from '../../utils/data/customerData';
 
 function Customers() {
@@ -31,22 +31,24 @@ function Customers() {
         <Link href="/customers/new" passHref>
           <Button>Add A Customer</Button>
         </Link>
-        {customers.map((customer) => (
-          <section
-            key={`customer--${customer.id}`}
-            className="customer"
-            style={{ margin: '40px' }}
-            id="customer-section"
-          >
-            <CustomerCard
-              id={customer.id}
-              store={customer.store_id}
-              customerName={customer.customer_name}
-              email={customer.email}
-              onUpdate={displayCustomers}
-            />
-          </section>
-        ))}
+        <div className="d-flex flex-wrap">
+          {customers.map((customer) => (
+            <section
+              key={`customer--${customer.id}`}
+              className="customer"
+              style={{ margin: '10px' }}
+            >
+              <CustomerCard
+                id={customer.id}
+                store={customer.store_id}
+                customerName={customer.customer_name}
+                email={customer.email}
+                onUpdate={displayCustomers}
+              />
+            </section>
+
+          ))}
+        </div>
       </div>
     </article>
   );
