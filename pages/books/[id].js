@@ -1,36 +1,46 @@
-/* eslint-disable @next/next/no-img-element */
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { getSingleBook } from '../../utils/data/bookData';
-import AddToCustomer from '../../components/buttons/addToCustomer';
+/* eslint-disable @next/next/no-img-element */ // Disable specific ESLint rule for the next line
+import React, { useState, useEffect } from 'react'; // Importing React, useState, and useEffect from React
+import { useRouter } from 'next/router'; // Importing the router from Next.js
+import { getSingleBook } from '../../utils/data/bookData'; // Importing function for fetching book data
+import AddToCustomer from '../../components/buttons/addToCustomer'; // Importing the 'AddToCustomer' component
 
+// React functional component for viewing book details
 const ViewBook = () => {
-  const router = useRouter();
-  const [bookDetails, setBookDetails] = useState({});
-  const { id } = router.query;
+  const router = useRouter(); // Router instance from Next.js
+  const [bookDetails, setBookDetails] = useState({}); // State for book details
+  const { id } = router.query; // Extracting 'id' from the query parameters (primary key for book)
 
   useEffect(() => {
+    // Fetch book details using 'getSingleBook' function based on the extracted 'id'
     getSingleBook(id).then((bookData) => {
-      setBookDetails(bookData);
+      setBookDetails(bookData); // Update 'bookDetails' state with fetched data
     });
-  }, [id]);
+  }, [id]); // Re-run effect whenever 'id' changes
 
   return (
     <>
+      {/* Container for book details */}
       <div className="mt-5 d-flex flex-wrap">
         <div className="d-flex flex-column">
+          {/* Display book cover image */}
           <img src={bookDetails.imageUrl} alt="comic book cover" />
+          {/* Display book title */}
           <h3>
             Title: {bookDetails.title}
           </h3>
+          {/* Display book publisher */}
           <h3>Publisher: {bookDetails.publisher}</h3>
+          {/* Display book price */}
           <h4>Price: ${bookDetails.price}</h4>
+          {/* Display book description */}
           <p>Description: {bookDetails.description}</p>
         </div>
+        {/* Include the 'AddToCustomer' component and pass the 'id' prop */}
         <AddToCustomer id={id} />
       </div>
     </>
   );
 };
 
+// Export the component as the default export
 export default ViewBook;
