@@ -21,6 +21,7 @@ function Books() {
   // Effect to display books when the component mounts
   useEffect(() => {
     displayBooks(); // Calling 'displayBooks' to fetch and update book data
+    document.title = 'COMIC BOOKS!';
   }, []);
 
   // JSX to render the list of books
