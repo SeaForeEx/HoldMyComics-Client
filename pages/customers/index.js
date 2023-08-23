@@ -25,6 +25,7 @@ function Customers() {
   // Effect to fetch and display customers when user information changes
   useEffect(() => {
     displayCustomers();
+    document.title = 'CUSTOMERS!';
   }, [user]);
 
   // JSX to render the 'Customers' component

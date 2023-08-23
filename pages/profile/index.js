@@ -1,4 +1,4 @@
-import React from 'react'; // Importing React
+import React, { useEffect } from 'react'; // Importing React
 import { Button } from 'react-bootstrap'; // Importing Button component from react-bootstrap
 import { useAuth } from '../../utils/context/authContext'; // Importing useAuth hook from authContext
 import { signOut } from '../../utils/auth'; // Importing signOut function from auth utilities
@@ -6,6 +6,9 @@ import { signOut } from '../../utils/auth'; // Importing signOut function from a
 // Defining the Profile component
 const Profile = () => {
   const { user } = useAuth(); // Using the useAuth hook to retrieve the user object
+  useEffect(() => {
+    document.title = `${user.user_name.toUpperCase()}'S PROFILE!`; // Set the desired title
+  }, [user]);
 
   // JSX to render the Profile component
   return (

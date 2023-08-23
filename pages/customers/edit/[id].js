@@ -22,7 +22,7 @@ export default function EditProduct() {
   return (
     <>
       <Head>
-        <title>Edit Customer</title> {/* Setting the document title */}
+        <title>EDIT CUSTOMER!</title> {/* Setting the document title */}
       </Head>
       <div>
         {/* Rendering the 'CustomerForm' component and passing 'editItem' as a prop */}

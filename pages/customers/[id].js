@@ -32,6 +32,13 @@ const ViewCustomer = () => {
     getBooksByCustomer();
   }, [id]);
 
+  useEffect(() => {
+    // Update document title with the book's title when 'customerDetails' changes
+    if (customerDetails) {
+      document.title = `${customerDetails.customer_name}!`;
+    }
+  }, [customerDetails]); // Re-run effect whenever 'customerDetails' changes
+
   // JSX to render the 'ViewCustomer' component
   return (
     <>

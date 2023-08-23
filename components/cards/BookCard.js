@@ -5,8 +5,7 @@
 // Import necessary dependencies and modules
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Card from 'react-bootstrap/Card'; // Importing the Card component from react-bootstrap
-import { Button } from 'react-bootstrap'; // Importing the Button component from react-bootstrap
+import { Card, Button } from 'react-bootstrap'; // Importing the Card/Button components from react-bootstrap
 import { useRouter } from 'next/router'; // Importing the router from Next.js
 import { getSingleBook } from '../../utils/data/bookData'; // Importing function to get details of a single book
 
@@ -37,10 +36,14 @@ const BookCard = ({
     <>
       <Card className="text-center">
         <Card.Body>
-          <img src={imageUrl} alt="comic book cover" /> {/* Displaying the book cover */}
+          <img
+            src={imageUrl}
+            alt={`Comic book cover of ${title}`}
+            style={{ width: '200px', height: 'auto' }}
+          /> {/* Displaying the book cover */}
           <h5>{title}</h5> {/* Displaying the book title */}
           <p>{publisher}</p> {/* Displaying the book publisher */}
-          <p>{price}</p> {/* Displaying the book price */}
+          <p>${price}</p> {/* Displaying the book price */}
           {/* Button to view more details of the book */}
           <Button
             style={{ margin: '10px', backgroundColor: '#003049' }}

@@ -10,12 +10,21 @@ const ViewBook = () => {
   const [bookDetails, setBookDetails] = useState({}); // State for book details
   const { id } = router.query; // Extracting 'id' from the query parameters (primary key for book)
 
+  const bookId = +id; // Convert id to a number
+
   useEffect(() => {
-    // Fetch book details using 'getSingleBook' function based on the extracted 'id'
-    getSingleBook(id).then((bookData) => {
+    // Fetch book details using 'getSingleBook' function based on the extracted 'bookId'
+    getSingleBook(bookId).then((bookData) => {
       setBookDetails(bookData); // Update 'bookDetails' state with fetched data
     });
-  }, [id]); // Re-run effect whenever 'id' changes
+  }, [bookId]); // Re-run effect whenever 'bookId' changes
+
+  useEffect(() => {
+    // Update document title with the book's title when 'bookDetails' changes
+    if (bookDetails) {
+      document.title = `${bookDetails.title}`;
+    }
+  }, [bookDetails]); // Re-run effect whenever 'bookDetails' changes
 
   return (
     <>
@@ -23,8 +32,11 @@ const ViewBook = () => {
       <div className="mt-5 d-flex flex-wrap">
         <div className="d-flex flex-column">
           {/* Display book cover image */}
-          <img src={bookDetails.imageUrl} alt="comic book cover" />
-          {/* Display book title */}
+          <img
+            src={bookDetails.image_url}
+            alt={`Comic book cover of ${bookDetails.title}`}
+            style={{ width: '300px', height: 'auto' }}
+          /> {/* Displaying the book cover */}
           <h3>
             Title: {bookDetails.title}
           </h3>
@@ -36,7 +48,7 @@ const ViewBook = () => {
           <p>Description: {bookDetails.description}</p>
         </div>
         {/* Include the 'AddToCustomer' component and pass the 'id' prop */}
-        <AddToCustomer id={id} />
+        <AddToCustomer id={bookId} />
       </div>
     </>
   );

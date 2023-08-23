@@ -18,8 +18,8 @@ function CustomerBookCard({ customerBookObj, onUpdate }) {
 
   // JSX to render the customer's book card
   return (
-    <Card style={{ width: '18rem', margin: '10px' }} className="card-design">
-      <Card.Img variant="top" src={customerBookObj.book.imageUrl} alt={customerBookObj.book.title} style={{ height: '200px' }} />
+    <Card className="card-design">
+      <Card.Img variant="top" src={customerBookObj.book.image_url} alt={customerBookObj.book.title} style={{ width: '200px', height: 'auto' }} />
       <Card.Body>
         <Card.Title>{customerBookObj.book.title}</Card.Title>
         <h3>{customerBookObj.book.publisher}</h3>
@@ -33,7 +33,7 @@ function CustomerBookCard({ customerBookObj, onUpdate }) {
 CustomerBookCard.propTypes = {
   customerBookObj: PropTypes.shape({
     book: PropTypes.shape({
-      imageUrl: PropTypes.string.isRequired, // 'imageUrl' is a required string
+      image_url: PropTypes.string.isRequired, // 'imageUrl' is a required string
       publisher: PropTypes.string.isRequired, // 'publisher' is a required string
       title: PropTypes.string.isRequired, // 'title' is a required string
       id: PropTypes.number.isRequired, // 'id' is a required number

@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import { signIn } from '../utils/auth';
 
 function Signin() {
+  useEffect(() => {
+    document.title = 'WELCOME!'; // Set the desired title
+  }, []);
   return (
     <div
       className="text-center d-flex flex-column justify-content-center align-content-center"
