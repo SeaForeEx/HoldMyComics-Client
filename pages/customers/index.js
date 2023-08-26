@@ -7,7 +7,7 @@ import CustomerCard from '../../components/cards/CustomerCard'; // Importing the
 import { getCustomersByStoreId } from '../../utils/data/customerData'; // Importing function to fetch customers by store ID
 
 // Defining the 'Customers' component
-function Customers() {
+function CustomerList() {
   const { user } = useAuth(); // Using the 'useAuth' hook to access user information
   const [customers, setCustomers] = useState([]); // Initializing state for customers list
 
@@ -62,6 +62,6 @@ function Customers() {
   );
 }
 
-export default Customers;
+export default CustomerList;
 
 // Summary: This code fetches and displays a list of customers associated with the logged-in user's store. It uses the useAuth hook to access user information, fetches the customers using getCustomersByStoreId, and renders the CustomerCard components for each customer. Additionally, it includes a button to navigate to the "Add A Customer" page using the Link component from next/link.
