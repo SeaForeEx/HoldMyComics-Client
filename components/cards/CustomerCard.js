@@ -2,12 +2,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
 // Import necessary dependencies and modules
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card'; // Importing the Card component from react-bootstrap
 import { Button } from 'react-bootstrap'; // Importing the Button component from react-bootstrap
 import { useRouter } from 'next/router'; // Importing the router from Next.js
-import { deleteCustomer, getSingleCustomer } from '../../utils/data/customerData'; // Importing functions for customer data manipulation
+import { deleteCustomer } from '../../utils/data/customerData'; // Importing functions for customer data manipulation
 
 // React functional component for rendering a customer card
 const CustomerCard = ({
@@ -21,20 +21,11 @@ const CustomerCard = ({
   // Event handler for deleting a customer
   const deleteThisCustomer = () => {
     // Display a confirmation dialog and proceed if the user confirms
-    if (window.confirm('Delete Customer?')) {
+    if (window.confirm(`Delete ${customerName}?`)) {
       // Call the 'deleteCustomer' function and update after completion
       deleteCustomer(id).then(() => onUpdate());
     }
   };
-
-  // State variable to store customer details
-  const [, setCustomerDetails] = useState({});
-  useEffect(() => {
-    // Fetch the details of a single customer by its 'id' and update 'customerDetails' state
-    getSingleCustomer(id).then((customerData) => {
-      setCustomerDetails(customerData);
-    });
-  }, [id]);
 
   // JSX to render the customer card
   return (
