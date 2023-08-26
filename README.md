@@ -1,44 +1,104 @@
-# React/Next.js Django Auth Template
+![HOLD-MY-COMICS-8-14-2023 (1)](https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/d6cf4868-59fb-42f5-aeca-36cca87b8351)
 
-## Topics
-- [Get Started](#getting-started)
-- [Starting the Project](#starting-the-project)
-___
-## Getting Started
-### Use Template
-#### 1. To get started, click the GREEN "Use this Template" button at the top of the repo
-<img width="915" alt="Screen Shot 2022-07-06 at 12 54 01 PM" src="https://user-images.githubusercontent.com/29741570/177612998-4aac9237-5a1e-4f13-8ae0-468587521564.png">
+<h2>Topics</h2>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#wireframes">Wireframes</a></li>
+<li><a href="#erd">ERD</a></li>
+<li><a href="#projectboard">Project Board</a></li>
+<li><a href="#userdescription">User Description</a></li>
+<li><a href="#mvpfeatures">MVP Features</a></li>
+<li><a href="#contributors">Contributors</a></li>
+<li><a href="#techstacks">Tech Stacks</a></li>
+<li><a href="#videowalkthrough">Video Walkthrough</a></li>
 
-#### 2. Make sure YOUR github account is selected in the dropdown and name your project
-<img width="763" alt="Screen Shot 2022-07-06 at 12 54 48 PM" src="https://user-images.githubusercontent.com/29741570/177613126-dd38f678-7553-4f27-8a4a-75680f14d71e.png">
+<h2><a id="overview">Overview</a></h2>
+<p>HOLD MY COMICS! is a Business App that allows Comic Book Store Owners to Create a loyal customer database.  Owners can Create a Profile for their store. Owners can also Create, Read, Update and Delete their customer database.  Owners can also Read a database of weekly comics and Add or Remove them from their customers' online pull boxes.</p>
 
-#### 3. Clone your new repo to your local machine
-#### 4. Go to the **NEXT** section
+<p>A pull box is a list of weekly titles reserved for customers so they don't have to worry about a title selling out before they make it to the store.</p>
 
-## Starting the Project
-1. Create a Firebase project and set up authentication. Use [these videos](https://vimeo.com/showcase/codetracker-firebase) as a refresher if needed.
-1. Create a `.env` file at the root of the project
-1. Copy/Paste the contents of the `.env.sample` file to your newly created `.env` file.
-1. Copy over all of your Firebase values into the `.env` file.
-1. Open the `package.json` file and change the `name` property to the name of your application, and `author` to  your name.
-1. From your command line, be in the root directory and run `npm install` OR `npm i` for short.
-1. Next, run `npm run prepare`. This command sets up husky to track eslint errors on commit that will make your deploy fail on Netlify.
-1. To start your application, run `npm run dev`. THIS IS THE COMMAND YOU WILL USE TO RUN YOUR DEVELOPMENT SERVER FROM NOW ON.
-1. Open [http://localhost:3000](http://localhost:3000) with your browser.
+<h2><a id="wireframes">Wireframes</a></h2>
+<img width="598" alt="Screen Shot 2023-08-26 at 9 22 41 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/8dfa1b3c-2fdb-400b-bda6-8c6008fa2141">
 
-### If you see this, you are set to go!
-<img width="450" alt="Screen Shot 2022-07-06 at 1 07 27 PM" src="https://user-images.githubusercontent.com/29741570/177615077-9b6a75bc-0260-4d29-bb88-bd95a3140687.png">
+Click <a href="https://www.figma.com/file/YcQZNhCbNPYgUt81ipvy0g/Hold-My-Comics-Wireframe?type=design&node-id=0-1&mode=design&t=LHYgJtD8t3a8MuFk-0">HERE</a> to look at my wireframes on Figma!
+
+<h2><a id="erd">ERD</a></h2>
+<img width="890" alt="Screen Shot 2023-08-26 at 9 24 31 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/c49b60b5-9380-4115-b1b8-0f567a4cf97a">
+
+Click <a href="https://dbdiagram.io/d/64dac13702bd1c4a5ec5dbd4">HERE</a> to look at my ERD on dbdiagram!
+
+<h2><a id="projectboard">Project Board</a></h2>
+
+<img width="1066" alt="Screen Shot 2023-08-26 at 9 36 22 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/e5bbe7e0-a58d-4a0e-818f-c350c5068c14">
+
+Click <a href="https://github.com/users/SeaForeEx/projects/3">HERE</a> to see my Project Board on GitHub!
+
+<h2><a id="userdescription">User Description</a></h2>
+<p>The User is a Comic Book Store Owner who needs to keep track of his customers and what comic books they want on a weekly basis.</p>
+
+<h2><a id="mvpfeatures">MVP Features</a></h2>
+<ul><em>Users</em></ul>
+<li>Sign in via Google Authentication</li>
+<li>If it is their first time visiting the site, users are directed to a form that lets them create their profile</li>
+<li>New users enter in a name, store name, and email of their choosing and then are directed to the main site</li>
+<li>Users can Create, Read, Update, and Delete Customers</li>
+<li>Users can Add and Remove Titles from Customer Pull Boxes</li>
+
+<img width="661" alt="Screen Shot 2023-08-26 at 9 43 05 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/2d2a74b2-c428-4e20-ab54-da479c454ee5">
 
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+<ul><em>Customers</em></ul>
+<li>Customers do not have access to the website (as of MVP)</li>
+<li>Customers are shown on ViewCustomer and CustomerList pages</li>
+<li>Customers can be Created, Read, Updated, and Deleted by Users</li>
+<br>
+<table>
+<tr>
+<td><img width="823" alt="Screen Shot 2023-08-26 at 9 45 11 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/964529cd-74f9-4612-b7a5-3a55f5b228da"></td>
+<td><img width="336" alt="Screen Shot 2023-08-26 at 9 45 59 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/4d4f9b80-7dce-4ba0-aa06-57499cd36d7a"></td>
+</tr>
+</table>
 
-**NOTES:** 
-- If you see the following error, you did not follow all the setup steps correctly and failed to add your Firebase creds. Go back and do that NOW.
 
-<img width="1043" alt="Screen Shot 2022-07-06 at 11 18 45 AM" src="https://user-images.githubusercontent.com/29741570/177612501-c2628f18-4bbd-4de9-aae6-27ffba1172d6.png">
-        
-## Learn More about Next.js
-To learn more about Next.js, take a look at the following resources:
+<ul><em>Comic Books</em></ul>
+<li>Comic Books are shown on ViewBook and BookList pages</li>
+<li>Comic Books cannot be Created, Updated, or Deleted</li>
+<li>Comic Books can be Added to or Removed from Customer Pull Boxes by Users</li>
+<br>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<table>
+<tr>
+<td><img width="815" alt="Screen Shot 2023-08-26 at 9 48 08 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/2fdf67f0-4262-47d8-b859-0d1d06451917"></td>
+<td><img width="816" alt="Screen Shot 2023-08-26 at 9 49 11 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/6981315e-8d51-4ad8-84ef-e05be3d69fc1"></td>
+</tr>
+</table>
+
+
+<ul><em>
+Profile</em></ul>
+<li>User Profile displays their name, store name, and email</li>
+<li>Users can Sign Out of the website on their profile</li>
+<br>
+
+<img width="409" alt="Screen Shot 2023-08-26 at 9 43 55 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/32ede023-19c5-4452-a88c-60b654929983">
+
+<h2><a id="contributors">Contributors</a></h2>
+<a href="https://github.com/SeaForeEx">Charles Bridgers IV</a>
+
+<h2><a id="techstacks">Tech Stacks</a></h2>
+<table>
+<li>ReactJS</li> 
+<li>NextJS</li>
+<li>Django
+<li>SQL</li>
+<li>JS6</li> 
+<li>CSS3</li> 
+<li>HTML5</li>
+<li>Firebase</li> 
+<li>Bootstrap</li> 
+<li>Figma</li>
+</table>
+
+<h2><a id="videowalkthrough">Video Walkthrough</a></h2>
+Click <a href="https://www.loom.com/embed/f71bf741597e400eab98efc153ad6bc1?sid=7d447e3c-1847-401d-9573-75e98cdfde6e">HERE</a> for a brief Loom Walkthrough of my website!
+
+
