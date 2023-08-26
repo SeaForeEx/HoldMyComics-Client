@@ -4,14 +4,13 @@ import BookCard from '../../components/cards/BookCard'; // Importing the 'BookCa
 import { getAllBooks } from '../../utils/data/bookData'; // Importing function to fetch all books
 
 // React functional component for displaying a list of books
-function Books() {
-  const [books, setBooks] = useState([]); // State to hold the list of books
+function BookList() {
+  const [books, setBooks] = useState([]);
 
-  // Function to fetch and display books
   const displayBooks = () => {
     getAllBooks()
       .then((data) => {
-        setBooks(data); // Update the 'books' state with fetched data
+        setBooks(data);
       })
       .catch((error) => {
         console.error('Error fetching records:', error);
@@ -57,7 +56,7 @@ function Books() {
 }
 
 // Export the component as the default export
-export default Books;
+export default BookList;
 
 // Passing the displayBooks function as a prop to the BookCard component allows you to trigger a refresh of the book list when an action is performed within the BookCard component that requires updating the book data. It  allows for better communication and coordination between components. It enables the BookCard component to trigger an update in the parent Books component when needed, ensuring that changes in the child component are reflected in the overall application state.
 

@@ -31,6 +31,7 @@ function CustomerBookCard({ customerBookObj, onUpdate }) {
 
 // PropTypes for the component's props
 CustomerBookCard.propTypes = {
+  // id: PropTypes.number.isRequired,
   customerBookObj: PropTypes.shape({
     book: PropTypes.shape({
       image_url: PropTypes.string.isRequired, // 'imageUrl' is a required string
