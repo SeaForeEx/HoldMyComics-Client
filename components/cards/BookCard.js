@@ -16,9 +16,7 @@ import { getSingleBook } from '../../utils/data/bookData'; // Importing function
 const BookCard = ({
   id,
   imageUrl,
-  publisher,
   title,
-  price,
 }) => {
   const router = useRouter(); // Router instance from Next.js
 
@@ -42,8 +40,6 @@ const BookCard = ({
             style={{ width: '200px', height: 'auto' }}
           /> {/* Displaying the book cover */}
           <h5>{title}</h5> {/* Displaying the book title */}
-          <p>{publisher}</p> {/* Displaying the book publisher */}
-          <p>${price}</p> {/* Displaying the book price */}
           {/* Button to view more details of the book */}
           <Button
             style={{ margin: '10px', backgroundColor: '#003049' }}
@@ -64,8 +60,6 @@ BookCard.propTypes = {
   id: PropTypes.number.isRequired, // 'id' is a required number
   imageUrl: PropTypes.string.isRequired, // 'imageUrl' is a required string
   title: PropTypes.string.isRequired, // 'title' is a required string
-  publisher: PropTypes.string.isRequired, // 'publisher' is a required string
-  price: PropTypes.number.isRequired, // 'price' is a required number
 };
 
 export default BookCard;
