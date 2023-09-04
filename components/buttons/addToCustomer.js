@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 // Import necessary dependencies and modules
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
@@ -33,7 +34,7 @@ export default function AddToCustomer({ id, obj }) {
         bookId: obj.book_id,
       });
     }
-  }, [obj, customers, user.id]);
+  }, []);
 
   // Event handler for input changes
   const handleChange = (e) => {
@@ -50,11 +51,11 @@ export default function AddToCustomer({ id, obj }) {
     e.preventDefault();
     // Prepare payload for adding book to customer
     const payload = {
-      customerId: Number(currentCustomer.customerId),
+      customerId: Number(currentCustomer.customer_id),
       bookId: Number(id),
     };
     // Call the 'addBookToCustomer' function and navigate to customer's page after completion
-    addBookToCustomer(id, payload).then(() => router.push(`/customers/${currentCustomer.customerId}`));
+    addBookToCustomer(id, payload).then(() => router.push(`/customers/${currentCustomer.customer_id}`));
   };
 
   // JSX to render the component
@@ -63,10 +64,10 @@ export default function AddToCustomer({ id, obj }) {
       <FloatingLabel controlId="floatingSelect" label="Customer">
         <Form.Select
           aria-label="Customer"
-          name="customerId"
+          name="customer_id"
           className="mb-3"
           onChange={handleChange}
-          value={currentCustomer.customerId}
+          value={currentCustomer.customer_id}
           required
         >
           <option value="">Select a Customer</option>
