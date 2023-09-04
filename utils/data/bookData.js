@@ -1,27 +1,24 @@
+/* eslint-disable func-names */
 import { clientCredentials } from '../client'; // Importing clientCredentials from '../client' (assuming)
 
 const endpoint = clientCredentials.databaseURL; // Assigning the database URL from clientCredentials to 'endpoint'
 
 // Function to fetch all books from the database
 const getAllBooks = () => new Promise((resolve, reject) => {
-  // Fetches data using the provided endpoint
   fetch(`${endpoint}/books`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },
   })
-    // Converts the response to JSON.
     .then((response) => response.json())
     .then((data) => {
-      // Resolves with an array of book data or an empty array
       if (data) {
         resolve(Object.values(data));
       } else {
         resolve([]);
       }
     })
-    // Rejects if there's an error
     .catch(reject);
 });
 
@@ -73,5 +70,8 @@ const removeBookFromCustomer = (bookId, customerId) => new Promise((resolve, rej
 
 // Exporting the functions for use in other modules
 export {
-  getAllBooks, getSingleBook, addBookToCustomer, removeBookFromCustomer,
+  getAllBooks,
+  getSingleBook,
+  addBookToCustomer,
+  removeBookFromCustomer,
 };
