@@ -3,11 +3,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
 // Import necessary dependencies and modules
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Button } from 'react-bootstrap'; // Importing the Card/Button components from react-bootstrap
 import { useRouter } from 'next/router'; // Importing the router from Next.js
-import { getSingleBook } from '../../utils/data/bookData'; // Importing function to get details of a single book
 
 // React functional component for rendering a book card
 
@@ -19,15 +18,6 @@ const BookCard = ({
   title,
 }) => {
   const router = useRouter(); // Router instance from Next.js
-
-  // State variable to store book details
-  const [, setBookDetails] = useState({});
-  useEffect(() => {
-    // Fetch the details of a single book by its 'id' and update 'bookDetails' state
-    getSingleBook(id).then((bookData) => {
-      setBookDetails(bookData);
-    });
-  }, [id]);
 
   // JSX to render the book card
   return (
