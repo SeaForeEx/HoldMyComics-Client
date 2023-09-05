@@ -18,13 +18,18 @@
 <li><a href="#shoutouts">Shout Outs!</a></li>
 
 <h2><a id="overview">What API Did I Use?</a></h2>
-<p>Talk about Metron</p>
 
-SCREENSHOTS OF SITE
+<img width="166" alt="Screen Shot 2023-09-04 at 8 51 26 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/1d51a3b1-3deb-4ae4-a98a-aff97602210b">
 
-Click <a href="">HERE</a> to go to the main Metron site
-Click <a href="">HERE</a> to see the guidelines for Metron API
-Click <a href="">HERE</a> to see the docs for Metron API calls
+<p>Before I started coding my Full Stack Capstone, I was researching potential External APIs and Metron was the best option.  Metron is a Comic Book Database that provides a Rest API for users to access their data.  Unlike corporate-owned databases like Comic Vine, Metron is a vibrant community where users can link up on GitHub and edit/discuss the public database.</p>
+
+<p>Metron also has a Python wrapper called <a href="https://github.com/Metron-Project/mokkari">Mokkari</a> that can be used to access the API, although I didn't use it for my project.</p>
+
+Click <a href="https://metron.cloud/">HERE</a> to go to the main Metron site
+<br>
+Click <a href="https://github.com/bpepple/metron">HERE</a> to visit Metron's GitHub site
+
+<img width="510" alt="Screen Shot 2023-09-04 at 8 57 19 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/fde4ceb1-76f3-483e-80c1-02aed4d448da">
 
 <h2><a id="basicauth">Basic Auth on Postman</a></h2>
 
