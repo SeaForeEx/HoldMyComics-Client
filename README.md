@@ -1,5 +1,7 @@
 ![HOLD-MY-COMICS-8-14-2023 (1)](https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/d6cf4868-59fb-42f5-aeca-36cca87b8351)
 
+<h3><em>Note: This README only covers how I reached Minimum Viable Product for HOLD MY COMICS!  It does not cover how I made External API and other Stretch Goals work.</em></h3>
+
 <h2>Topics</h2>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#wireframes">Wireframes</a></li>
