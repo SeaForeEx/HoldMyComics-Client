@@ -5,6 +5,8 @@
   </tr>
 </table>
 
+<h4>Click <a href="https://github.com/SeaForeEx/HoldMyComics-Server">HERE</a> to go to the HOLD MY COMICS! Server Side Repo!</h4>
+
 <h2>Steps</h2>
 <li><a href="#overview">What API Did I Use?</a></li>
 <li><a href="#basicauth">Basic Auth on Postman</a></li>
