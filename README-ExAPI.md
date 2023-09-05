@@ -95,7 +95,15 @@ Click <a href="https://metron.cloud/docs/#/api/api_issue_list">HERE</a> to see t
 
 <p>Thankfully, Danny Kim was there to save the day.  He suggested that I use environmental variables in my server-side repo and sent me a link to help me figure all of this out.</p>
 
+<img width="559" alt="Screen Shot 2023-09-05 at 7 31 11 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/90fbe73c-87ba-444a-b25f-1e053fa6d588">
 
+<p>For our Full Stack Apps, we have been using Firebase Environmental Variables by setting up an env file in the Front End with all the required info.  In this case, I set up an env file in the back end to store my Metron login AND keep it anonymous when people look at the code in my server-side repo.</p>
+
+<img width="547" alt="Screen Shot 2023-09-05 at 7 55 13 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/5488c767-9365-40aa-86b9-10e9a91f66db">
+
+<p>For this code, I built the API URL with the calculated dates (again, more on that later) then created a response populated with my Metron environmental variables.  Now no one has to have a Metron account except for me.  Every comic book store owner will use my info to pull up all the weekly titles.  I included a timeout to prevent hanging requests, avoid resource wastage, etc.</p>
+
+Click <a href="https://djangocentral.com/environment-variables-in-django/">HERE</a> to see the article that helped me use Environmental Variables to keep my Metron login private
 
 
 
