@@ -87,7 +87,17 @@ Click <a href="https://metron.cloud/docs/#/api/api_issue_list">HERE</a> to see t
 
 <h2><a id="envserver">env File on Server Side</a></h2>
 
-<p>Talk about why I needed to add an env file to my server repo.  Talk about how the code lets each user use my Metron login info instead of everyone needing to get their own login info.</p>
+<p>So my Postman calls were working great and now it's time for the hard part: connecting this data to the Front End.  The Basic Auth aspect of the data really threw me for a loop for a minute.  My first idea was to have each user sign up with Metron before they were able to register for my page, and then they would enter their Metron information when signing up for HOLD MY COMICS!</p>
+
+<h3><em>TERRIBLE</em> IDEA, RIGHT?!</h3>
+
+<p>Making my site depend on users to be able to use another site before they even begin to use my site is a huge design flaw, not to mention another level of complexity that would make HOLD MY COMICS! convenient for NO ONE.  And what if they entered in the wrong info via typo or poor memory?  It was a dumb dumb dumb idea, but I was desperate as I was in new territory.</p>
+
+<p>Thankfully, Danny Kim was there to save the day.  He suggested that I use environmental variables in my server-side repo and sent me a link to help me figure all of this out.</p>
+
+
+
+
 
 ENV SCREENSHOTS (Change Password to protect privacy)
 
