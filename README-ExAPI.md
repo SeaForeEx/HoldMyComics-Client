@@ -59,9 +59,31 @@ Click <a href="https://www.baeldung.com/java-postman-authentication">HERE</a> to
 
 <p>Talk about how I set up the API calls based on the docs page</p>
 
-METRON API SCREENSHOTS
+As I previously stated, Metron was a GREAT choice as an External API, and their documentation page is why.
 
-Click <a href="">HERE</a> to see the docs for Metron API calls
+<img width="485" alt="Screen Shot 2023-09-04 at 9 26 20 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/f30933e5-ae8d-40cd-b87d-886bb94cea5b">
+
+<p>Not only are their API calls well organized, but you can even test them out on the site and they give you the necessary request to get what you want from the data.</p>
+
+<p>For example, I needed a request that gets all of the comics that will be released on Tuesday, September 5, 2023, and Wednesday, September 6, 2023.  This will show me all the new DC Comics releases (each Tuesday) and Marvel/other publishers' releases (each Wednesday).</p>
+
+<p>I was going to use the "store_date" query to write two different promises on the Front End to handle this issue, but I spotted two queries on the docs page called "store_date_range_after" and "store_date_range_before".  I put in the two dates I needed in these props and BAM, one Request URL for all of the new releases that I want to display on the DOM!</p>
+
+<table>
+  <tr>
+    <td>
+      <img width="486" alt="Screen Shot 2023-09-04 at 9 38 59 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/c6fbfce2-554f-467f-9cab-65c2abf03005">
+    </td>
+    <td>
+<img width="495" alt="Screen Shot 2023-09-04 at 9 34 00 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/853ba40f-94c1-4df3-a6f8-73d8442acd35">
+    </td>
+  </tr>
+</table>
+
+
+Click <a href="https://metron.cloud/docs/">HERE</a> to see the docs for Metron API calls
+<br>
+Click <a href="https://metron.cloud/docs/#/api/api_issue_list">HERE</a> to see the exact API I used for this call
 
 <h2><a id="envserver">env File on Server Side</a></h2>
 
