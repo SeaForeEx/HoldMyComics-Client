@@ -105,10 +105,6 @@ Click <a href="https://metron.cloud/docs/#/api/api_issue_list">HERE</a> to see t
 
 Click <a href="https://djangocentral.com/environment-variables-in-django/">HERE</a> to see the article that helped me use Environmental Variables to keep my Metron login private
 
-
-
-ENV SCREENSHOTS (Change Password to protect privacy)
-
 <h2><a id="connecttofrontend">Connect Back End to Front End</a></h2>
 
 <p>Show the list/retrieve methods and the book data API calls</p>
