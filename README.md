@@ -2,6 +2,8 @@
 
 <h3><em>Note: This README only covers how I reached Minimum Viable Product for HOLD MY COMICS!  It does not cover how I made External API and other Stretch Goals work.</em></h3>
 
+<h4>Click <a href="https://github.com/SeaForeEx/HoldMyComics-Server">HERE</a> to go to the HOLD MY COMICS! Server Side Repo!</h4>
+
 <h2>Topics</h2>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#wireframes">Wireframes</a></li>
