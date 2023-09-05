@@ -21,7 +21,7 @@
 
 <img width="166" alt="Screen Shot 2023-09-04 at 8 51 26 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/1d51a3b1-3deb-4ae4-a98a-aff97602210b">
 
-<p>Before I started coding my Full Stack Capstone, I was researching potential External APIs and Metron was the best option.  Metron is a Comic Book Database that provides a Rest API for users to access their data.  Unlike corporate-owned databases like Comic Vine, Metron is a vibrant community where users can link up on GitHub and edit/discuss the public database.</p>
+<p>Before I started coding my Full Stack Capstone, I researched potential External APIs and Metron was the best option.  Metron is a Comic Book Database that provides a Rest API for users to access their data.  Unlike corporate-owned databases like Comic Vine, Metron is a vibrant community where users can link up on GitHub and edit/discuss the public database.</p>
 
 <p>Metron also has a Python wrapper called <a href="https://github.com/Metron-Project/mokkari">Mokkari</a> that can be used to access the API, although I didn't use it for my project.</p>
 
@@ -33,11 +33,27 @@ Click <a href="https://github.com/bpepple/metron">HERE</a> to visit Metron's Git
 
 <h2><a id="basicauth">Basic Auth on Postman</a></h2>
 
-<p>Talk about why I needed Basic Auth and how I set it up</p>
+<p>Aside from designing ERDs, testing API calls on Postman has become one of my favorite parts of the planning process!  I was so proud of myself when I figured out how to write the endpoints for Metron's External API (more on that later), but my pride was soon met (as it often is) by a roadblock known as an "unfamiliar error":</p>
 
-POSTMAN SCREENSHOTS
+<img width="539" alt="Screen Shot 2023-09-04 at 9 08 30 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/a34ddf3c-3149-4d7c-8167-d6c2a8dd5947">
 
-Click <a href="">HERE</a> to see the site that helped me with Basic Auth on Postman
+<h4><strong>Authentication credentials were not provided?!?!</strong></h4>
+
+<p>Well, it's usually at this point that I would write a ticket on the NSS GitHub site but how are they going to be able to help me with something they've never seen before?  And isn't the point of your graduation project to help you get ready for the real world?  I decided to <a href="https://github.com/bpepple/metron/discussions/176">write a ticket</a> on the Metron GitHub website and I am glad that I did because the site host promptly responded and showed me what I needed to do on Postman.</p>
+
+<p>Users cannot play with the External API without creating an account on Metron.  So I learned how to apply my Metron account username and password to Postman so I could access the data.</p>
+
+<img width="525" alt="Screen Shot 2023-09-04 at 9 16 31 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/88fd18a7-ee7f-42d9-8cd8-57d56723fd4b">
+
+<p>I clicked on the <strong>Authorization</strong> Tab, selected <strong>Basic Auth</strong> in the drop-down menu, then put in my Metron Username/Password on the right.</p>
+
+<img width="519" alt="Screen Shot 2023-09-04 at 9 18 09 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/4740b4b9-de4f-4a61-a0ab-b7411a7fcef0">
+
+SUCCESS!
+
+Click <a href="https://metron.cloud/accounts/signup/">HERE</a> to create an account on Metron
+<br>
+Click <a href="https://www.baeldung.com/java-postman-authentication">HERE</a> to see the site that helped me with Basic Auth on Postman
 
 <h2><a id="externalapi">External API Postman Calls</a></h2>
 
