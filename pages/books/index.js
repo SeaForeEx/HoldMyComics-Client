@@ -6,6 +6,7 @@ import { getAllBooks } from '../../utils/data/bookData'; // Importing function t
 // React functional component for displaying a list of books
 function BookList() {
   const [books, setBooks] = useState([]);
+  const [currentWeekMondayDate, setCurrentWeekMondayDate] = useState('');
 
   const displayBooks = () => {
     getAllBooks()
@@ -17,16 +18,31 @@ function BookList() {
       });
   };
 
+  const getCurrentWeekMondayDate = () => {
+    const currentDate = new Date();
+    const dayOfWeek = currentDate.getDay(); // 0 (Sunday) to 6 (Saturday)
+    const daysUntilMonday = dayOfWeek === 0 ? 6 : 1 - dayOfWeek; // Calculate days until Monday
+    const mondayDate = new Date(currentDate);
+    mondayDate.setDate(currentDate.getDate() + daysUntilMonday);
+
+    // Format the date as "Month Day, Year" (e.g., "September 4, 2023")
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = mondayDate.toLocaleDateString(undefined, options);
+
+    setCurrentWeekMondayDate(formattedDate);
+  };
+
   // Effect to display books when the component mounts
   useEffect(() => {
     displayBooks(); // Calling 'displayBooks' to fetch and update book data
+    getCurrentWeekMondayDate(); // Get and set the current week's Monday date
     document.title = 'COMIC BOOKS!';
   }, []);
 
   // JSX to render the list of books
   return (
     <article className="text-center my-4" id="books">
-      <h1 style={{ marginTop: '40px' }}>Books</h1>
+      <h1 style={{ marginTop: '40px' }}>Comics Released The Week of {currentWeekMondayDate}</h1>
 
       <div>
         <div className="d-flex flex-wrap">
