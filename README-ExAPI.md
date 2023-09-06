@@ -107,12 +107,74 @@ Click <a href="https://djangocentral.com/environment-variables-in-django/">HERE<
 
 <h2><a id="connecttofrontend">Connect Back End to Front End</a></h2>
 
-<p>Show the list/retrieve methods and the book data API calls</p>
-<p>Talk about api_url, writing scripts, etc.</p>
+<p>My goal was to make this process lean on the Back End as much as possible. 
+ Even though our Bootcamp started with learning the Front End, I've learned that I'd rather let Django methods to the work instead of relying on Merged Data in React.</p>
 
-CODE SCREENSHOTS
+<p>Let's go through this step by step:</p>
 
-APP SCREENSHOTS
+<img width="240" alt="Screen Shot 2023-09-05 at 8 03 34 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/3ddd98df-12bc-4677-88f4-bd991960a64e">
+
+<p>First, I made sure that the "django-environ" library was stored in my Python environment.</p>
+
+<img width="315" alt="Screen Shot 2023-09-05 at 8 05 12 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/499867b1-95c6-4681-8389-91566a5150fc">
+
+<p>Then, in my views/book.py file, I imported the environ package and initialized environment variables using said package</p>
+
+<h3>List Method (Get All Books)</h3>
+
+<img width="573" alt="Screen Shot 2023-09-05 at 8 09 15 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/3c8f07b7-2ec7-41c4-b987-2786091698bc">
+
+<img width="522" alt="Screen Shot 2023-09-05 at 8 12 40 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/c710d5be-7c8c-4888-8089-a460830c75e7">
+
+<li>Defined api_url for fetching data from the Metron API</li>
+<li>Made HTTP GET request to the Metron API with authentication and a timeout of 60 seconds</li>
+
+<img width="173" alt="Screen Shot 2023-09-05 at 8 13 02 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/92585238-9260-4058-811a-58732ece4b95">
+
+<li>Parsed the JSON response from the API</li>
+<li>Initialize an empty list to store Book objects</li>
+
+<p>The for loop below is going through all of the data and changing the fields of the External API to match the fields of the model I created for my Book Django ORM</p>
+
+<img width="282" alt="Screen Shot 2023-09-05 at 8 16 17 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/dbafe249-fd42-4ef7-a080-bbb118e6bf72">
+
+<li>Iterates through the 'results' in the JSON response</li>
+<li>Creates a Book object using data from the API response</li>
+<li>Saves the Book object to SQL Table</li>
+<li>Appends the Book object to the 'books' list</li>
+
+<img width="478" alt="Screen Shot 2023-09-05 at 8 17 02 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/28e592ca-5c8c-41ac-bca5-1d07f68d3569">
+
+<p>The rest of the code is same old same old, serializing the data to return to the Front End API call.</p>
+
+<p>Again, since my Back End did all the lifting for fetching the External API data and conforming it to the fields in my Book Model, I was able to keep my Front End Promise for getting all books the same as they were for MVP.</p>
+
+<p>If we go back to the for loop for a minute, I can explain the process a little better. To the left is the JSON for my original data.  To the right is the JSON for Metron's External API:</p>
+
+<table>
+  <tr>
+    <td>
+      <img width="486" alt="Screen Shot 2023-09-05 at 8 45 39 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/82153c3c-e75e-42b0-b45c-6b595e94d5aa">
+    </td>
+    <td>
+      <img width="570" alt="Screen Shot 2023-09-05 at 8 44 40 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/f60fce11-d374-42e4-8752-cbb348e3b0eb">
+    </td>
+  </tr>
+</table>
+
+<li>"pk" aka "id" on the left is the unique numerical book id to the right</li>
+<li>"image_url" on the left is the "image" to the right</li>
+<li>there is no "publisher" equivalent to the left so I put empty quotes</li>
+<li>"title" on the left is the "issue" to the right</li>
+<li>there is no "price" equivalent to the left so I put a 0</li>
+<li>there is no "description" equivalent to the left so I put empty quotes</li>
+
+<p>Here's how my BookCard looks after I convert the fields to my model:</p>
+
+
+<img width="221" alt="Screen Shot 2023-09-05 at 8 55 39 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/e61b5844-52a4-432c-a8b6-9c4e20545499">
+
+
 
 <h2><a id="datetime">Datetime on List Method</a></h2>
 <p>Talk about why you needed datetime and how you set it up</p>
