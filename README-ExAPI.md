@@ -174,7 +174,18 @@ Click <a href="https://djangocentral.com/environment-variables-in-django/">HERE<
 
 <img width="221" alt="Screen Shot 2023-09-05 at 8 55 39 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/e61b5844-52a4-432c-a8b6-9c4e20545499">
 
+<h3>Retrieve Method (Get Single Book)</h3>
 
+<table>
+  <tr>
+    <td>
+      <img width="487" alt="Screen Shot 2023-09-05 at 9 24 14 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/7a0e9524-5893-4a87-8682-0aaec5afb316">
+    </td>
+    <td>
+      <img width="450" alt="Screen Shot 2023-09-05 at 9 25 15 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/091cb336-bed5-40f0-adad-33f5f999eac4">
+    </td>
+  </tr>
+</table>
 
 <h2><a id="datetime">Datetime on List Method</a></h2>
 <p>Talk about why you needed datetime and how you set it up</p>
