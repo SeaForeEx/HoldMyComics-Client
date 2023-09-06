@@ -211,16 +211,16 @@ CODE SCREENSHOTS
 
 <p>Briefly talk about your issue ticket and why you were confused, etc.</p>
 
-Click <a href="">HERE</a> to see the ticket I wrote to get the issue fixed.
+Click <a href="https://github.com/orgs/nss-evening-web-development/discussions/987">HERE</a> to see the ticket I wrote to get the issue fixed.
 
 <h2><a id="shoutouts">Shout Outs!</a></h2>
 
-<a href="GitHub">Justin Ferwerda</a> - excellent Saturday rubber ducking session
+<a href="https://github.com/Justin-Ferwerda">Justin Ferwerda</a> - excellent Saturday rubber ducking session
 
-<a href="GitHub">Semsi Dogruer</a>, <a href="linkedin">Dale Karp</a>, and <a href="linkedin">Danny Kim</a> - excellent Saturday coding session blah blah blah
+<a href="https://github.com/semsi-dogruer">Semsi Dogruer</a>, <a href="https://www.linkedin.com/in/dale-karp/">Dale Karp</a>, and <a href="https://www.linkedin.com/in/0916dhkim/">Danny Kim</a> - excellent Saturday coding session blah blah blah
 
-<a href="GitHub">Mark Hamilton</a> - excellent Sunday coding session
+<a href="https://github.com/markh126">Mark Hamilton</a> - excellent Sunday coding session
 
-And last but certainly not least, <a href="GitHub">Dr. T</a> for answering my ticket!
+And last but certainly not least, <a href="https://github.com/drteresavasquez">Dr. T</a> for answering my ticket!
 
 
