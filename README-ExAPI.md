@@ -187,6 +187,21 @@ Click <a href="https://djangocentral.com/environment-variables-in-django/">HERE<
   </tr>
 </table>
 
+<p>I defined the api_url and response variables just like the list method, the main difference being I used a different API for getting the single book.  Also, I had to deserialize the JSON data and extract relevant fields from it. 
+ I needed different data for the Get Single Book call.</p>
+
+<p>I only needed the pk (called book_id in this setup), image_url, and title of the comic for the BookCard. For the individual book view, I needed all of those plus the price, publisher, and description of the comic.</p>
+
+<img width="508" alt="Screen Shot 2023-09-06 at 12 38 02 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/32d7bdfe-6010-4ec7-9139-f390dd317c5d">
+
+<p>The "id", "image", "price", and "description" values are easy enough to get because they are not nested, hence the easy json_data.get() calls.  The name of the publisher was nested inside of the publisher object, which is why we had to get the object and then get the name inside of the object and set it as its own variable.  I had to do the same thing for the name inside of the series, then attach the non-nested "number" value to it to get the name of the series and the number together in one string.</p>
+
+<img width="523" alt="Screen Shot 2023-09-06 at 12 40 14 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/1ebbc98a-8521-45d6-ac19-ec0449489c55">
+
+<p>We also didn't need a looped script this time since we were just converting one book to the model I had already set for it, but the concept is still the same.  Then we serialized the book object and returned the serialized data to the getSingleBook promise on the Front End.  Here's what the single book page looks like:</p>
+
+<img width="853" alt="Screen Shot 2023-09-06 at 12 51 33 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/53c77629-49d6-4e80-8399-feac08a02854">
+
 <h2><a id="datetime">Datetime on List Method</a></h2>
 <p>Talk about why you needed datetime and how you set it up</p>
 
