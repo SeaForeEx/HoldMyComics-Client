@@ -287,6 +287,8 @@ Click <a href="https://metron.cloud/pages/guidelines/api/">HERE</a> to view all 
 
 Click <a href="https://github.com/orgs/nss-evening-web-development/discussions/987">HERE</a> to see the ticket I wrote to get the issue fixed.
 
+<p>Aside from all of the new things I learned during this External API journey, I also reinforced my previous knowledge of the useEffect hook in React and gained a deeper understanding of useEffect and useState in general.</p>
+
 <h2><a id="shoutouts">Shout Outs!</a></h2>
 
 <a href="https://metron.cloud/">Metron Comic Book Database</a> - What a GREAT database!  They openly display the API calls you need to make, and then even let you test them on their own website.  The person who runs the site even answered one of my tickets when I got stuck on my Postman calls.  As External APIs go, I can tell that this is a great one to begin my journey with.
