@@ -58,9 +58,7 @@ Click <a href="https://www.baeldung.com/java-postman-authentication">HERE</a> to
 
 <h2><a id="externalapi">External API Postman Calls</a></h2>
 
-<p>Talk about how I set up the API calls based on the docs page</p>
-
-As I previously stated, Metron was a GREAT choice as an External API, and their documentation page is why.
+<p>As I previously stated, Metron was a GREAT choice as an External API, and their documentation page is why.</p>
 
 <img width="485" alt="Screen Shot 2023-09-04 at 9 26 20 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/f30933e5-ae8d-40cd-b87d-886bb94cea5b">
 
