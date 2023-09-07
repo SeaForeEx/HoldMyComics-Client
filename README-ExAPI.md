@@ -16,6 +16,7 @@
 <li><a href="#datetime">Datetime on List Method</a></li>
 <li><a href="#issueticket">Issue Ticket</a></li>
 <li><a href="#shoutouts">Shout Outs!</a></li>
+<li><a href="#dedication">Dedication</a></li>
 
 <h2><a id="overview">What API Did I Use?</a></h2>
 
