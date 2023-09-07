@@ -278,11 +278,13 @@ Click <a href="https://djangocentral.com/environment-variables-in-django/">HERE<
 
 <h2><a id="issueticket">Issue Ticket</a></h2>
 
-<p>Briefly talk about your issue ticket and why you were confused, etc.</p>
+<p>After I got the </p>
 
 Click <a href="https://github.com/orgs/nss-evening-web-development/discussions/987">HERE</a> to see the ticket I wrote to get the issue fixed.
 
 <h2><a id="shoutouts">Shout Outs!</a></h2>
+
+<a href="https://metron.cloud/">Metron Comic Book Database</a> - What a GREAT database!  They openly display the API calls you need to make, and then even let you test them on their own website.  The person who runs the site even answered one of my tickets when I got stuck on my Postman calls.  As External APIs go, I can tell that this is a great one to begin my journey with.
 
 <a href="https://github.com/Justin-Ferwerda">Justin Ferwerda</a> - We ALWAYS have the best rubber duck sessions, and the one for how to get this project started was no exception.
 
@@ -291,5 +293,13 @@ Click <a href="https://github.com/orgs/nss-evening-web-development/discussions/9
 <a href="https://github.com/markh126">Mark Hamilton</a> - We had an excellent coding session on Zoom where he helped me rubber duck through some useEffect issues I was having and somehow I helped him fix some issues he was having with his Spotify API calls.
 
 And last but certainly not least, <a href="https://github.com/drteresavasquez">Dr. T</a> for answering my tickets all year, not just this time!
+
+<h2><a id="dedication">Dedication</a></h2>
+
+<p>This website is dedicated to the memory of Stan Lee.  Mr. Lee taught me how to read growing up, and helped me develop my vocabulary to make my communications with people and page eloquent and exciting.  No words can express the grief I felt when he passed away from this life but his legacy lives on every time a child walks into a comic book store and makes a purchase.</p>
+
+Click <a href="https://fourseasstories.wordpress.com/2018/11/14/uncle-stans-final-lesson/">HERE</a> to read a eulogy I wrote for Mr. Excelsior himself.
+
+<img src="https://www.goerie.com/gcdn/authoring/2018/11/21/NETN/ghows-PA-7b18aaf4-5297-3301-e053-0100007ff117-bf2edf0e.jpeg?width=660&height=440&fit=crop&format=pjpg&auto=webp" />
 
 
