@@ -251,14 +251,28 @@ Click <a href="https://djangocentral.com/environment-variables-in-django/">HERE<
 <p>This code takes the date objects and converts them to strings displayed in a particular format.  Let's break the steps down here a bit:</p>
 
 <ol>
-  <li>start_of_week and end_of_week are datetime.date objects representing the start (usually a Monday) and end (usually a Sunday) dates of the current week.</li>
+  <li>start_of_week and end_of_week are datetime.date objects representing the start (Monday) and end (Sunday) dates of the current week.</li>
   <li>.strftime(format) is a method available for datetime.date objects that allows you to format the date as a string according to a specified format.</li>
   <ul>
-    <li>sdf</li>
+    <li>'%Y-%m-%d' is a format string that specifies how the date should be formatted. Let's break down what each part means:</li>
+    <ul>
+      <li>%Y: Represents the year with century as a decimal number (e.g., 2023).</li>
+      <li>%m: Represents the month as a zero-padded decimal number (e.g., 09 for September).</li>
+      <li>%d: Represents the day of the month as a zero-padded decimal number (e.g., 04 for the 4th day of the month).</li>
+    </ul>
   </ul>
-  <li></li>
-  <li></li>
+  <li>When you call start_of_week.strftime('%Y-%m-%d'), it takes the start_of_week date object and formats it as a string in the specified format. The result is assigned to the variable start_date_str.</li>
+  <ul>
+    <li>For example, if start_of_week is "2023-09-04" (a Monday), the strftime method converts it to "2023-09-04" in the format 'YYYY-MM-DD'.</li>
+  </ul>
+  <li>Similarly, when you call end_of_week.strftime('%Y-%m-%d'), it takes the end_of_week date object and formats it as a string in the same format. The result is assigned to the variable end_date_str.</li>
+  <ul>
+    <li>If end_of_week is "2023-09-10" (a Sunday), strftime converts it to "2023-09-10" in the 'YYYY-MM-DD' format.</li>
+  </ul>
+  <li>YYYY-MM-DD was chosen to match the format of the "store_date" string in the Metron database.</li>
 </ol>
+
+
 
 <h2><a id="issueticket">Issue Ticket</a></h2>
 
