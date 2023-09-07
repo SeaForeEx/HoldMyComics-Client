@@ -279,7 +279,11 @@ Click <a href="https://djangocentral.com/environment-variables-in-django/">HERE<
 
 <h2><a id="issueticket">Issue Ticket</a></h2>
 
-<p>After I got the </p>
+<p>After I got the External API to show up on my webpage, a few issues arose.  Many of those were erroneous code rapidly fixed, but one problem kept evading my trusty eyes.  When I loaded the book index page, not only would the getAllComics call run (like it should), all of the getSingleBook calls ran (like they shouldn't).  The reason why this was a problem was that part of the rules for using the Metron Comic Book Database was that you could only make 30 requests per minute.  Making 40 requests every time I clicked the "comic books" button led to my Metron account being temporarily blocked for making too many requests per minute.</p>
+
+Click <a href="https://metron.cloud/pages/guidelines/api/">HERE</a> to view all of the guidelines for using Metron Comic Book Database.
+
+<p>After Mark and I (see the shout-outs below) spun our wheels over this problem, I decided to write a ticket.  Our legendary instructor Dr. T quickly pointed out that there was no issue, my code was working just like it was supposed to.  For some unknown reason, I was running the getSingleBook call on my BookCard, which was showing up 40+ times on my book index page, hence the extra 40+ calls that I didn't want.  Once I deleted that useEffect in BookCard, I was good to go.</p>
 
 Click <a href="https://github.com/orgs/nss-evening-web-development/discussions/987">HERE</a> to see the ticket I wrote to get the issue fixed.
 
