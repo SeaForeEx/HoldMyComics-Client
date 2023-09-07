@@ -234,6 +234,32 @@ Click <a href="https://djangocentral.com/environment-variables-in-django/">HERE<
   <li>When you subtract this timedelta object from "today," you are effectively subtracting 2 days from Wednesday, which brings you back to the start of the current week (Monday). So, "start_of_week" would be "2023-09-04", which is a Monday.</li>
 </ol>
 
+<img width="418" alt="Screen Shot 2023-09-06 at 9 32 14 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/21ce97db-1dce-44ef-8bcc-e0e8340d2b89">
+
+<ol>
+  <li>start_of_week is a datetime.date object representing the start date of the current week. For example, let's assume it's "2023-09-04", which is a Monday.</li>
+  <li>datetime.timedelta(days=6) creates a timedelta object representing a duration of 6 days. This duration is equivalent to one full week minus one day.</li>
+  <li>When you add this timedelta object to start_of_week, you are effectively adding 6 days to the current date.</li>
+  <li>The result, stored in end_of_week, represents the end date (Sunday) of the current week. In this case, it would be "2023-09-10", which is a Sunday, because you added 6 days to the start date (Monday) of "2023-09-04".</li>
+</ol>
+
+<p>The hardest part of this code to grasp was the datetime.timedelta() method. 
+ Once I started to see it as a tool that allows me to perform mathematical operations on date and time objects it started to make sense. Though it has multiple uses, in this case I added and/or subtracted a specific number of days to/from a date to calculate a new date.</p>
+
+<img width="385" alt="Screen Shot 2023-09-06 at 9 38 41 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/62203ba7-c4fc-4796-a0b8-0e941eafc0cd">
+
+<p>This code takes the date objects and converts them to strings displayed in a particular format.  Let's break the steps down here a bit:</p>
+
+<ol>
+  <li>start_of_week and end_of_week are datetime.date objects representing the start (usually a Monday) and end (usually a Sunday) dates of the current week.</li>
+  <li>.strftime(format) is a method available for datetime.date objects that allows you to format the date as a string according to a specified format.</li>
+  <ul>
+    <li>sdf</li>
+  </ul>
+  <li></li>
+  <li></li>
+</ol>
+
 <h2><a id="issueticket">Issue Ticket</a></h2>
 
 <p>Briefly talk about your issue ticket and why you were confused, etc.</p>
