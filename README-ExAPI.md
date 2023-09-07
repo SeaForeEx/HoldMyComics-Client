@@ -145,7 +145,7 @@ Click <a href="https://djangocentral.com/environment-variables-in-django/">HERE<
 
 <img width="478" alt="Screen Shot 2023-09-05 at 8 17 02 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/28e592ca-5c8c-41ac-bca5-1d07f68d3569">
 
-<p>The rest of the code is same old same old, serializing the data to return to the Front End API call.</p>
+<p>The rest of the code is the same old same old, serializing the data to return to the Front End API call.</p>
 
 <p>Again, since my Back End did all the lifting for fetching the External API data and conforming it to the fields in my Book Model, I was able to keep my Front End Promise for getting all books the same as they were for MVP.</p>
 
@@ -203,9 +203,36 @@ Click <a href="https://djangocentral.com/environment-variables-in-django/">HERE<
 <img width="853" alt="Screen Shot 2023-09-06 at 12 51 33 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/53c77629-49d6-4e80-8399-feac08a02854">
 
 <h2><a id="datetime">Datetime on List Method</a></h2>
-<p>Talk about why you needed datetime and how you set it up</p>
+<p>Getting the External API on my page was the main battle; once I got over that hill I was BEYOND HAPPY.  Now I could focus on making the page easier to handle.  Here is the API URL for getting all of the books:</p>
 
-CODE SCREENSHOTS
+<img width="856" alt="Screen Shot 2023-09-06 at 8 47 45 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/e4fea914-87d5-4cbe-b87c-68002dc99331">
+
+<p>The problem with this API call is that it only works for two particular days in the span of a lifetime.  To make this site work, I would have to change the dates manually every week.  This is not practical, especially since it's a school project that will probably get lost in the shuffle once I get on the job hunt and enter the world of tech (though I'm having so much fun working with this I doubt I'll give it up too long).</p>
+
+<p>It's still a pain to manually adjust my code when I can just learn how to make datetime work for my Python files.  Datetime is a new concept to me and can be rather frustrating so I chose to save it for last.  Also, I can run this site without datetime (impractical but possible), but I can't run this site without the External API (unless I manually enter all the 40+ titles as fixtures every week and that's worse than datetime).</p>
+
+<p>Here's the datetime code used in the list method for my BookView:</p>
+
+<img width="555" alt="Screen Shot 2023-09-06 at 9 06 08 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/44017e69-ffc6-411c-ac16-1d97cbeee052">
+
+<p>Let's go through this code bit by bit:</p>
+
+<img width="126" alt="Screen Shot 2023-09-06 at 8 55 34 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/84e10ad8-ddd1-40ed-a32b-10ff4238ad90">
+
+<p>You have to import the datetime module; it provides classes for manipulating dates and times.</p>
+
+<img width="486" alt="Screen Shot 2023-09-06 at 9 16 08 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/df55ba00-3ac3-4a08-adc1-05f2c13b3677">
+
+<p>This line retrieves the current date and assigns it to the variable today. It uses the datetime.date.today() function to get the current date.</p>
+
+<img width="481" alt="Screen Shot 2023-09-06 at 9 16 56 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/4ec6318d-93ce-4007-91df-348fe3ded9cd">
+
+<ol>
+  <li>"today" is "2023-09-06", which is a Wednesday.</li>
+  <li>today.weekday() returns 2 because Wednesday corresponds to the third day of the week (0-based indexing, where Monday is 0).</li>
+  <li>datetime.timedelta(days=2) creates a timedelta object representing a duration of 2 days.</li>
+  <li>When you subtract this timedelta object from "today," you are effectively subtracting 2 days from Wednesday, which brings you back to the start of the current week (Monday). So, "start_of_week" would be "2023-09-04", which is a Monday.</li>
+</ol>
 
 <h2><a id="issueticket">Issue Ticket</a></h2>
 
@@ -215,12 +242,12 @@ Click <a href="https://github.com/orgs/nss-evening-web-development/discussions/9
 
 <h2><a id="shoutouts">Shout Outs!</a></h2>
 
-<a href="https://github.com/Justin-Ferwerda">Justin Ferwerda</a> - excellent Saturday rubber ducking session
+<a href="https://github.com/Justin-Ferwerda">Justin Ferwerda</a> - We ALWAYS have the best rubber duck sessions, and the one for how to get this project started was no exception.
 
-<a href="https://github.com/semsi-dogruer">Semsi Dogruer</a>, <a href="https://www.linkedin.com/in/dale-karp/">Dale Karp</a>, and <a href="https://www.linkedin.com/in/0916dhkim/">Danny Kim</a> - excellent Saturday coding session blah blah blah
+<a href="https://github.com/semsi-dogruer">Semsi Dogruer</a>, <a href="https://www.linkedin.com/in/dale-karp/">Dale Karp</a>, and <a href="https://www.linkedin.com/in/0916dhkim/">Danny Kim</a> - for two hours we all sat on a Zoom call and hashed out how to get the External API on my App.
 
-<a href="https://github.com/markh126">Mark Hamilton</a> - excellent Sunday coding session
+<a href="https://github.com/markh126">Mark Hamilton</a> - We had an excellent coding session on Zoom where he helped me rubber duck through some useEffect issues I was having and somehow I helped him fix some issues he was having with his Spotify API calls.
 
-And last but certainly not least, <a href="https://github.com/drteresavasquez">Dr. T</a> for answering my ticket!
+And last but certainly not least, <a href="https://github.com/drteresavasquez">Dr. T</a> for answering my tickets all year, not just this time!
 
 
