@@ -272,7 +272,9 @@ Click <a href="https://djangocentral.com/environment-variables-in-django/">HERE<
   <li>YYYY-MM-DD was chosen to match the format of the "store_date" string in the Metron database.</li>
 </ol>
 
+<img width="386" alt="Screen Shot 2023-09-06 at 9 48 54 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/0c89f748-176e-4287-ae70-bb21f3ae29f9">
 
+<p>Now the "store_date_range_after" in the API URL is the Monday of whatever week the user is looking at this website and the "store_date_range_before" is the Sunday of whatever week the user is looking at this website.  Next week the "start_date_str" will be "2023-09-11" and the "end_date_str" will be "2023-09-17" and I won't have to type it in!</p>
 
 <h2><a id="issueticket">Issue Ticket</a></h2>
 
