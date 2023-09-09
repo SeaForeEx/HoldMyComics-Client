@@ -1,20 +1,22 @@
 /* eslint-disable react-hooks/exhaustive-deps */ // Disable specific ESLint rule for the next line
 import React, { useState, useEffect } from 'react'; // Importing React, useState, and useEffect from React
+import { useRouter } from 'next/router';
 import BookCard from '../../components/cards/BookCard'; // Importing the 'BookCard' component
 import { getAllBooks } from '../../utils/data/bookData'; // Importing function to fetch all books
 
 // React functional component for displaying a list of books
 function BookList() {
+  const router = useRouter();
   const [books, setBooks] = useState([]);
   const [currentWeekMondayDate, setCurrentWeekMondayDate] = useState('');
 
   const displayBooks = () => {
-    getAllBooks()
+    getAllBooks(router.query.week) // Call the getAllBooks function with the selected 'week' as a parameter
       .then((data) => {
-        setBooks(data);
+        setBooks(data); // Set the 'books' state with the fetched data
       })
       .catch((error) => {
-        console.error('Error fetching books:', error);
+        console.error('Error fetching books:', error); // Log an error message if there's an issue fetching the books
       });
   };
 
@@ -32,12 +34,37 @@ function BookList() {
     setCurrentWeekMondayDate(formattedDate);
   };
 
+  // Function to calculate the next week's Monday date
+  const getNextWeekMondayDate = () => {
+    const currentDate = new Date();
+    const dayOfWeek = currentDate.getDay(); // 0 (Sunday) to 6 (Saturday)
+    const daysUntilMonday = dayOfWeek === 0 ? 7 : 8 - dayOfWeek; // Calculate days until next Monday
+    const nextMondayDate = new Date(currentDate);
+    nextMondayDate.setDate(currentDate.getDate() + daysUntilMonday);
+
+    // Format the date as "Month Day, Year" (e.g., "September 4, 2023")
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = nextMondayDate.toLocaleDateString(undefined, options);
+
+    return formattedDate;
+  };
+
   // Effect to display books when the component mounts
   useEffect(() => {
     displayBooks(); // Calling 'displayBooks' to fetch and update book data
-    getCurrentWeekMondayDate(); // Get and set the current week's Monday date
     document.title = 'COMIC BOOKS!';
-  }, []);
+
+    // Get the selected week from the query parameters
+    const selectedWeek = router.query.week;
+    if (selectedWeek === 'next') {
+      // If "Next Week" is selected, calculate and set next week's Monday date
+      const nextMondayDate = getNextWeekMondayDate();
+      setCurrentWeekMondayDate(nextMondayDate);
+    } else {
+      // If "This Week" or no week selected, calculate and set this week's Monday date
+      getCurrentWeekMondayDate();
+    }
+  }, [router.query.week]);
 
   // JSX to render the list of books
   return (
