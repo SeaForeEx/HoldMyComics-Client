@@ -57,10 +57,7 @@ function BookList() {
               <BookCard
                 id={book.id}
                 imageUrl={book.image_url}
-                // publisher={book.publisher}
                 title={book.title}
-                // price={book.price}
-                // description={book.description}
                 onUpdate={displayBooks} // Pass 'displayBooks' as a prop for updating
               />
             </section>
