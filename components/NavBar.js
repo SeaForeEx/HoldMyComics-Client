@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router'; // Import the useRouter hook
 import {
   Navbar, //
   Container,
@@ -8,6 +9,17 @@ import {
 } from 'react-bootstrap';
 
 export default function NavBar() {
+  const router = useRouter(); // Initialize the useRouter hook
+
+  // Function to handle navigation and set the 'week' query parameter
+  const handleNavigation = (week) => {
+    console.warn(`Navigating to ${week} week`);
+    router.push({
+      pathname: '/books',
+      query: { week }, // Set the 'week' query parameter
+    });
+  };
+
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
@@ -24,8 +36,11 @@ export default function NavBar() {
             <Link passHref href="/customers">
               <Nav.Link>Customers</Nav.Link>
             </Link>
-            <Link passHref href="/books">
-              <Nav.Link>Comic Books</Nav.Link>
+            {/* Use onClick to set the 'week' parameter when clicked */}
+            <Nav.Link onClick={() => handleNavigation('this')}>This week</Nav.Link>
+            <Nav.Link onClick={() => handleNavigation('next')}>Next week</Nav.Link>
+            <Link passHref href="/profile">
+              <Nav.Link>Profile</Nav.Link>
             </Link>
             <Link passHref href="/profile">
               <Nav.Link>Profile</Nav.Link>
