@@ -1,3 +1,4 @@
+/* eslint-disable object-shorthand */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import Link from 'next/link';
@@ -13,7 +14,6 @@ export default function NavBar() {
 
   // Function to handle navigation and set the 'week' query parameter
   const handleNavigation = (week) => {
-    console.warn(`Navigating to ${week} week`);
     router.push({
       pathname: '/books',
       query: { week }, // Set the 'week' query parameter
