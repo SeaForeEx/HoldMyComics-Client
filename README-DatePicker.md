@@ -89,8 +89,17 @@
   <li>Essentially, it helps maintain consistency in the user interface by ensuring that the date picker starts with no selected date whenever the user navigates to a new route within the application.</li>
   </ul>
 
-<h2><a id="userdescription">User Description</a></h2>
-<p>The User is a Comic Book Store Owner who needs to keep track of his customers and what comic books they want on a weekly basis.</p>
+<h2><a id="navbar">NavBar</a></h2>
+
+<img width="370" alt="Screen Shot 2023-09-10 at 8 48 08 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/491145f3-73b6-4ac5-bea9-734a6ce55eaf">
+
+<ul>
+  <li>DatePicker: This is a component from the react-datepicker library, used to display and interact with the DatePicker in the NavBar.</li>
+  <li>selected={selectedDate}: This prop is passed to the DatePicker component, and it specifies the currently selected date. It links the date picker to the selectedDate state variable.</li>
+  <li>onChange={handleDateChange}: This prop specifies the handleDateChange callback function that is executed when a date is selected or changed within the date picker. It updates the selectedDate state when a user selects a new date.</li>
+  <li>placeholderText="Select a date": This prop sets a placeholder text that is displayed in the date picker input field when there is no date selected. It provides a hint to the user to indicate that they should select a date.</li>
+</ul>
+
 
 <h2><a id="mvpfeatures">MVP Features</a></h2>
 <ul><em>Users</em></ul>
