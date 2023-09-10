@@ -76,11 +76,18 @@
   <li>This code handles date selection and navigation. It updates the URL and query parameters based on the selected date, allowing for dynamic filtering of content based on the selected date.</li>
 </ul>
 
-<h2><a id="projectboard">Project Board</a></h2>
+<h2><a id="useeffect">useEffect</a></h2>
 
-<img width="1066" alt="Screen Shot 2023-08-26 at 9 36 22 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/e5bbe7e0-a58d-4a0e-818f-c350c5068c14">
+<img width="383" alt="Screen Shot 2023-09-10 at 8 40 02 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/82f1c5b6-7864-4c05-87c3-b2b90606e349">
 
-Click <a href="https://github.com/users/SeaForeEx/projects/3">HERE</a> to see my Project Board on GitHub!
+<ul>
+  <li>useEffect is a React Hook that allows you to perform side effects in your functional components. It runs after the component has rendered.</li>
+  <li>This useEffect resets the selectedDate state variable by calling setSelectedDate(null). This effectively clears the selected date.</li>
+  <li>The useEffect also takes a dependency array [router.asPath] as its second argument. This means the effect will only run when the value of router.asPath changes.</li>
+  <li>The purpose of this code is to reset the selected date whenever the route changes. It listens for changes in the router.asPath, which typically represents the current URL path in the routing system.</li>
+  <li>When the route changes, the useEffect triggers, setting the selectedDate to null, effectively clearing any previously selected date.</li>
+  <li>Essentially, it helps maintain consistency in the user interface by ensuring that the date picker starts with no selected date whenever the user navigates to a new route within the application.</li>
+  </ul>
 
 <h2><a id="userdescription">User Description</a></h2>
 <p>The User is a Comic Book Store Owner who needs to keep track of his customers and what comic books they want on a weekly basis.</p>
