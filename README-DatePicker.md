@@ -185,9 +185,54 @@
 
 <h2><a id="listmethod">Updated List Method</a></h2>
 
+<img width="567" alt="Screen Shot 2023-09-10 at 11 04 39 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/51b5759b-b913-41a6-8d7e-f5cfd9dba6c2">
 
+<p>Again, not too much change here between the "this/next week" list method and the "datetime picker" list method.  Here is what I changed:</p>
 
+<ul>
+  <li>Obviously the name of the query parameter</li>
+  <li>selected_date = datetime.datetime.strptime(selected_date, '%Y-%m-%d').date()</li>
+  <ul>
+    <li>I added this line of code because this time I was passing the date as a query parameter instead of simply 'this' or 'next'. </li>
+    <li>This code parses the query parameter into a datetime object that can be used to calculate the start and end days of the week for the getAllBooks API call.  Let's walk through these calculations step by step:</li>
+  <ol>
+    <li>selected_date = request.GET.get('formattedDate') retrieves the selected date "2023-09-20" from the query parameters.</li>
+    <li>selected_date = datetime.datetime.strptime(selected_date, '%Y-%m-%d').date() parses "2023-09-20" into a datetime object and then converts it to a date object:</li>
+    <ul>
+      <li>selected_date becomes datetime.date(2023, 9, 20).</li>
+    </ul>
+  <li>today = datetime.date.today() gets the current date:</li>
+    <ul>
+      <li>today is equal to the current date, which depends on when the code is executed.</li>
+    </ul>
+  <li>The code compares selected_date with today to determine if the selected date matches the current date.</li>
+    <ul>
+      <li>In this case, let's assume that today is "2023-09-22" (two days after the selected date).</li>
+      <li>Since selected_date (2023-09-20) does not match today (2023-09-22), the code proceeds to calculate the start date for the selected week.</li>
+    </ul>
+
+  <li>The code calculates the start date for the selected week using the formula:</li>
+  <ul>
+    <li>start_of_week = selected_date - datetime.timedelta(days=selected_date.weekday())</li>
+    <li>selected_date.weekday() returns the weekday index for "2023-09-20," which is 1 (Tuesday).</li>
+    <li>So, start_of_week = 2023-09-20 - datetime.timedelta(days=1).</li>
+    <li>datetime.timedelta(days=1) subtracts one day from "2023-09-20," resulting in "2023-09-19."</li>
+  </ul>
+
+  <li>The start_of_week date is calculated as "2023-09-19," which represents the start date of the week containing the selected date "2023-09-20."</li>
+  </ol>
+<p>So, when the selected date is "2023-09-20," the code calculates the start date of the week containing that date as "2023-09-19." This allows you to retrieve books related to the week starting on September 19, 2023, based on the selected date.</p>
+  </ul>
+</ul>
 
 <h2><a id="shoutouts">Shout Outs!</a></h2>
+
+<p>Whew, this has been a fun ride.  I started coding Saturday morning, then coded the date picker Saturday night, now I'm finishing the documentation Sunday morning.  This has been so much fun that I had a hard time going to sleep from the dopamine rush this code has been providing.  But I need to take a break, lest I burn out and ruin my momentum.</p>
+
+<p>But first, a quick few SHOUT OUTS!</p>
+
+<a href="https://github.com/Justin-Ferwerda">Justin Ferwerda</a> - What an instructor, he stayed a few minutes after class to help me fix the issue with my "this week"/"next week" links.  Before we logged off, he suggested that I use a drop-down calendar and pass a date to my books/index.js page instead of 'this'/'next' strings.  I was already considering it (reluctantly) before then, but his suggestion confirmed that I needed to do it, this date picker was such. a great design move, it improves the functionality of my site and looks more visually appealing.  Thanks again, Justin!
+
+<a href="https://github.com/TrinityChristiana">Trinity Christiana</a> - The mysterious all-knowing Senior Instructor of the Back End courses at NSS!  She has a method and while I didn't understand it at first, I decided to trust her and am I glad I did!  She wouldn't let any of us choose External API as part of our MVP and I am so glad that she did that.  At first, I didn't agree, but being able to make my MVP ridiculously easy paid off because in the end, I was able to connect to an External API as a stretch goal.  Thanks again, Trinity!
 
 
