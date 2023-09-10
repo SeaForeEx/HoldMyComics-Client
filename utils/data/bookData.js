@@ -4,8 +4,8 @@ import { clientCredentials } from '../client'; // Importing clientCredentials fr
 const endpoint = clientCredentials.databaseURL; // Assigning the database URL from clientCredentials to 'endpoint'
 
 // Function to fetch all books from the database
-const getAllBooks = (week) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/books?week=${week}`, {
+const getAllBooks = (date) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/books?formattedDate=${date}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

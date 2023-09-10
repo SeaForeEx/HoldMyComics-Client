@@ -10,8 +10,19 @@ function BookList() {
   const [books, setBooks] = useState([]);
   const [currentWeekMondayDate, setCurrentWeekMondayDate] = useState('');
 
+  const getMondayDate = (dateString) => {
+    const selectedDate = new Date(dateString);
+    const dayOfWeek = selectedDate.getDay(); // 0 (Sunday) to 6 (Saturday)
+    const daysUntilMonday = dayOfWeek === 0 ? 6 : 1 - dayOfWeek; // Calculate days until Monday
+    const mondayDate = new Date(selectedDate);
+    mondayDate.setDate(selectedDate.getDate() + daysUntilMonday);
+    // Format the date as "Month Day, Year" (e.g., "September 4, 2023")
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return mondayDate.toLocaleDateString(undefined, options);
+  };
+
   const displayBooks = () => {
-    getAllBooks(router.query.week) // Call the getAllBooks function with the selected 'week' as a parameter
+    getAllBooks(router.query.formattedDate) // Call the getAllBooks function with the selected 'week' as a parameter
       .then((data) => {
         setBooks(data); // Set the 'books' state with the fetched data
       })
@@ -34,37 +45,28 @@ function BookList() {
     setCurrentWeekMondayDate(formattedDate);
   };
 
-  // Function to calculate the next week's Monday date
-  const getNextWeekMondayDate = () => {
-    const currentDate = new Date();
-    const dayOfWeek = currentDate.getDay(); // 0 (Sunday) to 6 (Saturday)
-    const daysUntilMonday = dayOfWeek === 0 ? 7 : 8 - dayOfWeek; // Calculate days until next Monday
-    const nextMondayDate = new Date(currentDate);
-    nextMondayDate.setDate(currentDate.getDate() + daysUntilMonday);
+  useEffect(() => {
+    // Get the selected week from the query parameters
+    const selectedDateQueryParam = router.query.formattedDate;
 
-    // Format the date as "Month Day, Year" (e.g., "September 4, 2023")
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    const formattedDate = nextMondayDate.toLocaleDateString(undefined, options);
+    if (selectedDateQueryParam) {
+      // Calculate the Monday date for the selected week
+      const selectedMondayDate = getMondayDate(selectedDateQueryParam);
+      setCurrentWeekMondayDate(selectedMondayDate);
 
-    return formattedDate;
-  };
+      // Fetch and display books for the selected week
+      displayBooks(selectedDateQueryParam);
+    } else {
+      // If no date is selected, calculate and set this week's Monday date
+      getCurrentWeekMondayDate();
+    }
+  }, [router.query.formattedDate]);
 
   // Effect to display books when the component mounts
   useEffect(() => {
     displayBooks(); // Calling 'displayBooks' to fetch and update book data
     document.title = 'COMIC BOOKS!';
-
-    // Get the selected week from the query parameters
-    const selectedWeek = router.query.week;
-    if (selectedWeek === 'next') {
-      // If "Next Week" is selected, calculate and set next week's Monday date
-      const nextMondayDate = getNextWeekMondayDate();
-      setCurrentWeekMondayDate(nextMondayDate);
-    } else {
-      // If "This Week" or no week selected, calculate and set this week's Monday date
-      getCurrentWeekMondayDate();
-    }
-  }, [router.query.week]);
+  }, []);
 
   // JSX to render the list of books
   return (

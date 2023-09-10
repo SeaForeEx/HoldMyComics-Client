@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable object-shorthand */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
@@ -23,7 +24,7 @@ export default function NavBar() {
       const formattedDate = date.toISOString().split('T')[0];
       router.push({
         pathname: '/books',
-        query: { week: formattedDate },
+        query: { formattedDate },
       });
     } else {
       // Handle clearing the date (e.g., when clicking "This Week" or "Next Week")
