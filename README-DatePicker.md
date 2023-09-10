@@ -100,11 +100,20 @@
   <li>placeholderText="Select a date": This prop sets a placeholder text that is displayed in the date picker input field when there is no date selected. It provides a hint to the user to indicate that they should select a date.</li>
 </ul>
 
-
 <h2><a id="gmd">getMondayDates</a></h2>
 
+<p>We are now finally past the NavBar, ready to show the titles based on the formattedDate.  Let's move to the books/index.js file, inside my BookList function to be specific:</p>
 
+<img width="541" alt="Screen Shot 2023-09-10 at 9 01 47 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/c2cd08c2-0f9d-4aac-acd9-a80aedb5a36c">
 
+<ul>
+  <li>getMondayDate is a JavaScript function that takes a dateString as an argument.</li>
+  <li>Inside the function, it creates a selectedDate object by parsing the input dateString as a date using new Date(dateString).</li>
+  <li>dateString is the selected date from the Date Picker turned into a string, used to calculate the Monday of the week.</li>
+  <li>Overall, this code snippet takes a date string, calculates the date of the next Monday, and formats it in a human-readable "Month Day, Year" format. It's what shows the Monday for the selected date on the screen above all the releases.</li>
+</ul>
+
+<img width="548" alt="Screen Shot 2023-09-10 at 9 22 55 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/72fb7243-851a-4d3e-9599-355381758641">
 
 
 <h2><a id="gcmd">getCurrentWeekMondayDate</a></h2>
