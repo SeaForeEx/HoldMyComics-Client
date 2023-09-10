@@ -10,7 +10,7 @@
 <h4>Click <a href="https://github.com/SeaForeEx/HoldMyComics-Server">HERE</a> to go to the HOLD MY COMICS! Server Side Repo!</h4>
 
 <h2>Date Picker Steps</h2>
-<li><a href="#installation">Installation</a></li>
+<li><a href="#installation">Install/Import</a></li>
 <li><a href="#selecteddate">selectedDate</a></li>
 <li><a href="#hdc">handleDateChange</a></li>
 <li><a href="#useeffect">useEffect</a></li>
@@ -22,10 +22,18 @@
 <li><a href="#listmethod">Updated List Method</a></li>
 <li><a href="#shoutouts">Shout Outs!</a></li>
 
-<h2><a id="overview">Overview</a></h2>
-<p>HOLD MY COMICS! is a Business App that allows Comic Book Store Owners to Create a loyal customer database.  Owners can Create a Profile for their store. Owners can also Create, Read, Update and Delete their customer database.  Owners can also Read a database of weekly comics and Add or Remove them from their customers' online pull boxes.</p>
+<h2><a id="installation">Installation</a></h2>
 
-<p>A pull box is a list of weekly titles reserved for customers so they don't have to worry about a title selling out before they make it to the store.</p>
+<img width="318" alt="Screen Shot 2023-09-10 at 8 08 07 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/11b1c486-a8f9-49d0-8e0c-c4e17ffc9c2c">
+
+<p>I use Node Package Manager for all my Front End projects, so I installed React DatePicker using an npm command.</p>
+
+<img width="512" alt="Screen Shot 2023-09-10 at 8 11 01 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/d5fca504-3abe-454a-a8df-f30fca1d08d5">
+
+<ul>
+  <li>import DatePicker from 'react-datepicker' - imports DatePicker from package I just installed</li>
+  <li>import 'react-datepicker/dist/react-datepicker.css' - included the CSS file to ensure that the DatePicker is styled correctly</li>
+</ul>
 
 <h2><a id="wireframes">Wireframes</a></h2>
 <img width="598" alt="Screen Shot 2023-08-26 at 9 22 41 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/8dfa1b3c-2fdb-400b-bda6-8c6008fa2141">
