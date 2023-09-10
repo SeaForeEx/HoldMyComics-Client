@@ -16,7 +16,7 @@
 <li><a href="#useeffect">useEffect</a></li>
 <li><a href="#navbar">NavBar</a></li>
 <li><a href="#gmd">getMondayDate</a></li>
-<li><a href="#useffect2">useEffect Part 2</a></li>
+<li><a href="#useeffect2">useEffect Part 2</a></li>
 <li><a href="#getallbooks">getAllBooks</a></li>
 <li><a href="#listmethod">Updated List Method</a></li>
 <li><a href="#shoutouts">Shout Outs!</a></li>
