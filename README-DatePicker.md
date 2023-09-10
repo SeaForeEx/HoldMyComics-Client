@@ -47,10 +47,34 @@
   <li>This pattern is commonly used for managing and displaying dynamic data in React components, such as the selected date in my DatePicker.</li>
 </ul>
 
-<h2><a id="erd">ERD</a></h2>
-<img width="890" alt="Screen Shot 2023-08-26 at 9 24 31 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/c49b60b5-9380-4115-b1b8-0f567a4cf97a">
+<h2><a id="hdc">handleDateChange</a></h2>
 
-Click <a href="https://dbdiagram.io/d/64dac13702bd1c4a5ec5dbd4">HERE</a> to look at my ERD on dbdiagram!
+<img width="516" alt="Screen Shot 2023-09-10 at 8 24 50 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/09716284-48c3-48a2-91bc-215c9efa2253">
+
+<ul>
+  <li>handleDateChange is a function that takes a date parameter, representing a selected date.</li>
+  <li>Inside the function, it first updates the selectedDate state variable using setSelectedDate(date) with the selected date passed as an argument.</li>
+  <li>It then checks if the date is truthy (not null or undefined). This is typically used to determine if a date has been selected.</li>
+  <li>If a date has been selected:</li>
+  <ul>
+    <li>It formats the selected date into a string in ISO 8601 date format using date.toISOString().</li>
+    <li>date.toISOString() format = "2023-09-10T14:30:00.000Z"</li>
+    <li>It splits the resulting ISO string at the 'T' character and extracts the date portion using split('T')[0], effectively removing the time portion. This creates a formattedDate string in the format 'YYYY-MM-DD'.</li>
+  </ul>
+  <li>It uses the router.push function to navigate to a new URL path and update query parameters based on whether a date was selected or cleared:</li>
+  <ul>
+    <li>If a date was selected:</li>
+    <ul>
+      <li>It sets the pathname to '/books', indicating that the user is navigating to the '/books' route.</li>
+      <li>It sets the query parameter with an object containing a single key-value pair: { formattedDate }. This updates the query parameter 'formattedDate' in the URL with the formatted date string.</li>
+    </ul>
+    <li>If no date was selected (i.e., the date is falsy):</li>
+    <ul>
+      <li>It navigates to '/books' without any query parameters, effectively clearing any previously set query parameters.</li>
+    </ul>
+  </ul>
+  <li>This code handles date selection and navigation. It updates the URL and query parameters based on the selected date, allowing for dynamic filtering of content based on the selected date.</li>
+</ul>
 
 <h2><a id="projectboard">Project Board</a></h2>
 
