@@ -8,7 +8,7 @@ import { getAllBooks } from '../../utils/data/bookData'; // Importing function t
 function BookList() {
   const router = useRouter();
   const [books, setBooks] = useState([]);
-  const [currentWeekMondayDate, setCurrentWeekMondayDate] = useState('');
+  const [pickedMondayDate, setPickedMondayDate] = useState('');
 
   const getMondayDate = (dateString) => {
     const selectedDate = new Date(dateString);
@@ -31,20 +31,6 @@ function BookList() {
       });
   };
 
-  const getCurrentWeekMondayDate = () => {
-    const currentDate = new Date();
-    const dayOfWeek = currentDate.getDay(); // 0 (Sunday) to 6 (Saturday)
-    const daysUntilMonday = dayOfWeek === 0 ? 6 : 1 - dayOfWeek; // Calculate days until Monday
-    const mondayDate = new Date(currentDate);
-    mondayDate.setDate(currentDate.getDate() + daysUntilMonday);
-
-    // Format the date as "Month Day, Year" (e.g., "September 4, 2023")
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    const formattedDate = mondayDate.toLocaleDateString(undefined, options);
-
-    setCurrentWeekMondayDate(formattedDate);
-  };
-
   useEffect(() => {
     // Get the selected week from the query parameters
     const selectedDateQueryParam = router.query.formattedDate;
@@ -52,26 +38,25 @@ function BookList() {
     if (selectedDateQueryParam) {
       // Calculate the Monday date for the selected week
       const selectedMondayDate = getMondayDate(selectedDateQueryParam);
-      setCurrentWeekMondayDate(selectedMondayDate);
+      setPickedMondayDate(selectedMondayDate);
 
       // Fetch and display books for the selected week
       displayBooks(selectedDateQueryParam);
     } else {
       // If no date is selected, calculate and set this week's Monday date
-      getCurrentWeekMondayDate();
+      getMondayDate();
     }
   }, [router.query.formattedDate]);
 
   // Effect to display books when the component mounts
   useEffect(() => {
-    displayBooks(); // Calling 'displayBooks' to fetch and update book data
     document.title = 'COMIC BOOKS!';
   }, []);
 
   // JSX to render the list of books
   return (
     <article className="text-center my-4" id="books">
-      <h1 style={{ marginTop: '40px' }}>Comics Released The Week of {currentWeekMondayDate}</h1>
+      <h1 style={{ marginTop: '40px' }}>Comics Released The Week of {pickedMondayDate}</h1>
 
       <div>
         <div className="d-flex flex-wrap">
