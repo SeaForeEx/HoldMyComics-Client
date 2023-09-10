@@ -101,68 +101,34 @@
 </ul>
 
 
-<h2><a id="mvpfeatures">MVP Features</a></h2>
-<ul><em>Users</em></ul>
-<li>Sign in via Google Authentication</li>
-<li>If it is their first time visiting the site, users are directed to a form that lets them create their profile</li>
-<li>New users enter in a name, store name, and email of their choosing and then are directed to the main site</li>
-<li>Users can Create, Read, Update, and Delete Customers</li>
-<li>Users can Add and Remove Titles from Customer Pull Boxes</li>
-
-<img width="661" alt="Screen Shot 2023-08-26 at 9 43 05 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/2d2a74b2-c428-4e20-ab54-da479c454ee5">
+<h2><a id="gmd">getMondayDates</a></h2>
 
 
-<ul><em>Customers</em></ul>
-<li>Customers do not have access to the website (as of MVP)</li>
-<li>Customers are shown on ViewCustomer and CustomerList pages</li>
-<li>Customers can be Created, Read, Updated, and Deleted by Users</li>
-<br>
-<table>
-<tr>
-<td><img width="823" alt="Screen Shot 2023-08-26 at 9 45 11 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/964529cd-74f9-4612-b7a5-3a55f5b228da"></td>
-<td><img width="336" alt="Screen Shot 2023-08-26 at 9 45 59 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/4d4f9b80-7dce-4ba0-aa06-57499cd36d7a"></td>
-</tr>
-</table>
 
 
-<ul><em>Comic Books</em></ul>
-<li>Comic Books are shown on ViewBook and BookList pages</li>
-<li>Comic Books cannot be Created, Updated, or Deleted</li>
-<li>Comic Books can be Added to or Removed from Customer Pull Boxes by Users</li>
-<br>
 
-<table>
-<tr>
-<td><img width="815" alt="Screen Shot 2023-08-26 at 9 48 08 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/2fdf67f0-4262-47d8-b859-0d1d06451917"></td>
-<td><img width="816" alt="Screen Shot 2023-08-26 at 9 49 11 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/6981315e-8d51-4ad8-84ef-e05be3d69fc1"></td>
-</tr>
-</table>
+<h2><a id="gcmd">getCurrentWeekMondayDate</a></h2>
 
 
-<ul><em>
-Profile</em></ul>
-<li>User Profile displays their name, store name, and email</li>
-<li>Users can Sign Out of the website on their profile</li>
-<br>
 
-<img width="409" alt="Screen Shot 2023-08-26 at 9 43 55 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/32ede023-19c5-4452-a88c-60b654929983">
 
-<h2><a id="contributors">Contributors</a></h2>
-<a href="https://github.com/SeaForeEx">Charles Bridgers IV</a>
 
-<h2><a id="techstacks">Tech Stacks</a></h2>
-<table>
-<li>ReactJS</li> 
-<li>NextJS</li>
-<li>Django
-<li>SQL</li>
-<li>JS6</li> 
-<li>CSS3</li> 
-<li>HTML5</li>
-<li>Firebase</li> 
-<li>Bootstrap</li> 
-<li>Figma</li>
-</table>
+<h2><a id="useeffect2">useEffect Part 2</a></h2>
 
-<h2><a id="videowalkthrough">Video Walkthrough</a></h2>
-Click <a href="https://www.loom.com/embed/f71bf741597e400eab98efc153ad6bc1?sid=7d447e3c-1847-401d-9573-75e98cdfde6e">HERE</a> for a brief Loom Walkthrough of my website!
+
+
+
+
+<h2><a id="getallbooks">getAllBooks</a></h2>
+
+
+
+
+<h2><a id="listmethod">Updated List Method</a></h2>
+
+
+
+
+<h2><a id="shoutouts">Shout Outs!</a></h2>
+
+
