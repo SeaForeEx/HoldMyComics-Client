@@ -16,7 +16,6 @@
 <li><a href="#useeffect">useEffect</a></li>
 <li><a href="#navbar">NavBar</a></li>
 <li><a href="#gmd">getMondayDate</a></li>
-<li><a href="#gcmd">getCurrentWeekMondayDate</a></li>
 <li><a href="#useffect2">useEffect Part 2</a></li>
 <li><a href="#getallbooks">getAllBooks</a></li>
 <li><a href="#listmethod">Updated List Method</a></li>
@@ -100,7 +99,7 @@
   <li>placeholderText="Select a date": This prop sets a placeholder text that is displayed in the date picker input field when there is no date selected. It provides a hint to the user to indicate that they should select a date.</li>
 </ul>
 
-<h2><a id="gmd">getMondayDates</a></h2>
+<h2><a id="gmd">getMondayDate</a></h2>
 
 <p>We are now finally past the NavBar, ready to show the titles based on the formattedDate.  Let's move to the books/index.js file, inside my BookList function to be specific:</p>
 
@@ -113,16 +112,14 @@
   <li>Overall, this code snippet takes a date string, calculates the date of the next Monday, and formats it in a human-readable "Month Day, Year" format. It's what shows the Monday for the selected date on the screen above all the releases.</li>
 </ul>
 
-<img width="548" alt="Screen Shot 2023-09-10 at 9 22 55 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/72fb7243-851a-4d3e-9599-355381758641">
-
 <p>Let's walk through how this code plays with the dateString to get the Monday for the week of the selected date:</p>
 
-<h4>Input Date: September 13, 2023 (a Wednesday)</h4>
+<h4>Input Date: September 20, 2023 (a Wednesday)</h4>
 <ol>
-  <li>getMondayDate("2023-09-13") is called with the input date.</li>
+  <li>getMondayDate("2023-09-20") is called with the input date.</li>
   <li>It creates a selectedDate object by parsing the input date string:</li>
     <ul>
-      <li>selectedDate is now equal to Wed Sep 13 2023 00:00:00 GMT+0000 (Coordinated Universal Time).</li>
+      <li>selectedDate is now equal to Wed Sep 20 2023 00:00:00 GMT+0000 (Coordinated Universal Time).</li>
     </ul>
   <li>It calculates the dayOfWeek by calling selectedDate.getDay(), which returns 3 (Wednesday).</li>
   <li>It calculates daysUntilMonday based on the dayOfWeek value:</li>
@@ -131,11 +128,11 @@
   </ul>
   <li>It creates a new mondayDate object as a copy of selectedDate:</li>
   <ul>
-    <li>mondayDate is initially equal to Wed Sep 13 2023 00:00:00 GMT+0000 (Coordinated Universal Time).</li>
+    <li>mondayDate is initially equal to Wed Sep 20 2023 00:00:00 GMT+0000 (Coordinated Universal Time).</li>
   </ul>
   <li>It updates mondayDate by adding daysUntilMonday days to it:</li>
   <ul>
-    <li>mondayDate is now equal to Mon Sep 11 2023 00:00:00 GMT+0000 (Coordinated Universal Time).</li>
+    <li>mondayDate is now equal to Mon Sep 18 2023 00:00:00 GMT+0000 (Coordinated Universal Time).</li>
   </ul>
   <li>It defines an options object for formatting:</li>
   <ul>
@@ -143,9 +140,11 @@
   </ul>
   <li>It uses mondayDate.toLocaleDateString(undefined, options) to format mondayDate as a string:</li>
   <ul>
-    <li>The formatted date string is "September 11, 2023".</li>
+    <li>The formatted date string is "September 18, 2023".</li>
   </ul>
 </ol>
+
+<img width="548" alt="Screen Shot 2023-09-10 at 9 22 55 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/72fb7243-851a-4d3e-9599-355381758641">
 
 <h2><a id="useeffect2">useEffect Part 2</a></h2>
 
