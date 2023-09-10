@@ -22,7 +22,7 @@
 <li><a href="#listmethod">Updated List Method</a></li>
 <li><a href="#shoutouts">Shout Outs!</a></li>
 
-<h2><a id="installation">Installation</a></h2>
+<h2><a id="installation">Install/Import</a></h2>
 
 <img width="318" alt="Screen Shot 2023-09-10 at 8 08 07 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/11b1c486-a8f9-49d0-8e0c-c4e17ffc9c2c">
 
@@ -35,10 +35,17 @@
   <li>import 'react-datepicker/dist/react-datepicker.css' - included the CSS file to ensure that the DatePicker is styled correctly</li>
 </ul>
 
-<h2><a id="wireframes">Wireframes</a></h2>
-<img width="598" alt="Screen Shot 2023-08-26 at 9 22 41 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/8dfa1b3c-2fdb-400b-bda6-8c6008fa2141">
+<h2><a id="selecteddate">selectedDate</a></h2>
 
-Click <a href="https://www.figma.com/file/YcQZNhCbNPYgUt81ipvy0g/Hold-My-Comics-Wireframe?type=design&node-id=0-1&mode=design&t=LHYgJtD8t3a8MuFk-0">HERE</a> to look at my wireframes on Figma!
+<img width="537" alt="Screen Shot 2023-09-10 at 8 16 24 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/0844ef7d-2792-4987-be4d-017995fe6338">
+
+<ul>
+  <li>useState(null) initializes a state variable called selectedDate with an initial value of null.</li>
+  <li>selectedDate is used to store and manage the selected date in your React component.</li>
+  <li>setSelectedDate is a function used to update the selectedDate state variable.</li>
+  <li>When you call setSelectedDate(newValue), it updates selectedDate with the new value and triggers a component re-render.</li>
+  <li>This pattern is commonly used for managing and displaying dynamic data in React components, such as the selected date in my DatePicker.</li>
+</ul>
 
 <h2><a id="erd">ERD</a></h2>
 <img width="890" alt="Screen Shot 2023-08-26 at 9 24 31 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/c49b60b5-9380-4115-b1b8-0f567a4cf97a">
