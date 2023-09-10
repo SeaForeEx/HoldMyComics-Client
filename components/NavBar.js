@@ -1,6 +1,6 @@
 /* eslint-disable object-shorthand */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router'; // Import the useRouter hook
 import {
@@ -8,16 +8,27 @@ import {
   Container,
   Nav,
 } from 'react-bootstrap';
+import DatePicker from 'react-datepicker'; // Import the date picker
+import 'react-datepicker/dist/react-datepicker.css'; // Import date picker styles
 
 export default function NavBar() {
-  const router = useRouter(); // Initialize the useRouter hook
+  const router = useRouter();
 
-  // Function to handle navigation and set the 'week' query parameter
-  const handleNavigation = (week) => {
-    router.push({
-      pathname: '/books',
-      query: { week }, // Set the 'week' query parameter
-    });
+  const [selectedDate, setSelectedDate] = useState(null); // Initialize the selected date state
+
+  const handleDateChange = (date) => {
+    // Handle date selection and set the 'week' query parameter
+    setSelectedDate(date);
+    if (date) {
+      const formattedDate = date.toISOString().split('T')[0];
+      router.push({
+        pathname: '/books',
+        query: { week: formattedDate },
+      });
+    } else {
+      // Handle clearing the date (e.g., when clicking "This Week" or "Next Week")
+      router.push('/books');
+    }
   };
 
   return (
@@ -36,12 +47,14 @@ export default function NavBar() {
             <Link passHref href="/customers">
               <Nav.Link>Customers</Nav.Link>
             </Link>
-            {/* Use onClick to set the 'week' parameter when clicked */}
-            <Nav.Link onClick={() => handleNavigation('this')}>This week</Nav.Link>
-            <Nav.Link onClick={() => handleNavigation('next')}>Next week</Nav.Link>
-            <Link passHref href="/profile">
-              <Nav.Link>Profile</Nav.Link>
-            </Link>
+            <div className="nav-link">
+              {/* Render the date picker */}
+              <DatePicker
+                selected={selectedDate}
+                onChange={handleDateChange}
+                placeholderText="Select a date"
+              />
+            </div>
             <Link passHref href="/profile">
               <Nav.Link>Profile</Nav.Link>
             </Link>
