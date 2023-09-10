@@ -177,11 +177,11 @@
 </ul>
 <p>The overall goal is to ensure that the application properly handles and displays data based on the selected date, or the current week's date when no date is selected.</p>
 
-
 <h2><a id="getallbooks">getAllBooks</a></h2>
 
+<img width="487" alt="Screen Shot 2023-09-10 at 10 49 41 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/8633c842-4de7-4854-80d9-ff7ef350bbcf">
 
-
+<p>I didn't really do much to change my getAllBooks Promise, I just changed the name of the property from "week" to "date" and changed the name of the query parameter from "week" to "formattedDate".  The names gotta make sense or who is going to be able to understand your code later?  I'm really doing it for me because I won't understand this primitive code next year.</p>
 
 <h2><a id="listmethod">Updated List Method</a></h2>
 
