@@ -115,6 +115,38 @@
 
 <img width="548" alt="Screen Shot 2023-09-10 at 9 22 55 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/72fb7243-851a-4d3e-9599-355381758641">
 
+<p>Let's walk through how this code plays with the dateString to get the Monday for the week of the selected date:</p>
+
+<h3>Input Date: September 13, 2023 (a Wednesday)</h3>
+<ol>
+  <li>getMondayDate("2023-09-13") is called with the input date.</li>
+  <li>It creates a selectedDate object by parsing the input date string:</li>
+    <ul>
+      <li>selectedDate is now equal to Wed Sep 13 2023 00:00:00 GMT+0000 (Coordinated Universal Time).</li>
+    </ul>
+  <li>It calculates the dayOfWeek by calling selectedDate.getDay(), which returns 3 (Wednesday).</li>
+  <li>It calculates daysUntilMonday based on the dayOfWeek value:</li>
+  <ul>
+    <li>Since dayOfWeek is 3 (Wednesday), daysUntilMonday is set to -2 (2 days until the next Monday).</li>
+  </ul>
+  <li>It creates a new mondayDate object as a copy of selectedDate:</li>
+  <ul>
+    <li>mondayDate is initially equal to Wed Sep 13 2023 00:00:00 GMT+0000 (Coordinated Universal Time).</li>
+  </ul>
+  <li>It updates mondayDate by adding daysUntilMonday days to it:</li>
+  <ul>
+    <li>mondayDate is now equal to Mon Sep 11 2023 00:00:00 GMT+0000 (Coordinated Universal Time).</li>
+  </ul>
+  <li>It defines an options object for formatting:</li>
+  <ul>
+    <li>{ year: 'numeric', month: 'long', day: 'numeric' }.</li>
+  </ul>
+  <li>It uses mondayDate.toLocaleDateString(undefined, options) to format mondayDate as a string:</li>
+  <ul>
+    <li>The formatted date string is "September 11, 2023".</li>
+  </ul>
+</ol>
+
 
 <h2><a id="gcmd">getCurrentWeekMondayDate</a></h2>
 
