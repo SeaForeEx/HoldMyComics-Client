@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable object-shorthand */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router'; // Import the useRouter hook
 import {
@@ -31,6 +31,19 @@ export default function NavBar() {
       router.push('/books');
     }
   };
+
+  useEffect(() => {
+    // Reset the selectedDate when the route changes
+    setSelectedDate(null);
+  }, [router.asPath]);
+
+  // router.asPath refers to a property of the router object returned by Next.js's useRouter hook. It represents the current URL path as a string.
+
+  // When a user clicks on a navigation link in the Navbar component (e.g., "Home," "Customers," "Profile"), it triggers a page navigation within your Next.js application.
+
+  // The useEffect hook in your Navbar component listens for changes in the router.asPath. It does this by specifying [router.asPath] as a dependency in the useEffect. This means that whenever the URL path changes, the code inside the useEffect will run.
+
+  // When the URL path changes, the useEffect callback is executed, and it sets the selectedDate state to null. This effectively clears the selected date in the DatePicker component.
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
