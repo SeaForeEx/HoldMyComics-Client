@@ -117,7 +117,7 @@
 
 <p>Let's walk through how this code plays with the dateString to get the Monday for the week of the selected date:</p>
 
-<h3>Input Date: September 13, 2023 (a Wednesday)</h3>
+<h4>Input Date: September 13, 2023 (a Wednesday)</h4>
 <ol>
   <li>getMondayDate("2023-09-13") is called with the input date.</li>
   <li>It creates a selectedDate object by parsing the input date string:</li>
@@ -146,13 +146,6 @@
     <li>The formatted date string is "September 11, 2023".</li>
   </ul>
 </ol>
-
-
-<h2><a id="gcmd">getCurrentWeekMondayDate</a></h2>
-
-
-
-
 
 <h2><a id="useeffect2">useEffect Part 2</a></h2>
 
