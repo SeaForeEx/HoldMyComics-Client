@@ -148,8 +148,34 @@
 
 <h2><a id="useeffect2">useEffect Part 2</a></h2>
 
+<img width="555" alt="Screen Shot 2023-09-10 at 10 34 29 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/2fc97d5f-e7d0-41a2-85b1-b49909fe8201">
 
+<p>This useEffect is setup in my books/index.js, let's walk through the steps:</p>
 
+<ul>
+  <li>This useEffect function is set up to run whenever the value of router.query.formattedDate changes. It monitors changes in the query parameter formattedDate in the URL.</li>
+  <li>router.query.formattedDate is the selected date from the DatePicker.</li>
+  <li>When this useEffect is triggered:</li>
+  <ul>
+    <li>It begins by extracting the value of the formattedDate query parameter from the router.query object, storing it in the selectedDateQueryParam variable.</li>
+  </ul>
+  <li>It checks if selectedDateQueryParam is truthy, which means a date has been selected. If so:</li>
+  <ul>
+    <li>It calculates the date of the next Monday based on selectedDateQueryParam by calling the getMondayDate function, storing the result in selectedMondayDate.</li>
+    <li>It sets the pickedMondayDate state variable with the calculated selectedMondayDate.</li>
+    <li>It calls the displayBooks function with selectedDateQueryParam as a parameter. This fetches and displays books related to the selected week.</li>
+  </ul>
+  <li>If selectedDateQueryParam is falsy (no date is selected):</li>
+    <ul>
+      <li>It calls the getMondayDate function without any arguments. This calculates and sets the date of the next Monday for the current week.</li>
+    </ul>
+</ul>
+<p>In summary, this useEffect is responsible for managing the state and data related to the selected date, taking the following actions:</p>
+<ul>
+  <li>If a date is selected in the query parameters, it calculates the date of the next Monday for that week, updates the state, and fetches books related to that week.</li>
+  <li>If no date is selected, it calculates and sets the date of the next Monday for the current week.</li>
+</ul>
+<p>The overall goal is to ensure that the application properly handles and displays data based on the selected date, or the current week's date when no date is selected.</p>
 
 
 <h2><a id="getallbooks">getAllBooks</a></h2>
