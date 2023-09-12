@@ -13,7 +13,7 @@ function BookList() {
   const getMondayDate = (dateString) => {
     const selectedDate = new Date(dateString);
     const dayOfWeek = selectedDate.getDay(); // 0 (Sunday) to 6 (Saturday)
-    const daysUntilMonday = dayOfWeek === 0 ? 6 : 1 - dayOfWeek; // Calculate days until Monday
+    const daysUntilMonday = dayOfWeek === 0 ? 1 : 8 - dayOfWeek; // Calculate days until next Monday
     const mondayDate = new Date(selectedDate);
     mondayDate.setDate(selectedDate.getDate() + daysUntilMonday);
     // Format the date as "Month Day, Year" (e.g., "September 4, 2023")
@@ -58,25 +58,23 @@ function BookList() {
     <article className="text-center my-4" id="books">
       <h1 style={{ marginTop: '40px' }}>Comics Released The Week of {pickedMondayDate}</h1>
 
-      <div>
-        <div className="d-flex flex-wrap">
-          {/* Loop through 'books' array and render each book */}
-          {books.map((book) => (
-            <section
-              key={`book--${book.id}`} // Using book's ID as the key
-              className="book"
-              style={{ margin: '10px' }}
-            >
-              {/* Render the 'BookCard' component with book details */}
-              <BookCard
-                id={book.id}
-                imageUrl={book.image_url}
-                title={book.title}
-                onUpdate={displayBooks} // Pass 'displayBooks' as a prop for updating
-              />
-            </section>
-          ))}
-        </div>
+      <div className="d-flex flex-wrap">
+        {/* Loop through 'books' array and render each book */}
+        {books.map((book) => (
+          <section
+            key={`book--${book.id}`} // Using book's ID as the key
+            className="book"
+            style={{ margin: '10px', flex: '0 0 calc(33.33% - 20px)', height: 'auto' }}
+          >
+            {/* Render the 'BookCard' component with book details */}
+            <BookCard
+              id={book.id}
+              imageUrl={book.image_url}
+              title={book.title}
+              onUpdate={displayBooks} // Pass 'displayBooks' as a prop for updating
+            />
+          </section>
+        ))}
       </div>
     </article>
   );
