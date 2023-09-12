@@ -22,7 +22,18 @@ const ViewBook = () => {
   useEffect(() => {
     // Update document title with the book's title when 'bookDetails' changes
     if (bookDetails) {
+      // Convert the release_date string to a JavaScript Date object
+      const releaseDate = new Date(bookDetails.release_date);
+
+      // Format the date as "Month Day, Year"
+      const formattedReleaseDate = releaseDate.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      });
+
       document.title = `${bookDetails.title}`;
+      setBookDetails({ ...bookDetails, release_date: formattedReleaseDate }); // Update bookDetails with the formatted release date
     }
   }, [bookDetails]); // Re-run effect whenever 'bookDetails' changes
 
@@ -43,7 +54,9 @@ const ViewBook = () => {
           {/* Display book publisher */}
           <h3>Publisher: {bookDetails.publisher}</h3>
           {/* Display book price */}
-          <h4>Price: ${bookDetails.price}</h4>
+          <h3>Price: ${bookDetails.price}</h3>
+          {/* Display book release date */}
+          <h3>Release Date: {bookDetails.release_date}</h3>
           {/* Display book description */}
           <p>Description: {bookDetails.description}</p>
         </div>
