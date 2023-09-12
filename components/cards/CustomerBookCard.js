@@ -18,8 +18,16 @@ function CustomerBookCard({ customerBookObj, onUpdate }) {
 
   // JSX to render the customer's book card
   return (
-    <Card className="card-design">
-      <Card.Img variant="top" src={customerBookObj.book.image_url} alt={customerBookObj.book.title} style={{ width: '200px', height: 'auto' }} />
+    <Card>
+      <div className="text-center">
+        {/* Center the image within a div */}
+        <Card.Img
+          variant="top"
+          src={customerBookObj.book.image_url}
+          alt={customerBookObj.book.title}
+          style={{ maxWidth: '100%', margin: 'auto' }}
+        />
+      </div>
       <Card.Body>
         <Card.Title>{customerBookObj.book.title}</Card.Title>
         <h3>{customerBookObj.book.publisher}</h3>

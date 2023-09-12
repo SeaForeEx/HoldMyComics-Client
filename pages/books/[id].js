@@ -20,22 +20,30 @@ const ViewBook = () => {
   }, [bookId]); // Re-run effect whenever 'bookId' changes
 
   useEffect(() => {
-    // Update document title with the book's title when 'bookDetails' changes
     if (bookDetails) {
-      // Convert the release_date string to a JavaScript Date object
       const releaseDate = new Date(bookDetails.release_date);
-
-      // Format the date as "Month Day, Year"
       const formattedReleaseDate = releaseDate.toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
       });
 
+      // Check if the release_date needs to be updated before setting the state
+      if (bookDetails.release_date !== formattedReleaseDate) {
+        setBookDetails({ ...bookDetails, release_date: formattedReleaseDate });
+      }
+
+      // Update the document title
       document.title = `${bookDetails.title}`;
-      setBookDetails({ ...bookDetails, release_date: formattedReleaseDate }); // Update bookDetails with the formatted release date
     }
   }, [bookDetails]); // Re-run effect whenever 'bookDetails' changes
+
+  // useEffect(() => {
+  //   // Update document title with the book's title when 'bookDetails' changes
+  //   if (bookDetails) {
+  //     document.title = `${bookDetails.title}`;
+  //   }
+  // }, [bookDetails]); // Re-run effect whenever 'bookDetails' changes
 
   return (
     <>

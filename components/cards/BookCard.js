@@ -22,13 +22,16 @@ const BookCard = ({
   // JSX to render the book card
   return (
     <>
-      <Card className="text-center">
-        <Card.Body>
+      <Card>
+        <div>
+          {/* Center the image within the card */}
           <img
             src={imageUrl}
             alt={`Comic book cover of ${title}`}
-            style={{ width: '200px', height: 'auto' }}
-          /> {/* Displaying the book cover */}
+            style={{ width: '100%', height: 'auto' }}
+          />
+        </div>
+        <Card.Body>
           <h5>{title}</h5> {/* Displaying the book title */}
           {/* Button to view more details of the book */}
           <Button
@@ -37,7 +40,8 @@ const BookCard = ({
               // Navigate to the detailed view of the book when clicked
               router.push(`/books/${id}`);
             }}
-          >View
+          >
+            View
           </Button>
         </Card.Body>
       </Card>
