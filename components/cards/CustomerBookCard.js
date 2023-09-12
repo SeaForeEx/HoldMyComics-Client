@@ -16,22 +16,29 @@ function CustomerBookCard({ customerBookObj, onUpdate }) {
     removeBookFromCustomer(bookId, customerId).then(() => onUpdate());
   };
 
+  // Define a style object for the card's background image
+  const cardStyle = {
+    backgroundImage: `url(${customerBookObj.book.image_url})`, // Set the background image URL
+    backgroundSize: 'cover', // Adjust background size to cover the card
+    backgroundRepeat: 'no-repeat', // Prevent background image repetition
+    backgroundPosition: 'center', // Center the background image
+    maxWidth: '100%', // Adjust the maximum card width as needed
+    margin: 'auto',
+    color: 'white',
+    textShadow: '2px 2px 4px black',
+  };
+
+  const h5Style = {
+    backgroundColor: 'rgba(0, 0, 0, 0.6)', // Opaque black background
+    padding: '10px', // Adjust padding as needed
+  };
+
   // JSX to render the customer's book card
   return (
-    <Card>
-      <div className="text-center">
-        {/* Center the image within a div */}
-        <Card.Img
-          variant="top"
-          src={customerBookObj.book.image_url}
-          alt={customerBookObj.book.title}
-          style={{ maxWidth: '100%', margin: 'auto' }}
-        />
-      </div>
+    <Card style={cardStyle}>
       <Card.Body>
-        <Card.Title>{customerBookObj.book.title}</Card.Title>
-        <h3>{customerBookObj.book.publisher}</h3>
-        <Button onClick={removeBook}>Remove</Button> {/* Button to remove the book */}
+        <h5 style={h5Style}>{customerBookObj.book.title}</h5>
+        <Button style={{ margin: '10px', backgroundColor: '#003049' }} onClick={removeBook}>Remove</Button> {/* Button to remove the book */}
       </Card.Body>
     </Card>
   );

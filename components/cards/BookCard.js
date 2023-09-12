@@ -19,20 +19,29 @@ const BookCard = ({
 }) => {
   const router = useRouter(); // Router instance from Next.js
 
+  // Define a style object for the card's background image
+  const cardStyle = {
+    backgroundImage: `url(${imageUrl})`, // Set the background image URL
+    backgroundSize: 'cover', // Adjust background size to cover the card
+    backgroundRepeat: 'no-repeat', // Prevent background image repetition
+    backgroundPosition: 'center', // Center the background image
+    maxWidth: '100%', // Adjust the maximum card width as needed
+    margin: 'auto',
+    color: 'white',
+    textShadow: '2px 2px 4px black',
+  };
+
+  const h5Style = {
+    backgroundColor: 'rgba(0, 0, 0, 0.6)', // Opaque black background
+    padding: '10px', // Adjust padding as needed
+  };
+
   // JSX to render the book card
   return (
     <>
-      <Card>
-        <div>
-          {/* Center the image within the card */}
-          <img
-            src={imageUrl}
-            alt={`Comic book cover of ${title}`}
-            style={{ width: '100%', height: 'auto' }}
-          />
-        </div>
+      <Card style={cardStyle}>
         <Card.Body>
-          <h5>{title}</h5> {/* Displaying the book title */}
+          <h5 style={h5Style}>{title}</h5> {/* Displaying the book title */}
           {/* Button to view more details of the book */}
           <Button
             style={{ margin: '10px', backgroundColor: '#003049' }}

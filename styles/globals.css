@@ -18,5 +18,10 @@ a {
 }
 
 body {
-  background-color: #ec5858;
+  color: antiquewhite;
+  background-color: #000000;
+  background-image: url('https://cdn.wallpapersafari.com/56/21/YxnDBe.jpg');
+  background-size: cover; /* This will make the image cover the entire background */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
