@@ -10,17 +10,6 @@ function BookList() {
   const [books, setBooks] = useState([]);
   const [pickedMondayDate, setPickedMondayDate] = useState('');
 
-  const getMondayDate = (dateString) => {
-    const selectedDate = new Date(dateString);
-    const dayOfWeek = selectedDate.getDay(); // 0 (Sunday) to 6 (Saturday)
-    const daysUntilMonday = dayOfWeek === 0 ? 1 : 8 - dayOfWeek; // Calculate days until next Monday
-    const mondayDate = new Date(selectedDate);
-    mondayDate.setDate(selectedDate.getDate() + daysUntilMonday);
-    // Format the date as "Month Day, Year" (e.g., "September 4, 2023")
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return mondayDate.toLocaleDateString(undefined, options);
-  };
-
   const displayBooks = () => {
     getAllBooks(router.query.formattedDate) // Call the getAllBooks function with the selected 'week' as a parameter
       .then((data) => {
@@ -37,14 +26,24 @@ function BookList() {
 
     if (selectedDateQueryParam) {
       // Calculate the Monday date for the selected week
-      const selectedMondayDate = getMondayDate(selectedDateQueryParam);
-      setPickedMondayDate(selectedMondayDate);
+      const selectedDate = new Date(selectedDateQueryParam);
+      const dayOfWeek = selectedDate.getDay(); // 0 (Sunday) to 6 (Saturday)
+
+      const daysUntilMonday = dayOfWeek === 1 ? 0 : 1 - dayOfWeek; // Calculate days until Monday
+      const mondayDate = new Date(selectedDate);
+      mondayDate.setDate(selectedDate.getDate() + daysUntilMonday);
+
+      // Format the date as "Month Day, Year" (e.g., "September 4, 2023")
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      const formattedMondayDate = mondayDate.toLocaleDateString(undefined, options);
+
+      setPickedMondayDate(formattedMondayDate);
 
       // Fetch and display books for the selected week
       displayBooks(selectedDateQueryParam);
     } else {
-      // If no date is selected, calculate and set this week's Monday date
-      getMondayDate();
+      // If no date is selected, set a default message or handle it as you prefer
+      setPickedMondayDate('Please select a date');
     }
   }, [router.query.formattedDate]);
 

@@ -49,16 +49,18 @@ const ViewBook = () => {
     <>
       {/* Container for book details */}
       <div className="mt-5 d-flex flex-wrap">
+        {/* Left column for book cover image */}
         <div className="d-flex flex-column">
           {/* Display book cover image */}
           <img
             src={bookDetails.image_url}
             alt={`Comic book cover of ${bookDetails.title}`}
             style={{ width: '300px', height: 'auto' }}
-          /> {/* Displaying the book cover */}
-          <h3>
-            Title: {bookDetails.title}
-          </h3>
+          />
+        </div>
+        {/* Right column for book details */}
+        <div className="d-flex flex-column">
+          <h3>Title: {bookDetails.title}</h3>
           {/* Display book publisher */}
           <h3>Publisher: {bookDetails.publisher}</h3>
           {/* Display book price */}
@@ -67,9 +69,9 @@ const ViewBook = () => {
           <h3>Release Date: {bookDetails.release_date}</h3>
           {/* Display book description */}
           <p>Description: {bookDetails.description}</p>
+          {/* Include the 'AddToCustomer' component and pass the 'id' prop */}
+          <AddToCustomer id={bookId} />
         </div>
-        {/* Include the 'AddToCustomer' component and pass the 'id' prop */}
-        <AddToCustomer id={bookId} />
       </div>
     </>
   );

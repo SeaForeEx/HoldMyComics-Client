@@ -30,8 +30,13 @@ const CustomerCard = ({
   // JSX to render the customer card
   return (
     <>
-      <Card className="text-center">
-        <Card.Body>
+      <Card
+        className="text-center"
+        style={{
+          backgroundImage: 'url("https://i.ebayimg.com/images/g/R~MAAOSwcxpj9VOi/s-l1200.webp")', backgroundColor: 'black', backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', color: 'white', textShadow: '2px 2px 4px black',
+        }}
+      >
+        <Card.Body style={{ backgroundColor: 'rgba(0, 0, 0, 0.35)' }}>
           <h3>{customerName}</h3> {/* Displaying the customer's name */}
           <p>{email}</p> {/* Displaying the customer's email */}
           {/* Button to view more details of the customer */}
