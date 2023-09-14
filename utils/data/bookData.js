@@ -68,10 +68,30 @@ const removeBookFromCustomer = (bookId, customerId) => new Promise((resolve, rej
     .catch(reject); // Rejecting the promise if there's an error
 });
 
+// Function to search for books
+const searchBooks = (searchQuery) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/search?search=${searchQuery}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      let filteredData = data;
+      if (searchQuery) {
+        filteredData = data.filter((book) => book.title.toLowerCase().includes(searchQuery.toLowerCase()));
+      }
+      resolve(filteredData);
+    })
+    .catch(reject);
+});
+
 // Exporting the functions for use in other modules
 export {
   getAllBooks,
   getSingleBook,
   addBookToCustomer,
   removeBookFromCustomer,
+  searchBooks,
 };

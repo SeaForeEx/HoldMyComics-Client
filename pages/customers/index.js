@@ -18,7 +18,7 @@ function CustomerList() {
         setCustomers(data); // Updating 'customers' state with fetched data
       })
       .catch((error) => {
-        console.error('Error fetching records:', error); // Handling error if fetching fails
+        console.error('Error fetching customers:', error); // Handling error if fetching fails
       });
   };
 
