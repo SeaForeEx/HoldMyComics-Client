@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable @next/next/no-img-element */
 // Import necessary dependencies and modules
 import React from 'react';
 import PropTypes from 'prop-types';
