@@ -4,6 +4,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Button } from 'react-bootstrap'; // Importing Card and Button components from react-bootstrap
+import { FaTrash } from 'react-icons/fa';
 import { removeBookFromCustomer } from '../../utils/data/bookData'; // Importing function to remove a book from a customer
 
 // React functional component for rendering a customer's book card
@@ -41,6 +42,7 @@ function CustomerBookCard({ customerBookObj, onUpdate }) {
       <Card.Body>
         <h5 style={h5Style}>{customerBookObj.book.title}</h5>
         <Button style={{ margin: '10px', backgroundColor: '#003049' }} onClick={removeBook}>Remove</Button> {/* Button to remove the book */}
+        <FaTrash />
       </Card.Body>
     </Card>
   );
