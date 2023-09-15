@@ -33,7 +33,8 @@ const BookCard = ({
     border: '3px solid white', // Add a 5px border
     color: 'white',
     textShadow: '2px 2px 4px black',
-    margin: '5px', // Remove any margin
+    margin: '5px',
+    cursor: 'pointer',
   };
 
   const h5Style = {
@@ -49,14 +50,14 @@ const BookCard = ({
   };
 
   return (
-    <Card style={cardStyle}>
+    <Card
+      style={cardStyle}
+      onClick={() => {
+        router.push(`/books/${id}`);
+      }}
+    >
       <Card.Body>
-        <h5
-          onClick={() => {
-            router.push(`/books/${id}`);
-          }}
-          style={h5Style}
-        >
+        <h5 style={h5Style}>
           {title}
         </h5>
       </Card.Body>

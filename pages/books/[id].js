@@ -1,3 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */ // Disable specific ESLint rule for the next line
 import React, { useState, useEffect } from 'react'; // Importing React, useState, and useEffect from React
@@ -24,21 +26,23 @@ const ViewBook = () => {
     if (bookDetails) {
       const releaseDate = new Date(bookDetails.release_date);
 
-      // Add one day to the release date
-      releaseDate.setDate(releaseDate.getDate() + 1);
+      // Set the timezone to UTC
+      releaseDate.setUTCHours(0, 0, 0, 0);
 
-      // Format the release date manually
-      const formattedReleaseDate = `${
-        releaseDate.toLocaleString('en-US', { month: 'long' })
-      } ${releaseDate.getDate()}, ${releaseDate.getFullYear()}`;
+      const formattedReleaseDate = releaseDate.toLocaleDateString('en-US', {
+        timeZone: 'UTC', // Set the timezone to UTC
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      });
 
-      // Update 'bookDetails' state with the modified release date
-      setBookDetails({ ...bookDetails, release_date: formattedReleaseDate });
+      if (bookDetails.release_date !== formattedReleaseDate) {
+        setBookDetails({ ...bookDetails, release_date: formattedReleaseDate });
+      }
 
-      // Update the document title
       document.title = `${bookDetails.title}`;
     }
-  }, []);
+  }, [bookDetails]); // Re-run effect whenever 'bookDetails' changes
 
   return (
     <>
