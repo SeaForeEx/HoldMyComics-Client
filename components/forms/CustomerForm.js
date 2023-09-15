@@ -11,6 +11,7 @@ const initialState = {
   storeId: 0,
   customerName: '',
   email: '',
+  phone: '',
 };
 
 // React functional component for rendering a customer form
@@ -27,6 +28,7 @@ const CustomerForm = ({ obj }) => {
         storeId: user.id,
         customerName: obj.customer_name,
         email: obj.email,
+        phone: obj.phone,
       });
     }
   }, [obj, user]);
@@ -54,6 +56,7 @@ const CustomerForm = ({ obj }) => {
         storeId: user.id,
         customerName: currentCustomer.customerName,
         email: currentCustomer.email,
+        phone: currentCustomer.phone,
       };
 
       // Call 'updateCustomer' function and navigate to customer's page after completion
@@ -66,6 +69,7 @@ const CustomerForm = ({ obj }) => {
         storeId: user.id,
         customerName: currentCustomer.customerName,
         email: currentCustomer.email,
+        phone: currentCustomer.phone,
       };
 
       // Call 'createCustomer' function, get the new customer's data, and navigate to the new customer's page
@@ -90,6 +94,12 @@ const CustomerForm = ({ obj }) => {
           <Form.Control name="email" required value={currentCustomer.email} onChange={handleChange} />
         </Form.Group>
 
+        {/* Form fields for customer phone */}
+        <Form.Group className="mb-3">
+          <Form.Label>Customer Phone</Form.Label>
+          <Form.Control name="phone" required value={currentCustomer.phone} onChange={handleChange} />
+        </Form.Group>
+
         {/* Submit button */}
         <Button variant="primary" type="submit">
           Submit
@@ -106,6 +116,7 @@ CustomerForm.propTypes = {
     store_id: PropTypes.number,
     customer_name: PropTypes.string,
     email: PropTypes.string,
+    phone: PropTypes.string,
   }),
 };
 

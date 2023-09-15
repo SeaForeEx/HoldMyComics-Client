@@ -1,5 +1,7 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable @next/next/no-img-element */
 import React, { useEffect } from 'react';
-import { Button } from 'react-bootstrap';
 import { signIn } from '../utils/auth';
 
 function Signin() {
@@ -20,11 +22,13 @@ function Signin() {
         paddingBlock: '0 5rem',
       }}
     >
-      <h1>Hi there!</h1>
-      <p>Click the button below to login!</p>
-      <Button type="button" size="lg" className="copy-btn" onClick={signIn}>
-        Sign In
-      </Button>
+      <div onClick={signIn} style={{ cursor: 'pointer' }}>
+        <img
+          src="https://i.imgur.com/KaSdaa6.png" // Replace with the actual image source URL
+          alt="Sign In"
+          width="650" // Set the width of the image
+        />
+      </div>
     </div>
   );
 }
