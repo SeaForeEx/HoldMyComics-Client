@@ -39,35 +39,37 @@ function CustomerBookCard({ customerBookObj, onUpdate }) {
     left: '0', // Place it at the left edge of the card
     width: '100%', // Make it stretch the whole width of the card
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
-    padding: '10px',
+    padding: '5px',
   };
 
   // JSX to render the customer's book card
   return (
-    <Card style={cardStyle}>
-      <Card.Body>
-        <h5 style={h5Style}>{customerBookObj.book.title}</h5>
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '5px', // Adjust the bottom distance as needed
-            right: '5px', // Adjust the right distance as needed
-          }}
-        >
-          <FaTrash
-            onClick={removeBook}
+    <div className="card-container">
+      <Card style={cardStyle}>
+        <Card.Body>
+          <h5 style={h5Style}>{customerBookObj.book.title}</h5>
+          <div
             style={{
-              fontSize: '36px',
-              color: 'white',
-              backgroundColor: 'black',
-              display: 'inline-block', // Ensure the div only takes up the space of its content
-              padding: '5px', // Add some padding for better visual appearance
-              borderRadius: '50%',
+              position: 'absolute',
+              bottom: '5px', // Adjust the bottom distance as needed
+              right: '5px', // Adjust the right distance as needed
             }}
-          />
-        </div>
-      </Card.Body>
-    </Card>
+          >
+            <FaTrash
+              onClick={removeBook}
+              style={{
+                fontSize: '36px',
+                color: 'white',
+                backgroundColor: 'black',
+                display: 'inline-block', // Ensure the div only takes up the space of its content
+                padding: '5px', // Add some padding for better visual appearance
+                borderRadius: '50%',
+              }}
+            />
+          </div>
+        </Card.Body>
+      </Card>
+    </div>
   );
 }
 
