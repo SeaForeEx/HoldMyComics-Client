@@ -1,9 +1,11 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable @next/next/no-img-element */
 // Import necessary dependencies and modules
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, Button } from 'react-bootstrap'; // Importing Card and Button components from react-bootstrap
+import { Card } from 'react-bootstrap'; // Importing Card and Button components from react-bootstrap
+import { FaTrash } from 'react-icons/fa';
 import { removeBookFromCustomer } from '../../utils/data/bookData'; // Importing function to remove a book from a customer
 
 // React functional component for rendering a customer's book card
@@ -24,25 +26,50 @@ function CustomerBookCard({ customerBookObj, onUpdate }) {
     backgroundSize: 'cover', // Adjust background size to cover the card
     backgroundRepeat: 'no-repeat', // Prevent background image repetition
     backgroundPosition: 'center', // Center the background image
-    maxWidth: '100%', // Adjust the maximum card width as needed
-    margin: 'auto',
+    width: '300px', // Set a fixed width for the card
+    height: '150px', // Set a fixed height for the card
+    margin: '0px', // Add margin for spacing between cards
     color: 'white',
     textShadow: '2px 2px 4px black',
   };
 
   const h5Style = {
-    backgroundColor: 'rgba(0, 0, 0, 0.6)', // Opaque black background
-    padding: '10px', // Adjust padding as needed
+    position: 'absolute', // Position the 'h5' element absolutely
+    top: '0', // Place it at the top of the card
+    left: '0', // Place it at the left edge of the card
+    width: '100%', // Make it stretch the whole width of the card
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    padding: '5px',
   };
 
   // JSX to render the customer's book card
   return (
-    <Card style={cardStyle}>
-      <Card.Body>
-        <h5 style={h5Style}>{customerBookObj.book.title}</h5>
-        <Button style={{ margin: '10px', backgroundColor: '#003049' }} onClick={removeBook}>Remove</Button> {/* Button to remove the book */}
-      </Card.Body>
-    </Card>
+    <div className="card-container">
+      <Card style={cardStyle}>
+        <Card.Body>
+          <h5 style={h5Style}>{customerBookObj.book.title}</h5>
+          <div
+            style={{
+              position: 'absolute',
+              bottom: '5px', // Adjust the bottom distance as needed
+              right: '5px', // Adjust the right distance as needed
+            }}
+          >
+            <FaTrash
+              onClick={removeBook}
+              style={{
+                fontSize: '36px',
+                color: 'white',
+                backgroundColor: 'black',
+                display: 'inline-block', // Ensure the div only takes up the space of its content
+                padding: '5px', // Add some padding for better visual appearance
+                borderRadius: '50%',
+              }}
+            />
+          </div>
+        </Card.Body>
+      </Card>
+    </div>
   );
 }
 

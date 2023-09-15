@@ -1,3 +1,6 @@
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */ // Disable specific ESLint rule for the next line
 import React, { useState, useEffect } from 'react'; // Importing React, useState, and useEffect from React
 import { useRouter } from 'next/router'; // Importing the router from Next.js
@@ -22,18 +25,21 @@ const ViewBook = () => {
   useEffect(() => {
     if (bookDetails) {
       const releaseDate = new Date(bookDetails.release_date);
+
+      // Set the timezone to UTC
+      releaseDate.setUTCHours(0, 0, 0, 0);
+
       const formattedReleaseDate = releaseDate.toLocaleDateString('en-US', {
+        timeZone: 'UTC', // Set the timezone to UTC
         year: 'numeric',
         month: 'long',
         day: 'numeric',
       });
 
-      // Check if the release_date needs to be updated before setting the state
       if (bookDetails.release_date !== formattedReleaseDate) {
         setBookDetails({ ...bookDetails, release_date: formattedReleaseDate });
       }
 
-      // Update the document title
       document.title = `${bookDetails.title}`;
     }
   }, [bookDetails]); // Re-run effect whenever 'bookDetails' changes

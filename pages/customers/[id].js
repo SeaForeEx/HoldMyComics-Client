@@ -64,7 +64,7 @@ const ViewCustomer = () => {
   // JSX to render the 'ViewCustomer' component
   return (
     <>
-      <div className="text-center mt-5">
+      <div className="text-center my-4">
         {/* Display customer details */}
         <div className="d-flex flex-column">
           <h3>Customer: {customerDetails.customer_name}</h3>
@@ -89,13 +89,12 @@ const ViewCustomer = () => {
           <h3>Titles:</h3>
         </div>
 
-        {/* Display comic books */}
         <div className="d-flex flex-wrap">
           {customerBooks.map((customerBook) => (
             <div
               key={`customerBook--${customerBook.id}`}
               className="customerBooks"
-              style={{ margin: '10px', flex: '0 0 calc(33.33% - 20px)', height: 'auto' }}
+              style={{ margin: '5px' }}
             >
               <CustomerBookCard customerBookObj={customerBook} onUpdate={getBooksByCustomer} />
             </div>

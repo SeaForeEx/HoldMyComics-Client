@@ -63,7 +63,7 @@ function BookList() {
           <section
             key={`book--${book.id}`} // Using book's ID as the key
             className="book"
-            style={{ margin: '10px', flex: '0 0 calc(33.33% - 20px)', height: 'auto' }}
+            style={{ margin: '0px' }}
           >
             {/* Render the 'BookCard' component with book details */}
             <BookCard

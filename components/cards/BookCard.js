@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 // Disable specific ESLint rules for the next lines of code
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/anchor-is-valid */
@@ -5,7 +7,7 @@
 // Import necessary dependencies and modules
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, Button } from 'react-bootstrap'; // Importing the Card/Button components from react-bootstrap
+import { Card } from 'react-bootstrap'; // Importing the Card/Button components from react-bootstrap
 import { useRouter } from 'next/router'; // Importing the router from Next.js
 
 // React functional component for rendering a book card
@@ -21,48 +23,52 @@ const BookCard = ({
 
   // Define a style object for the card's background image
   const cardStyle = {
-    backgroundImage: `url(${imageUrl})`, // Set the background image URL
-    backgroundSize: 'cover', // Adjust background size to cover the card
-    backgroundRepeat: 'no-repeat', // Prevent background image repetition
-    backgroundPosition: 'center', // Center the background image
-    maxWidth: '100%', // Adjust the maximum card width as needed
-    margin: 'auto',
+    backgroundImage: `url(${imageUrl})`,
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    width: '300px',
+    height: '150px',
+    borderRadius: '0',
+    border: '3px solid white', // Add a 5px border
     color: 'white',
     textShadow: '2px 2px 4px black',
+    margin: '5px',
+    cursor: 'pointer',
   };
 
   const h5Style = {
-    backgroundColor: 'rgba(0, 0, 0, 0.6)', // Opaque black background
-    padding: '10px', // Adjust padding as needed
+    position: 'absolute',
+    top: '0',
+    left: '0',
+    width: '100%',
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    padding: '5px',
+    cursor: 'pointer',
+    margin: '0',
+    fontSize: '18px',
   };
 
-  // JSX to render the book card
   return (
-    <>
-      <Card style={cardStyle}>
-        <Card.Body>
-          <h5 style={h5Style}>{title}</h5> {/* Displaying the book title */}
-          {/* Button to view more details of the book */}
-          <Button
-            style={{ margin: '10px', backgroundColor: '#003049' }}
-            onClick={() => {
-              // Navigate to the detailed view of the book when clicked
-              router.push(`/books/${id}`);
-            }}
-          >
-            View
-          </Button>
-        </Card.Body>
-      </Card>
-    </>
+    <Card
+      style={cardStyle}
+      onClick={() => {
+        router.push(`/books/${id}`);
+      }}
+    >
+      <Card.Body>
+        <h5 style={h5Style}>
+          {title}
+        </h5>
+      </Card.Body>
+    </Card>
   );
 };
 
-// PropTypes for the component's props
 BookCard.propTypes = {
-  id: PropTypes.number.isRequired, // 'id' is a required number
-  imageUrl: PropTypes.string.isRequired, // 'imageUrl' is a required string
-  title: PropTypes.string.isRequired, // 'title' is a required string
+  id: PropTypes.number.isRequired,
+  imageUrl: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 export default BookCard;

@@ -18,10 +18,21 @@ a {
 }
 
 body {
-  color: antiquewhite;
+  color: rgb(247, 242, 235);
   background-color: #000000;
   background-image: url('https://cdn.wallpapersafari.com/56/21/YxnDBe.jpg');
   background-size: cover; /* This will make the image cover the entire background */
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center; /* Horizontally center the items */
+  align-items: flex-start; /* Align items at the top of the container */
+  flex-wrap: wrap; /* Allow items to wrap to the next row if needed */
+  gap: 20px; /* Adjust the gap between cards as needed */
+  max-width: 1200px; /* Optionally limit the maximum width of the container */
+  margin: 0 auto; /* Horizontally center the container on the page */
+  padding: 20px; /* Add padding around the container */
 }
