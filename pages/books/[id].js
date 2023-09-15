@@ -38,13 +38,6 @@ const ViewBook = () => {
     }
   }, [bookDetails]); // Re-run effect whenever 'bookDetails' changes
 
-  // useEffect(() => {
-  //   // Update document title with the book's title when 'bookDetails' changes
-  //   if (bookDetails) {
-  //     document.title = `${bookDetails.title}`;
-  //   }
-  // }, [bookDetails]); // Re-run effect whenever 'bookDetails' changes
-
   return (
     <>
       {/* Container for book details */}

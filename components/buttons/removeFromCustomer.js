@@ -7,14 +7,14 @@ import { removeBookFromCustomer } from '../../utils/data/bookData'; // Importing
 // React functional component for removing a book from a customer
 export default function RemoveFromCustomer({ customerBookObj }) {
   // Event handler for removing the book from the customer
-  const removeStudent = () => {
+  const removeBook = () => {
     // Call the 'removeBookFromCustomer' function to remove the book using its ID
     removeBookFromCustomer(customerBookObj.bookId);
   };
 
   // JSX to render the component
   return (
-    <Button onClick={removeStudent}>Remove</Button>
+    <Button onClick={removeBook}>Remove</Button>
   );
 }
 
