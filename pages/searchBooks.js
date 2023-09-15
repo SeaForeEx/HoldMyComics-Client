@@ -7,16 +7,21 @@ import BookCard from '../components/cards/BookCard';
 function SearchResults() {
   const [books, setBooks] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
+  const [noResults, setNoResults] = useState(false);
 
   const displayResults = () => {
     searchBooks(searchQuery)
       .then((data) => {
-        setBooks(data);
+        if (data.length === 0) {
+          setNoResults(true);
+        } else {
+          setNoResults(false);
+          setBooks(data);
+        }
       })
       .catch((error) => {
         console.error('Error fetching books:', error);
+        setNoResults(true);
       });
   };
 
@@ -24,66 +29,49 @@ function SearchResults() {
     setSearchQuery(e.target.value);
   };
 
-  const handlePageChange = (newPage) => {
-    setCurrentPage(newPage);
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    displayResults();
   };
 
   useEffect(() => {
     document.title = 'SEARCH BOOKS!';
   }, []);
 
-  useEffect(() => {
-    displayResults();
-  }, [searchQuery]);
-
-  // Calculate the indexes for the current page
-  const indexOfLastBook = currentPage * itemsPerPage;
-  const indexOfFirstBook = indexOfLastBook - itemsPerPage;
-  const displayedBooks = books.slice(indexOfFirstBook, indexOfLastBook);
-
   return (
     <div>
-      <h1>Search Comic Books to Order This Month</h1>
-      <Form>
+      <h1>Search Upcoming Releases</h1>
+      <Form onSubmit={handleSearchSubmit}>
         <Form.Control
           type="text"
           placeholder="Search your records"
           value={searchQuery}
           onChange={handleSearchChange}
         />
+        <Button type="submit">Submit</Button>
       </Form>
-      {/* Loop through 'books' array and render each book */}
-      {displayedBooks.map((book) => (
-        <section
-          key={`book--${book.id}`} // Using book's ID as the key
-          className="book"
-          style={{ margin: '10px', flex: '0 0 calc(33.33% - 20px)', height: 'auto' }}
-        >
-          {/* Render the 'BookCard' component with book details */}
-          <BookCard
-            id={book.id}
-            imageUrl={book.image_url}
-            title={book.title}
-            onUpdate={displayResults}
-          />
-        </section>
-      ))}
-
-      {/* Pagination component */}
-      <nav>
-        <ul className="pagination">
-          {Array.from({ length: Math.ceil(books.length / itemsPerPage) }, (_, index) => index + 1).map((page) => (
-            <li
-              key={page}
-              className={currentPage === page ? 'page-item active' : 'page-item'}
+      {noResults ? (
+        <p>No search results</p>
+      ) : (
+        <div className="row">
+          {/* Loop through 'books' array and render each book */}
+          {books.map((book) => (
+            <div
+              key={`book--${book.id}`}
+              className="col-md-4" // Adjust the column width as needed
+              style={{ margin: '10px' }}
             >
-              <Button className="page-link" onClick={() => handlePageChange(page)}>
-                {page}
-              </Button>
-            </li>
+              {/* Render the 'BookCard' component with book details */}
+              <BookCard
+                id={book.id}
+                imageUrl={book.image_url}
+                title={book.title}
+                onUpdate={displayResults}
+              />
+            </div>
           ))}
-        </ul>
-      </nav>
+        </div>
+      )}
     </div>
   );
 }
