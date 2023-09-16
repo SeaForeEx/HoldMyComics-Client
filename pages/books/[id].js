@@ -44,35 +44,36 @@ const ViewBook = () => {
     }
   }, [bookDetails]); // Re-run effect whenever 'bookDetails' changes
 
+  const descriptionStyle = {
+    backgroundColor: 'rgba(0, 0, 0, 0.7)', // Black with 70% opacity
+    padding: '10px',
+    borderRadius: '5px',
+  };
+
   return (
-    <>
-      {/* Container for book details */}
-      <div className="mt-5 d-flex flex-wrap">
-        {/* Left column for book cover image */}
-        <div className="d-flex flex-column">
-          {/* Display book cover image */}
+    <div className="container mt-5">
+      <div className="row">
+        <div className="col-md-4">
           <img
             src={bookDetails.image_url}
             alt={`Comic book cover of ${bookDetails.title}`}
-            style={{ width: '300px', height: 'auto' }}
+            style={{ width: '100%', height: 'auto' }}
           />
         </div>
-        {/* Right column for book details */}
-        <div className="d-flex flex-column">
+        <div className="col-md-8">
           <h3>Title: {bookDetails.title}</h3>
-          {/* Display book publisher */}
           <h3>Publisher: {bookDetails.publisher}</h3>
-          {/* Display book price */}
           <h3>Price: ${bookDetails.price}</h3>
-          {/* Display book release date */}
           <h3>Release Date: {bookDetails.release_date}</h3>
-          {/* Display book description */}
-          <p>Description: {bookDetails.description}</p>
-          {/* Include the 'AddToCustomer' component and pass the 'id' prop */}
-          <AddToCustomer id={bookId} />
+          <div style={descriptionStyle}>
+            <p>Description: {bookDetails.description}</p>
+          </div>
+          <div className="mb-3">
+            <AddToCustomer id={bookId} />
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

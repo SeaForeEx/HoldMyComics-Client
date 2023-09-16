@@ -29,7 +29,6 @@ export default function AddToCustomer({ id, obj }) {
     // Fetch customers by the user's store ID and update 'customers' state
     getCustomersByStoreId(user.id).then(setCustomers);
     allCustBooks();
-    console.warn(customerBooks);
 
     // If 'obj' has data, update the 'currentCustomer' state with the provided information
     if (obj.id) {

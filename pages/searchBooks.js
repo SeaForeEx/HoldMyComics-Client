@@ -48,11 +48,11 @@ function SearchResults() {
   return (
     <div>
       {/* Search form and input field */}
-      <h1>Search Upcoming Releases</h1>
+      <h1>Search Releases For Next Two Weeks</h1>
       <Form onSubmit={handleSearchSubmit}>
         <Form.Control
           type="text"
-          placeholder="Search your records"
+          placeholder="NEW COMIC BOOKS!"
           value={searchQuery} // Bind the input field value to 'searchQuery'
           onChange={handleSearchChange} // Attach the event handler for input changes
         />
@@ -71,7 +71,7 @@ function SearchResults() {
             <div
               key={`book--${book.id}`} // Unique 'key' for each book element
               className="col-md-4" // Column width for each book card
-              style={{ margin: '10px' }} // Margin around each book card
+              style={{ margin: '0px' }} // Margin around each book card
             >
               {/* Render the 'BookCard' component with book details */}
               <BookCard

@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react-hooks/exhaustive-deps */ // Disable specific ESLint rule for the next line
 import React, { useState, useEffect } from 'react'; // Importing React, useState, and useEffect from React
 import { useRouter } from 'next/router';
@@ -75,6 +77,7 @@ function BookList() {
           </section>
         ))}
       </div>
+
     </article>
   );
 }
