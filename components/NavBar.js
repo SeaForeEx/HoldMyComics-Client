@@ -8,9 +8,11 @@ import {
   Navbar, //
   Container,
   Nav,
+  Button,
 } from 'react-bootstrap';
 import DatePicker from 'react-datepicker'; // Import the date picker
 import 'react-datepicker/dist/react-datepicker.css'; // Import date picker styles
+import { signOut } from '../utils/auth'; // Importing signOut function from auth utilities
 
 export default function NavBar() {
   const router = useRouter();
@@ -64,12 +66,12 @@ export default function NavBar() {
                 placeholderText="SELECT A DATE"
               />
             </div>
-            <Link passHref href="/profile">
-              <Nav.Link style={{ fontSize: '18px' }}>PROFILE</Nav.Link>
-            </Link>
             <Link passHref href="/searchBooks">
-              <Nav.Link style={{ fontSize: '18px' }}>SEARCH</Nav.Link>
+              <Nav.Link style={{ fontSize: '18px' }}>SEARCH &spc;</Nav.Link>
             </Link>
+            <Button variant="danger" onClick={signOut}>
+              Sign Out
+            </Button> {/* Displaying a "Sign Out" button that calls the signOut function */}
           </Nav>
         </Navbar.Collapse>
       </Container>
