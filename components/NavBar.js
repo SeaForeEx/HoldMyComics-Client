@@ -56,21 +56,21 @@ export default function NavBar() {
           <Nav className="me-auto">
             {/* CLOSE NAVBAR ON LINK SELECTION: https://stackoverflow.com/questions/72813635/collapse-on-select-react-bootstrap-navbar-with-nextjs-not-working */}
             <Link passHref href="/customers">
-              <Nav.Link>Customers</Nav.Link>
+              <Nav.Link>CUSTOMERS</Nav.Link>
             </Link>
             <div className="nav-link">
               {/* Render the date picker */}
               <DatePicker
                 selected={selectedDate}
                 onChange={handleDateChange}
-                placeholderText="Select a date"
+                placeholderText="SELECT A DATE"
               />
             </div>
             <Link passHref href="/profile">
-              <Nav.Link>Profile</Nav.Link>
+              <Nav.Link>PROFILE</Nav.Link>
             </Link>
             <Link passHref href="/searchBooks">
-              <Nav.Link>Search</Nav.Link>
+              <Nav.Link>SEARCH</Nav.Link>
             </Link>
           </Nav>
         </Navbar.Collapse>

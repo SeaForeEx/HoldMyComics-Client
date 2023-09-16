@@ -83,7 +83,15 @@ const getCustomerBooks = (id) => new Promise((resolve, reject) => {
     .catch(reject); // Reject the promise if an error occurs
 });
 
+const getAllCustomerBooks = () => new Promise((resolve, reject) => {
+  // Make a GET request to the customer's endpoint to retrieve their associated books
+  fetch(`${endpoint}/customers/get_all_books`)
+    .then((response) => response.json()) // Parse the response as JSON
+    .then(resolve) // Resolve the promise with the parsed JSON data
+    .catch(reject); // Reject the promise if an error occurs
+});
+
 // Export all the functions as part of the module
 export {
-  createCustomer, getSingleCustomer, getCustomersByStoreId, updateCustomer, deleteCustomer, getCustomerBooks,
+  createCustomer, getSingleCustomer, getCustomersByStoreId, updateCustomer, deleteCustomer, getCustomerBooks, getAllCustomerBooks,
 };
