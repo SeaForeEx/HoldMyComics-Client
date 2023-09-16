@@ -42,7 +42,6 @@ function CustomerBookCard({ customerBookObj, onUpdate }) {
     width: '100%', // Make it stretch the whole width of the card
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
     padding: '5px',
-    cursor: 'pointer',
   };
 
   // JSX to render the customer's book card
