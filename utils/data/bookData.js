@@ -4,6 +4,24 @@ import { clientCredentials } from '../client'; // Importing clientCredentials fr
 const endpoint = clientCredentials.databaseURL; // Assigning the database URL from clientCredentials to 'endpoint'
 
 // Function to fetch all books from the database
+const getBooksThisWeek = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/books/booksthisweek`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        resolve(Object.values(data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
+
 const getAllBooks = (date) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/books?formattedDate=${date}`, {
     method: 'GET',
@@ -90,6 +108,7 @@ const searchBooks = (searchQuery) => new Promise((resolve, reject) => {
 // Exporting the functions for use in other modules
 export {
   getAllBooks,
+  getBooksThisWeek,
   getSingleBook,
   addBookToCustomer,
   removeBookFromCustomer,
