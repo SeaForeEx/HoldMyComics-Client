@@ -54,12 +54,10 @@ export default function NavBar() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            {/* CLOSE NAVBAR ON LINK SELECTION: https://stackoverflow.com/questions/72813635/collapse-on-select-react-bootstrap-navbar-with-nextjs-not-working */}
             <Link passHref href="/customers">
-              <Nav.Link>CUSTOMERS</Nav.Link>
+              <Nav.Link style={{ fontSize: '18px' }}>CUSTOMERS</Nav.Link>
             </Link>
             <div className="nav-link">
-              {/* Render the date picker */}
               <DatePicker
                 selected={selectedDate}
                 onChange={handleDateChange}
@@ -67,14 +65,15 @@ export default function NavBar() {
               />
             </div>
             <Link passHref href="/profile">
-              <Nav.Link>PROFILE</Nav.Link>
+              <Nav.Link style={{ fontSize: '18px' }}>PROFILE</Nav.Link>
             </Link>
             <Link passHref href="/searchBooks">
-              <Nav.Link>SEARCH</Nav.Link>
+              <Nav.Link style={{ fontSize: '18px' }}>SEARCH</Nav.Link>
             </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
+
   );
 }
