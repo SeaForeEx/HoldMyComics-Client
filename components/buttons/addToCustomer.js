@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Button, Form, FloatingLabel } from 'react-bootstrap'; // Importing UI components from react-bootstrap
 import { useRouter } from 'next/router'; // Importing the router from Next.js
 import { addBookToCustomer } from '../../utils/data/bookData'; // Importing a function to add a book to a customer
-import { getCustomersByStoreId } from '../../utils/data/customerData'; // Importing a function to get customers by store ID
+import { getCustomersByStoreId, getAllCustomerBooks } from '../../utils/data/customerData'; // Importing a function to get customers by store ID
 import { useAuth } from '../../utils/context/authContext'; // Importing authentication context
 
 // Initial state for the current customer
@@ -18,13 +18,18 @@ export default function AddToCustomer({ id, obj }) {
   // State variables
   const [customers, setCustomers] = useState([]); // State for storing customer data
   const [currentCustomer, setCurrentCustomer] = useState(initialState); // State for the current customer
+  const [customerBooks, setCustomerBooks] = useState([]);
   const router = useRouter(); // Router instance from Next.js
   const { user } = useAuth(); // Using the user object from the authentication context
+
+  const allCustBooks = () => getAllCustomerBooks().then(setCustomerBooks);
 
   // Effect that runs when the component mounts or when 'obj', 'customers', or 'user.id' changes
   useEffect(() => {
     // Fetch customers by the user's store ID and update 'customers' state
     getCustomersByStoreId(user.id).then(setCustomers);
+    allCustBooks();
+    console.warn(customerBooks);
 
     // If 'obj' has data, update the 'currentCustomer' state with the provided information
     if (obj.id) {
@@ -58,6 +63,9 @@ export default function AddToCustomer({ id, obj }) {
     addBookToCustomer(id, payload).then(() => router.push(`/customers/${currentCustomer.customer_id}`));
   };
 
+  // Function to check if a customer already has the book
+  const customerHasBook = (customerId) => customerBooks.some((book) => book.customer.id === customerId && book.book.id === id);
+
   // JSX to render the component
   return (
     <Form onSubmit={handleSubmit}>
@@ -73,12 +81,15 @@ export default function AddToCustomer({ id, obj }) {
           <option value="">Select a Customer</option>
           {/* Map over customers and create an option element for each */}
           {customers.map((customer) => (
-            <option
-              key={customer.id}
-              value={customer.id}
-            >
-              {customer.customer_name}
-            </option>
+            // Check if the customer already has the book, and filter them out
+            !customerHasBook(customer.id) ? (
+              <option
+                key={customer.id}
+                value={customer.id}
+              >
+                {customer.customer_name}
+              </option>
+            ) : null
           ))}
         </Form.Select>
       </FloatingLabel>

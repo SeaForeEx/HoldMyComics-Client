@@ -19,7 +19,6 @@ function SearchResults() {
           setNoResults(true);
         } else {
           // If books found, reset the 'noResults' flag, update 'books' with the results
-          setNoResults(false);
           setBooks(data);
         }
       })
@@ -32,7 +31,7 @@ function SearchResults() {
 
   // Event handler for changes in the search input field
   const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value); // Update 'searchQuery' with the input field value
+    setSearchQuery(e.target.value.toLowerCase()); // Update 'searchQuery' with the input field value
   };
 
   // Event handler for the search form submission

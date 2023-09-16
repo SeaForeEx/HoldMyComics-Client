@@ -46,7 +46,6 @@ const BookCard = ({
     padding: '5px',
     cursor: 'pointer',
     margin: '0',
-    fontSize: '18px',
   };
 
   return (

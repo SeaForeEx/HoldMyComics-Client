@@ -45,7 +45,9 @@ const ViewCustomer = () => {
   const getBooksByCustomer = async () => {
     const books = await getCustomerBooks(id);
     // The await keyword pauses the execution of the function until the promise returned by getCustomerBooks(id) is resolved or rejected
-    setCustomerBooks(books); // Updating 'customerBooks' state with fetched data
+    setCustomerBooks(books);
+    console.warn(customerBooks);
+    // Updating 'customerBooks' state with fetched data
     // Once the promise is resolved and the data is available, you use the resolved value (books) to update the customerBooks state using the setCustomerBooks function
   };
 
@@ -57,6 +59,7 @@ const ViewCustomer = () => {
   useEffect(() => {
     // Update document title with the book's title when 'customerDetails' changes
     if (customerDetails) {
+      console.warn(customerDetails);
       document.title = `${customerDetails.customer_name}!`;
     }
   }, [customerDetails]); // Re-run effect whenever 'customerDetails' changes
@@ -77,14 +80,14 @@ const ViewCustomer = () => {
               router.push(`/customers/edit/${id}`);
             }}
           >
-            Edit
+            EDIT
           </Button>
           {/* Button to delete the customer */}
           <Button
             style={{ margin: '10px', backgroundColor: '#003049' }}
             onClick={deleteThisCustomer}
           >
-            Delete
+            DELETE
           </Button>
           <h3>Titles:</h3>
         </div>
@@ -94,7 +97,7 @@ const ViewCustomer = () => {
             <div
               key={`customerBook--${customerBook.id}`}
               className="customerBooks"
-              style={{ margin: '5px' }}
+              style={{ margin: '0px' }}
             >
               <CustomerBookCard customerBookObj={customerBook} onUpdate={getBooksByCustomer} />
             </div>

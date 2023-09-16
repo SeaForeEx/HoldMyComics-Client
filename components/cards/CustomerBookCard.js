@@ -28,9 +28,11 @@ function CustomerBookCard({ customerBookObj, onUpdate }) {
     backgroundPosition: 'center', // Center the background image
     width: '300px', // Set a fixed width for the card
     height: '150px', // Set a fixed height for the card
-    margin: '0px', // Add margin for spacing between cards
+    borderRadius: '0',
+    border: '3px solid white', // Add a 5px border
     color: 'white',
     textShadow: '2px 2px 4px black',
+    margin: '0px',
   };
 
   const h5Style = {
@@ -40,6 +42,7 @@ function CustomerBookCard({ customerBookObj, onUpdate }) {
     width: '100%', // Make it stretch the whole width of the card
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
     padding: '5px',
+    cursor: 'pointer',
   };
 
   // JSX to render the customer's book card
@@ -64,6 +67,7 @@ function CustomerBookCard({ customerBookObj, onUpdate }) {
                 display: 'inline-block', // Ensure the div only takes up the space of its content
                 padding: '5px', // Add some padding for better visual appearance
                 borderRadius: '50%',
+                cursor: 'pointer',
               }}
             />
           </div>
