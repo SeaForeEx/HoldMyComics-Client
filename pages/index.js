@@ -56,7 +56,7 @@ function Home() {
               <img
                 src={book.image_url}
                 alt={`Cover of ${book.title}`}
-                style={{ width: 300, cursor: 'pointer' }}
+                style={{ width: 300 }}
               />
             </div>
           ))}

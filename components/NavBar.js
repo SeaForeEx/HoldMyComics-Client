@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import useLocalStorage from 'use-local-storage';
 import { useRouter } from 'next/router'; // Import the useRouter hook
 import {
   Navbar, //
@@ -18,6 +19,26 @@ export default function NavBar() {
   const router = useRouter();
 
   const [selectedDate, setSelectedDate] = useState(null); // Initialize the selected date state
+  const [theme, setTheme] = useLocalStorage('theme', 'dark');
+
+  const switchTheme = () => {
+    // Toggle between 'dark' and 'light' themes
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+  };
+
+  // Set style properties for the body element based on the theme
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.body.style.backgroundImage = 'url("https://cdn.wallpapersafari.com/56/21/YxnDBe.jpg")';
+      document.body.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+      document.body.style.color = '#fff';
+    } else {
+      document.body.style.backgroundImage = 'url("https://i.imgur.com/2hNEBQp.jpg")';
+      document.body.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+      document.body.style.color = '#000';
+    }
+  }, [theme]);
 
   const handleDateChange = (date) => {
     // Handle date selection and set the 'week' query parameter
@@ -67,8 +88,11 @@ export default function NavBar() {
               />
             </div>
             <Link passHref href="/searchBooks">
-              <Nav.Link style={{ fontSize: '18px' }}>SEARCH &spc;</Nav.Link>
+              <Nav.Link style={{ fontSize: '18px' }}>SEARCH </Nav.Link>
             </Link>
+            <Button variant="dark" onClick={switchTheme}>
+              Switch to {theme === 'dark' ? 'light' : 'dark'} Theme
+            </Button>
             <Button variant="danger" onClick={signOut}>
               Sign Out
             </Button> {/* Displaying a "Sign Out" button that calls the signOut function */}

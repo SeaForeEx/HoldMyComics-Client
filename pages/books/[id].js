@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
@@ -8,7 +9,7 @@ import { getSingleBook } from '../../utils/data/bookData'; // Importing function
 import AddToCustomer from '../../components/buttons/addToCustomer'; // Importing the 'AddToCustomer' component
 
 // React functional component for viewing book details
-const ViewBook = () => {
+const ViewBook = ({ theme }) => {
   const router = useRouter(); // Router instance from Next.js
   const [bookDetails, setBookDetails] = useState({}); // State for book details
   const { id } = router.query; // Extracting 'id' from the query parameters (primary key for book)
@@ -45,7 +46,7 @@ const ViewBook = () => {
   }, [bookDetails]); // Re-run effect whenever 'bookDetails' changes
 
   const descriptionStyle = {
-    backgroundColor: 'rgba(0, 0, 0, 0.7)', // Black with 70% opacity
+    backgroundColor: theme === 'dark' ? 'rgba(0, 0, 0, 0.7)' : 'rgba(173, 216, 230, 0.7)',
     padding: '10px',
     borderRadius: '5px',
   };
@@ -60,12 +61,12 @@ const ViewBook = () => {
             style={{ width: '100%', height: 'auto' }}
           />
         </div>
-        <div className="col-md-8">
+        <div className="col-md-8" style={descriptionStyle}>
           <h3>Title: {bookDetails.title}</h3>
           <h3>Publisher: {bookDetails.publisher}</h3>
           <h3>Price: ${bookDetails.price}</h3>
           <h3>Release Date: {bookDetails.release_date}</h3>
-          <div style={descriptionStyle}>
+          <div>
             <p>Description: {bookDetails.description}</p>
           </div>
           <div className="mb-3">
