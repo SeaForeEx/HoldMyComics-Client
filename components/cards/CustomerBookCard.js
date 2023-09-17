@@ -32,7 +32,7 @@ function CustomerBookCard({ customerBookObj, onUpdate }) {
     border: '3px solid white', // Add a 5px border
     color: 'white',
     textShadow: '2px 2px 4px black',
-    margin: '0px',
+    margin: '5px',
   };
 
   const h5Style = {
@@ -46,7 +46,7 @@ function CustomerBookCard({ customerBookObj, onUpdate }) {
 
   // JSX to render the customer's book card
   return (
-    <div className="card-container">
+    <div>
       <Card style={cardStyle}>
         <Card.Body>
           <h5 style={h5Style}>{customerBookObj.book.title}</h5>
