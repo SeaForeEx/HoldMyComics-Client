@@ -32,7 +32,8 @@
     "react-icons": "^4.11.0",
     "react-modal": "^3.16.1",
     "react-responsive-carousel": "^3.2.23",
-    "react-switch": "^7.0.0"
+    "react-switch": "^7.0.0",
+    "use-local-storage": "^3.0.0"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
