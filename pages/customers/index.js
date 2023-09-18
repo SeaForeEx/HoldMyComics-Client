@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react'; // Importing React, 'useState', and 'useEffect'
@@ -32,7 +33,12 @@ function CustomerList() {
   // JSX to render the 'Customers' component
   return (
     <article className="text-center my-4" id="customers">
-      <h1 style={{ marginTop: '40px' }}>Customers</h1>
+      <h1 style={{ marginTop: '40px' }}><img
+        src="https://i.imgur.com/rlpHtqK.png"
+        alt="Customers Logo"
+        style={{ width: '420px', height: 'auto' }}
+      />
+      </h1>
 
       <div>
         <div className="d-flex flex-wrap">

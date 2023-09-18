@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
@@ -48,21 +49,33 @@ function SearchResults() {
   return (
     <div>
       {/* Search form and input field */}
-      <h1>Search Releases For Next Two Weeks</h1>
+      <h1 style={{ marginTop: '40px', marginBottom: '20px' }}><img src="https://i.imgur.com/CHDP3ts.png" alt="SEARCH" /></h1>
       <Form onSubmit={handleSearchSubmit}>
-        <Form.Control
-          type="text"
-          placeholder="NEW COMIC BOOKS!"
-          value={searchQuery} // Bind the input field value to 'searchQuery'
-          onChange={handleSearchChange} // Attach the event handler for input changes
-        />
-        <Button type="submit">Submit</Button>
+        <div className="d-flex flex-column">
+          <div className="text-left">
+            <Form.Control
+              type="text"
+              placeholder="NEW COMIC BOOKS!"
+              value={searchQuery}
+              onChange={handleSearchChange}
+              style={{ width: '200px', marginBottom: '10px' }}
+            />
+          </div>
+          <div className="text-left">
+            <Button type="submit" style={{ border: 'none', background: 'none', cursor: 'pointer' }}>
+              <img
+                src="https://i.imgur.com/fKB5LTz.png"
+                alt="Submit"
+                style={{ width: '200px' }}
+              />
+            </Button>
+          </div>
+        </div>
       </Form>
-
       {/* Conditional rendering based on search results */}
       {noResults ? (
         // Displayed when there are no search results
-        <p>No search results</p>
+        <p style={{ marginTop: '40px', marginBottom: '40px' }}><img width="400px" src="https://i.imgur.com/XTjzBjO.png" alt="NO SEARCH RESULTS!" /></p>
       ) : (
         // Displayed when there are search results
         <div className="row">
