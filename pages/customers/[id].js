@@ -119,17 +119,21 @@ const ViewCustomer = () => {
 
         {/* White border for titles */}
         <div style={{ border: '1px solid rgba(255, 255, 255, 0.5)', padding: '10px', marginTop: '20px' }}>
-          <div className="d-flex flex-wrap">
-            {customerBooks.map((customerBook) => (
-              <div
-                key={`customerBook--${customerBook.id}`}
-                className="customerBooks"
-                style={{ margin: '0px' }}
-              >
-                <CustomerBookCard customerBookObj={customerBook} onUpdate={getBooksByCustomer} />
-              </div>
-            ))}
-          </div>
+          {customerBooks.length > 0 ? (
+            <div className="d-flex flex-wrap">
+              {customerBooks.map((customerBook) => (
+                <div
+                  key={`customerBook--${customerBook.id}`}
+                  className="customerBooks"
+                  style={{ margin: '0px' }}
+                >
+                  <CustomerBookCard customerBookObj={customerBook} onUpdate={getBooksByCustomer} />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <img src="https://i.imgur.com/gj3Hv5s.png" alt="Gimme Some Comics" />
+          )}
         </div>
       </div>
     </>
