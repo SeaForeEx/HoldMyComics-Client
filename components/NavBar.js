@@ -73,7 +73,7 @@ export default function NavBar() {
             <img
               src="https://i.imgur.com/F7CqgQM.png"
               alt="Hold My Comics Logo"
-              style={{ width: '300px', height: 'auto' }}
+              style={{ width: '320px', height: 'auto' }}
             />
           </Navbar.Brand>
         </Link>
@@ -85,7 +85,7 @@ export default function NavBar() {
                 <img
                   src="https://i.imgur.com/rlpHtqK.png"
                   alt="Customers Logo"
-                  style={{ width: '200px', height: 'auto' }}
+                  style={{ width: '220px', height: 'auto' }}
                 />
               </Nav.Link>
             </Link>

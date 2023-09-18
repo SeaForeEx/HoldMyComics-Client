@@ -70,52 +70,66 @@ const ViewCustomer = () => {
   return (
     <>
       <div className="text-center my-4">
-        {/* Display customer details */}
-        <div className="d-flex flex-column">
-          <h3>Customer: {customerDetails.customer_name}</h3>
-          <h5>Email: {customerDetails.email}</h5>
-          <h5>Phone: {formatPhoneNumber(customerDetails?.phone)}</h5>
-          {/* Container to horizontally center the Edit and Delete buttons */}
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            {/* Container for the Edit and Delete buttons */}
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              {/* Edit button */}
-              <Link href={`/customers/edit/${id}`} passHref>
-                <a style={{ margin: '10px' }}>
-                  <img
-                    src="https://i.imgur.com/kSIhpbz.png" // Replace with your edit button image source
-                    alt="Edit"
-                    width="150"
-                  />
-                </a>
-              </Link>
-
-              {/* Delete button */}
-              <Link href="#" passHref>
-                <a onClick={deleteThisCustomer} style={{ margin: '10px' }}>
-                  <img
-                    src="https://i.imgur.com/kRewAa9.png" // Replace with your delete button image source
-                    alt="Delete"
-                    width="220"
-                  />
-                </a>
-              </Link>
-            </div>
+        <div className="d-flex justify-content-between">
+          {/* Left column for customer details */}
+          <div style={{
+            border: '1px solid rgba(255, 255, 255, 0.5)',
+            padding: '10px',
+            flex: '1',
+            marginRight: '20px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center', // Center content vertically
+          }}
+          >
+            <h3>Customer: {customerDetails.customer_name}</h3>
+            <h5>Email: {customerDetails.email}</h5>
+            <h5>Phone: {formatPhoneNumber(customerDetails?.phone)}</h5>
           </div>
 
-          <h3>Titles:</h3>
+          {/* Right column for Edit/Delete buttons */}
+          <div style={{
+            border: '1px solid rgba(255, 255, 255, 0.5)', padding: '10px', flex: '1', display: 'flex', flexDirection: 'column', alignItems: 'center',
+          }}
+          >
+            {/* Edit button */}
+            <Link href={`/customers/edit/${id}`} passHref>
+              <a style={{ margin: '1px' }}>
+                <img
+                  src="https://i.imgur.com/kSIhpbz.png" // Replace with your edit button image source
+                  alt="Edit"
+                  width="150"
+                />
+              </a>
+            </Link>
+
+            {/* Delete button */}
+            <Link href="#" passHref>
+              <a onClick={deleteThisCustomer} style={{ margin: '10px' }}>
+                <img
+                  src="https://i.imgur.com/kRewAa9.png" // Replace with your delete button image source
+                  alt="Delete"
+                  width="220"
+                />
+              </a>
+            </Link>
+          </div>
         </div>
 
-        <div className="d-flex flex-wrap">
-          {customerBooks.map((customerBook) => (
-            <div
-              key={`customerBook--${customerBook.id}`}
-              className="customerBooks"
-              style={{ margin: '0px' }}
-            >
-              <CustomerBookCard customerBookObj={customerBook} onUpdate={getBooksByCustomer} />
-            </div>
-          ))}
+        {/* White border for titles */}
+        <div style={{ border: '1px solid rgba(255, 255, 255, 0.5)', padding: '10px', marginTop: '20px' }}>
+          <div className="d-flex flex-wrap">
+            {customerBooks.map((customerBook) => (
+              <div
+                key={`customerBook--${customerBook.id}`}
+                className="customerBooks"
+                style={{ margin: '0px' }}
+              >
+                <CustomerBookCard customerBookObj={customerBook} onUpdate={getBooksByCustomer} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </>
