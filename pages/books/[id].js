@@ -9,7 +9,7 @@ import { getSingleBook } from '../../utils/data/bookData'; // Importing function
 import AddToCustomer from '../../components/buttons/addToCustomer'; // Importing the 'AddToCustomer' component
 
 // React functional component for viewing book details
-const ViewBook = ({ theme }) => {
+const ViewBook = () => {
   const router = useRouter(); // Router instance from Next.js
   const [bookDetails, setBookDetails] = useState({}); // State for book details
   const { id } = router.query; // Extracting 'id' from the query parameters (primary key for book)
@@ -46,9 +46,11 @@ const ViewBook = ({ theme }) => {
   }, [bookDetails]); // Re-run effect whenever 'bookDetails' changes
 
   const descriptionStyle = {
-    backgroundColor: theme === 'dark' ? 'rgba(0, 0, 0, 0.7)' : 'rgba(173, 216, 230, 0.7)',
+    backgroundColor: 'rgba(195, 193, 193, 0.6)',
     padding: '10px',
     borderRadius: '5px',
+    fontSize: '14pt',
+    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
   };
 
   return (
@@ -66,8 +68,9 @@ const ViewBook = ({ theme }) => {
           <h3>Publisher: {bookDetails.publisher}</h3>
           <h3>Price: ${bookDetails.price}</h3>
           <h3>Release Date: {bookDetails.release_date}</h3>
+          <br />
           <div>
-            <p>Description: {bookDetails.description}</p>
+            <p>{bookDetails.description}</p>
           </div>
           <div className="mb-3">
             <AddToCustomer id={bookId} />

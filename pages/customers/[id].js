@@ -1,8 +1,12 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-param-reassign */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react'; // Importing React, 'useState', and 'useEffect'
+import Link from 'next/link';
 import { useRouter } from 'next/router'; // Importing 'useRouter' hook from 'next/router'
-import { Button } from 'react-bootstrap'; // Importing the Button component from react-bootstrap
 import { getSingleCustomer, getCustomerBooks, deleteCustomer } from '../../utils/data/customerData'; // Importing functions for fetching customer and customer's books data
 import CustomerBookCard from '../../components/cards/CustomerBookCard'; // Importing the 'CustomerBookCard' component
 
@@ -71,22 +75,34 @@ const ViewCustomer = () => {
           <h3>Customer: {customerDetails.customer_name}</h3>
           <h5>Email: {customerDetails.email}</h5>
           <h5>Phone: {formatPhoneNumber(customerDetails?.phone)}</h5>
-          <Button
-            style={{ margin: '10px', backgroundColor: '#003049' }}
-            onClick={() => {
-              // Navigate to the edit view of the customer when clicked
-              router.push(`/customers/edit/${id}`);
-            }}
-          >
-            EDIT
-          </Button>
-          {/* Button to delete the customer */}
-          <Button
-            style={{ margin: '10px', backgroundColor: '#003049' }}
-            onClick={deleteThisCustomer}
-          >
-            DELETE
-          </Button>
+          {/* Container to horizontally center the Edit and Delete buttons */}
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            {/* Container for the Edit and Delete buttons */}
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              {/* Edit button */}
+              <Link href={`/customers/edit/${id}`} passHref>
+                <a style={{ margin: '10px' }}>
+                  <img
+                    src="https://i.imgur.com/kSIhpbz.png" // Replace with your edit button image source
+                    alt="Edit"
+                    width="150"
+                  />
+                </a>
+              </Link>
+
+              {/* Delete button */}
+              <Link href="#" passHref>
+                <a onClick={deleteThisCustomer} style={{ margin: '10px' }}>
+                  <img
+                    src="https://i.imgur.com/kRewAa9.png" // Replace with your delete button image source
+                    alt="Delete"
+                    width="220"
+                  />
+                </a>
+              </Link>
+            </div>
+          </div>
+
           <h3>Titles:</h3>
         </div>
 

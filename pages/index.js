@@ -47,7 +47,8 @@ function Home() {
         margin: '0 auto',
       }}
     >
-      <h1>Welcome To HOLD MY COMICS, {user.store_name}!</h1>
+      <h1>Welcome To HOLD MY COMICS</h1>
+      <h1>{user.store_name}!</h1>
       <br />
       {weeklyBooks.length > 0 ? (
         <Carousel {...carouselOptions}>
@@ -66,7 +67,7 @@ function Home() {
       )}
       <br />
       <h4>User Name: {user.user_name}</h4>
-      <h4>Contact: {user.email}</h4> {/* Displaying the contact email */}
+      <h4>{user.email}</h4>
     </div>
   );
 }
