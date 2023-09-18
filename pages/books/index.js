@@ -58,7 +58,7 @@ function BookList() {
   return (
     <article className="text-center my-4" id="books">
       <h1 style={{ marginTop: '40px' }}>Comics Released The Week of</h1>
-      <h1>{pickedMondayDate}</h1>
+      <h1 style={{ marginBottom: '40px' }}>{pickedMondayDate}</h1>
 
       <div className="d-flex flex-wrap">
         {/* Loop through 'books' array and render each book */}

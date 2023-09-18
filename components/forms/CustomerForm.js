@@ -85,21 +85,22 @@ const CustomerForm = ({ obj }) => {
       <h1>{obj.id ? <img width="400px" src="https://i.imgur.com/OsNdmq4.png" alt="Edit Customer" /> : <img width="400px" src="https://i.imgur.com/gei5cPD.png" alt="New Customer" />}</h1>
       <Form onSubmit={handleSubmit}>
         {/* Form fields for customer name */}
-        <Form.Group className="mb-3">
-          <Form.Label>Customer Name</Form.Label>
-          <Form.Control name="customerName" required value={currentCustomer.customerName} onChange={handleChange} style={{ width: '300px', marginBottom: '10px' }} />
+        <Form.Group className="mb-3" style={{ display: 'flex', alignItems: 'center' }}>
+          <img src="https://i.imgur.com/hTyStRS.png" alt="Name" style={{ width: '120px', marginRight: '10px' }} /> {/* Add your image source */}
+          <Form.Control name="customerName" placeholder="Customer Name" required value={currentCustomer.customerName} onChange={handleChange} style={{ width: '300px', marginBottom: '10px' }} />
         </Form.Group>
 
         {/* Form fields for customer email */}
-        <Form.Group className="mb-3">
-          <Form.Label>Customer Email</Form.Label>
-          <Form.Control name="email" required value={currentCustomer.email} onChange={handleChange} style={{ width: '300px', marginBottom: '10px' }} />
+        <Form.Group className="mb-3" style={{ display: 'flex', alignItems: 'center' }}>
+          <img src="https://i.imgur.com/cdO3DX8.png" alt="Email" style={{ width: '120px', marginRight: '10px' }} /> {/* Add your image source */}
+          <Form.Control name="email" placeholder="Customer Email" required value={currentCustomer.email} onChange={handleChange} style={{ width: '300px', marginBottom: '10px' }} />
         </Form.Group>
 
         {/* Form fields for customer phone */}
-        <Form.Group className="mb-3">
-          <Form.Label>Customer Phone</Form.Label>
-          <Form.Control name="phone" required value={currentCustomer.phone} onChange={handleChange} style={{ width: '300px', marginBottom: '10px' }} />
+        {/* Form fields for customer phone */}
+        <Form.Group className="mb-3" style={{ display: 'flex', alignItems: 'center' }}>
+          <img src="https://i.imgur.com/boPyuW8.png" alt="Phone" style={{ width: '120px', marginRight: '10px' }} /> {/* Add your image source */}
+          <Form.Control name="phone" placeholder="Customer Phone" required value={currentCustomer.phone} onChange={handleChange} style={{ width: '300px', marginBottom: '10px' }} />
         </Form.Group>
 
         {/* Submit button */}

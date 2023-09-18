@@ -38,12 +38,13 @@ function RegisterForm({ user, updateUser }) {
   // JSX to render the user registration form
   return (
     <Form style={{ marginTop: '40px' }} onSubmit={handleSubmit}>
-      <h1><img width="300 px" src="https://i.imgur.com/mlycwM3.png" alt="Sign Up" /></h1>
+      <img width="300 px" src="https://i.imgur.com/mlycwM3.png" alt="Sign Up" />
       {/* Form field for user name */}
       <Form.Group className="mb-3">
-        <Form.Label>User Name</Form.Label>
+        <Form.Label><img src="https://i.imgur.com/hTyStRS.png" alt="Name" style={{ width: '120px', marginRight: '10px' }} /> {/* Add your image source */}</Form.Label>
         <Form.Control
           name="user_name"
+          placeholder="User Name"
           required
           value={formData.user_name}
           onChange={handleInputChange}
@@ -53,9 +54,10 @@ function RegisterForm({ user, updateUser }) {
 
       {/* Form field for store name */}
       <Form.Group className="mb-3">
-        <Form.Label>Store Name</Form.Label>
+        <Form.Label><img src="https://i.imgur.com/9QVpl6x.png" alt="Store" style={{ width: '120px', marginRight: '10px' }} /> {/* Add your image source */}</Form.Label>
         <Form.Control
           name="store_name"
+          placeholder="Store Name"
           required
           value={formData.store_name}
           onChange={handleInputChange}
@@ -65,9 +67,10 @@ function RegisterForm({ user, updateUser }) {
 
       {/* Form field for email */}
       <Form.Group className="mb-3">
-        <Form.Label>Email</Form.Label>
+        <Form.Label><img src="https://i.imgur.com/cdO3DX8.png" alt="Email" style={{ width: '120px', marginRight: '10px' }} /> {/* Add your image source */}</Form.Label>
         <Form.Control
           name="email"
+          placeholder="Store Email"
           required
           value={formData.email}
           onChange={handleInputChange}
