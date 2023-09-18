@@ -24,9 +24,9 @@ function Signin() {
     >
       <div onClick={signIn} style={{ cursor: 'pointer' }}>
         <img
-          src="https://i.imgur.com/KaSdaa6.png" // Replace with the actual image source URL
+          src="https://i.imgur.com/HmnFZLC.png" // Replace with the actual image source URL
           alt="Sign In"
-          width="650" // Set the width of the image
+          width="750" // Set the width of the image
         />
       </div>
     </div>

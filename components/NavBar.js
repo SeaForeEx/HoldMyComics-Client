@@ -1,34 +1,32 @@
-/* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable object-shorthand */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable @next/next/no-img-element */
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import useLocalStorage from 'use-local-storage';
-import { useRouter } from 'next/router'; // Import the useRouter hook
+import Switch from 'react-switch';
+import { useRouter } from 'next/router';
 import {
-  Navbar, //
+  Navbar,
   Container,
   Nav,
-  Button,
 } from 'react-bootstrap';
-import DatePicker from 'react-datepicker'; // Import the date picker
-import 'react-datepicker/dist/react-datepicker.css'; // Import date picker styles
-import { signOut } from '../utils/auth'; // Importing signOut function from auth utilities
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { signOut } from '../utils/auth';
 
 export default function NavBar() {
   const router = useRouter();
-
-  const [selectedDate, setSelectedDate] = useState(null); // Initialize the selected date state
+  const [selectedDate, setSelectedDate] = useState(null);
   const [theme, setTheme] = useLocalStorage('theme', 'dark');
 
   const switchTheme = () => {
-    // Toggle between 'dark' and 'light' themes
     const newTheme = theme === 'dark' ? 'light' : 'dark';
     setTheme(newTheme);
   };
 
-  // Set style properties for the body element based on the theme
   useEffect(() => {
     if (theme === 'dark') {
       document.body.style.backgroundImage = 'url("https://cdn.wallpapersafari.com/56/21/YxnDBe.jpg")';
@@ -42,7 +40,6 @@ export default function NavBar() {
   }, [theme]);
 
   const handleDateChange = (date) => {
-    // Handle date selection and set the 'week' query parameter
     setSelectedDate(date);
     if (date) {
       const formattedDate = date.toISOString().split('T')[0];
@@ -51,37 +48,48 @@ export default function NavBar() {
         query: { formattedDate },
       });
     } else {
-      // Handle clearing the date (e.g., when clicking "This Week" or "Next Week")
       router.push('/books');
     }
   };
 
   useEffect(() => {
-    // Reset the selectedDate when the route changes
     setSelectedDate(null);
   }, [router.asPath]);
 
-  // router.asPath refers to a property of the router object returned by Next.js's useRouter hook. It represents the current URL path as a string.
-
-  // When a user clicks on a navigation link in the Navbar component (e.g., "Home," "Customers," "Profile"), it triggers a page navigation within your Next.js application.
-
-  // The useEffect hook in your Navbar component listens for changes in the router.asPath. It does this by specifying [router.asPath] as a dependency in the useEffect. This means that whenever the URL path changes, the code inside the useEffect will run.
-
-  // When the URL path changes, the useEffect callback is executed, and it sets the selectedDate state to null. This effectively clears the selected date in the DatePicker component.
-
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      style={{
+        backgroundColor: theme === 'dark' ? '#333' : '#1471e3',
+        color: '#fff',
+      }}
+      variant="dark"
+      className="d-flex justify-content-center" // Center the items horizontally
+    >
       <Container>
         <Link passHref href="/">
-          <Navbar.Brand>HOLD MY COMICS!</Navbar.Brand>
+          <Navbar.Brand>
+            <img
+              src="https://i.imgur.com/F7CqgQM.png"
+              alt="Hold My Comics Logo"
+              style={{ width: '300px', height: 'auto' }}
+            />
+          </Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Link passHref href="/customers">
-              <Nav.Link style={{ fontSize: '18px' }}>CUSTOMERS</Nav.Link>
+              <Nav.Link>
+                <img
+                  src="https://i.imgur.com/rlpHtqK.png"
+                  alt="Customers Logo"
+                  style={{ width: '200px', height: 'auto' }}
+                />
+              </Nav.Link>
             </Link>
-            <div className="nav-link">
+            <div className="d-flex align-items-center">
               <DatePicker
                 selected={selectedDate}
                 onChange={handleDateChange}
@@ -89,18 +97,50 @@ export default function NavBar() {
               />
             </div>
             <Link passHref href="/searchBooks">
-              <Nav.Link style={{ fontSize: '18px' }}>SEARCH </Nav.Link>
+              <Nav.Link>
+                <img
+                  src="https://i.imgur.com/Fcb3wdK.png"
+                  alt="Search Logo"
+                  style={{ width: '150px', height: 'auto' }}
+                />
+              </Nav.Link>
             </Link>
-            <Button variant="dark" onClick={switchTheme}>
-              Switch to {theme === 'dark' ? 'light' : 'dark'} Theme
-            </Button>
-            <Button variant="danger" onClick={signOut}>
-              Sign Out
-            </Button> {/* Displaying a "Sign Out" button that calls the signOut function */}
+            <div className="d-flex align-items-center">
+              <Link href="#" passHref>
+                <a onClick={signOut} style={{ display: 'inline-block' }}>
+                  <img
+                    src="https://i.imgur.com/QS3Ey4n.png"
+                    alt="Sign Out"
+                    style={{ width: 'auto', height: '40px' }}
+                  />
+                </a>
+              </Link>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <div className="d-flex align-items-center">
+              <span style={{ marginRight: '10px', fontSize: '18px' }}>
+                {theme === 'dark' ? (
+                  <img src="https://1000logos.net/wp-content/uploads/2016/10/Batman-Logo-1966.png" alt="Batman Icon" width={40} />
+                ) : (
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Superman_shield.svg/1200px-Superman_shield.svg.png" alt="Superman Icon" width={40} />
+                )}
+              </span>
+              <Switch
+                checked={theme === 'dark'}
+                onChange={switchTheme}
+                onColor="#e2e622"
+                offColor="#e31212"
+                onHandleColor="#fff"
+                offHandleColor="#fff"
+                activeBoxShadow="0 0 2px 3px #333"
+                checkedIcon={false}
+                uncheckedIcon={false}
+                height={30}
+              />
+            </div>
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
-
   );
 }
