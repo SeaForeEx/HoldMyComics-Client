@@ -38,36 +38,49 @@ function Home() {
   };
 
   return (
-    <div
-      className="text-center d-flex flex-column justify-content-center align-content-center"
-      style={{
-        height: '90vh',
-        padding: '30px',
-        // maxWidth: '400px',
-        margin: '0 auto',
-      }}
-    >
-      <h1>Welcome To HOLD MY COMICS</h1>
-      <h1>{user.store_name}!</h1>
-      <br />
-      {weeklyBooks.length > 0 ? (
-        <Carousel {...carouselOptions}>
-          {weeklyBooks.map((book) => (
-            <div key={book.id}>
+    <div className="container" style={{ marginTop: '40px' }}>
+      <div className="row">
+        <div className="col-md-3">
+          {/* Hold My Comics Picture */}
+          <div>
+            <div className="p-2 text-center">
               <img
-                src={book.image_url}
-                alt={`Cover of ${book.title}`}
-                style={{ width: 300 }}
+                width="300px"
+                src="https://i.imgur.com/nZ3Pyht.png"
+                alt="WELCOME!"
               />
+              <h1 className="text-center">{user.store_name}!</h1>
             </div>
-          ))}
-        </Carousel>
-      ) : (
-        <p>No weekly titles available.</p>
-      )}
-      <br />
-      <h4>User Name: {user.user_name}</h4>
-      <h4>{user.email}</h4>
+          </div>
+          {/* Username and Email */}
+          <div className="mt-3">
+            <div className="p-2">
+              <h4 className="text-center">User Name: {user.user_name}</h4>
+              <h4 className="text-center">{user.email}</h4>
+            </div>
+          </div>
+        </div>
+        <div className="col-md-9">
+          {/* Weekly Books Carousel */}
+          <div>
+            {weeklyBooks.length > 0 ? (
+              <Carousel {...carouselOptions}>
+                {weeklyBooks.map((book) => (
+                  <div key={book.id}>
+                    <img
+                      src={book.image_url}
+                      alt={`Cover of ${book.title}`}
+                      style={{ width: 300 }}
+                    />
+                  </div>
+                ))}
+              </Carousel>
+            ) : (
+              <p>No weekly titles available.</p>
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
