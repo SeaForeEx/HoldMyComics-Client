@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 // Import necessary dependencies and modules
 import { useRouter } from 'next/router'; // Importing the router from Next.js
 import PropTypes from 'prop-types'; // Importing PropTypes for prop validation
@@ -80,32 +81,39 @@ const CustomerForm = ({ obj }) => {
 
   // JSX to render the customer form
   return (
-    <>
+    <div style={{ marginTop: '40px' }}>
+      <h1>{obj.id ? <img width="400px" src="https://i.imgur.com/OsNdmq4.png" alt="Edit Customer" /> : <img width="400px" src="https://i.imgur.com/gei5cPD.png" alt="New Customer" />}</h1>
       <Form onSubmit={handleSubmit}>
         {/* Form fields for customer name */}
         <Form.Group className="mb-3">
           <Form.Label>Customer Name</Form.Label>
-          <Form.Control name="customerName" required value={currentCustomer.customerName} onChange={handleChange} />
+          <Form.Control name="customerName" required value={currentCustomer.customerName} onChange={handleChange} style={{ width: '300px', marginBottom: '10px' }} />
         </Form.Group>
 
         {/* Form fields for customer email */}
         <Form.Group className="mb-3">
           <Form.Label>Customer Email</Form.Label>
-          <Form.Control name="email" required value={currentCustomer.email} onChange={handleChange} />
+          <Form.Control name="email" required value={currentCustomer.email} onChange={handleChange} style={{ width: '300px', marginBottom: '10px' }} />
         </Form.Group>
 
         {/* Form fields for customer phone */}
         <Form.Group className="mb-3">
           <Form.Label>Customer Phone</Form.Label>
-          <Form.Control name="phone" required value={currentCustomer.phone} onChange={handleChange} />
+          <Form.Control name="phone" required value={currentCustomer.phone} onChange={handleChange} style={{ width: '300px', marginBottom: '10px' }} />
         </Form.Group>
 
         {/* Submit button */}
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
+        <div className="text-left">
+          <Button type="submit" style={{ border: 'none', background: 'none', cursor: 'pointer' }}>
+            <img
+              src="https://i.imgur.com/fKB5LTz.png"
+              alt="Submit"
+              style={{ width: '200px' }}
+            />
+          </Button>
+        </div>
       </Form>
-    </>
+    </div>
   );
 };
 
