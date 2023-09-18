@@ -33,11 +33,12 @@ function CustomerList() {
   // JSX to render the 'Customers' component
   return (
     <article className="text-center my-4" id="customers">
-      <h1 style={{ marginTop: '40px' }}><img
-        src="https://i.imgur.com/rlpHtqK.png"
-        alt="Customers Logo"
-        style={{ width: '420px', height: 'auto' }}
-      />
+      <h1 style={{ marginTop: '40px' }}>
+        <img
+          src="https://i.imgur.com/rlpHtqK.png"
+          alt="Customers Logo"
+          style={{ width: '420px', height: 'auto' }}
+        />
       </h1>
 
       <div>
@@ -57,53 +58,54 @@ function CustomerList() {
               />
             </section>
           ))}
-          {customers.length > 0 && (
-            <section
-              className="customer"
-              style={{
-                margin: '10px',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-              }}
-            >
-              <Link href="/customers/new" passHref>
-                <div style={{ width: '200px', height: '300px', margin: '5px' }}>
-                  <Card
-                    className="text-center"
-                    style={{
-                      backgroundColor: 'rgba(0, 0, 0, 0.01)',
-                      backgroundSize: 'contain',
-                      backgroundRepeat: 'no-repeat',
-                      backgroundPosition: 'center',
-                      color: 'white',
-                      textShadow: '2px 2px 4px black',
-                      border: 'none',
-                    }}
-                  >
-                    <Card.Img
-                      src="https://www.guardhouseholders.com/resize?po=https%3A%2F%2Fstorage.googleapis.com%2Ftlimages%2Fproductpics%2F668307.png&bw=1000&w=1000&bh=1000&h=1000"
-                      alt="comic book pull box"
-                      style={{ width: '200px', cursor: 'pointer' }}
-                    />
-                    <Card.Body style={{ backgroundColor: 'rgba(0, 0, 0, 0.15)' }}>
-                      <h4
-                        style={{
-                          cursor: 'pointer',
-                          whiteSpace: 'nowrap',
-                          overflow: 'hidden',
-                          textOverflow: 'ellipsis',
-                          maxWidth: '100%',
-                        }}
-                      >
-                        New Customer
-                      </h4>
-                    </Card.Body>
-                  </Card>
-                </div>
-              </Link>
-            </section>
-          )}
+
+          {/* "New Customer" card outside of the map loop */}
+          <section
+            className="customer"
+            style={{
+              margin: '10px',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <Link href="/customers/new" passHref>
+              <div style={{ width: '200px', height: '300px', margin: '5px' }}>
+                <Card
+                  className="text-center"
+                  style={{
+                    backgroundColor: 'rgba(0, 0, 0, 0.01)',
+                    backgroundSize: 'contain',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'center',
+                    color: 'white',
+                    textShadow: '2px 2px 4px black',
+                    border: 'none',
+                  }}
+                >
+                  <Card.Img
+                    src="https://www.guardhouseholders.com/resize?po=https%3A%2F%2Fstorage.googleapis.com%2Ftlimages%2Fproductpics%2F668307.png&bw=1000&w=1000&bh=1000&h=1000"
+                    alt="comic book pull box"
+                    style={{ width: '200px', cursor: 'pointer' }}
+                  />
+                  <Card.Body style={{ backgroundColor: 'rgba(0, 0, 0, 0.15)' }}>
+                    <h4
+                      style={{
+                        cursor: 'pointer',
+                        whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        maxWidth: '100%',
+                      }}
+                    >
+                      New Customer
+                    </h4>
+                  </Card.Body>
+                </Card>
+              </div>
+            </Link>
+          </section>
+
         </div>
       </div>
     </article>

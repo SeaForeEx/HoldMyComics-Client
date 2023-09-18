@@ -50,6 +50,10 @@ const CustomerCard = ({
               textOverflow: 'ellipsis', // Show ellipsis (...) for long names
               maxWidth: '100%', // Ensure the name doesn't exceed the card width
             }}
+            onClick={() => {
+              // Navigate to the detailed view of the customer when the image is clicked
+              router.push(`/customers/${id}`);
+            }}
           >
             {customerName}
           </h4>
