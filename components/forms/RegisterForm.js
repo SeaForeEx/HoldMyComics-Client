@@ -1,7 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 // Import necessary dependencies and modules
 import PropTypes from 'prop-types'; // Importing PropTypes for prop validation
 import { useState } from 'react'; // Importing useState from React
-import Button from 'react-bootstrap/Button'; // Importing the Button component from react-bootstrap
+import { Button } from 'react-bootstrap'; // Importing the Button component from react-bootstrap
 import Form from 'react-bootstrap/Form'; // Importing the Form component from react-bootstrap
 import { registerUser } from '../../utils/auth'; // Importing the function for registering a user (update the path as needed)
 
@@ -36,7 +37,8 @@ function RegisterForm({ user, updateUser }) {
 
   // JSX to render the user registration form
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form style={{ marginTop: '40px' }} onSubmit={handleSubmit}>
+      <h1><img width="300 px" src="https://i.imgur.com/mlycwM3.png" alt="Sign Up" /></h1>
       {/* Form field for user name */}
       <Form.Group className="mb-3">
         <Form.Label>User Name</Form.Label>
@@ -45,6 +47,7 @@ function RegisterForm({ user, updateUser }) {
           required
           value={formData.user_name}
           onChange={handleInputChange}
+          style={{ width: '300px', marginBottom: '10px' }}
         />
       </Form.Group>
 
@@ -56,6 +59,7 @@ function RegisterForm({ user, updateUser }) {
           required
           value={formData.store_name}
           onChange={handleInputChange}
+          style={{ width: '300px', marginBottom: '10px' }}
         />
       </Form.Group>
 
@@ -67,13 +71,20 @@ function RegisterForm({ user, updateUser }) {
           required
           value={formData.email}
           onChange={handleInputChange}
+          style={{ width: '300px', marginBottom: '10px' }}
         />
       </Form.Group>
 
       {/* Submit button */}
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
+      <div className="text-left">
+        <Button type="submit" style={{ border: 'none', background: 'none', cursor: 'pointer' }}>
+          <img
+            src="https://i.imgur.com/fKB5LTz.png"
+            alt="Submit"
+            style={{ width: '200px' }}
+          />
+        </Button>
+      </div>
     </Form>
   );
 }
