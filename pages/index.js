@@ -49,6 +49,8 @@ function Home() {
                 src="https://i.imgur.com/nZ3Pyht.png"
                 alt="WELCOME!"
               />
+              <br />
+              <br />
               <h1 className="text-center">{user.store_name}!</h1>
             </div>
           </div>
@@ -78,6 +80,9 @@ function Home() {
             ) : (
               <p>No weekly titles available.</p>
             )}
+          </div>
+          <div>
+            <h6 style={{ marginTop: '60px' }}>HOLD MY COMICS! is powered by  &nbsp;<a href="https://metron.cloud/" target="_blank" rel="noreferrer"><img width="100px" src="https://i.imgur.com/0ef61ow.png" alt="Metron Cloud" /></a>&nbsp; and designed with &nbsp;<a href="https://www.textstudio.com/" target="_blank" rel="noreferrer"><img width="100px" src="https://i.imgur.com/3g0oOCx.png" alt="Text Studio" target="_blank" /></a></h6>
           </div>
         </div>
       </div>

@@ -58,7 +58,7 @@ function SearchResults() {
               placeholder="NEW COMIC BOOKS!"
               value={searchQuery}
               onChange={handleSearchChange}
-              style={{ width: '200px', marginBottom: '10px' }}
+              style={{ width: '300px', marginBottom: '10px' }}
             />
           </div>
           <div className="text-left">
