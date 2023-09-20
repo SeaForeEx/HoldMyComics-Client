@@ -83,7 +83,7 @@ function SearchResults() {
           {books.map((book) => (
             <div
               key={`book--${book.id}`} // Unique 'key' for each book element
-              className="col-md-4" // Column width for each book card
+              className="col-md-3" // Column width for each book card
               style={{ margin: '0px' }} // Margin around each book card
             >
               {/* Render the 'BookCard' component with book details */}

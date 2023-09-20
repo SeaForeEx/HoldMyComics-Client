@@ -20,7 +20,7 @@ const ViewCustomer = () => {
   // Event handler for deleting a customer
   const deleteThisCustomer = () => {
     // Display a confirmation dialog and proceed if the user confirms
-    if (window.confirm(`Delete ${customerDetails.customerName}?`)) {
+    if (window.confirm(`Delete ${customerDetails.customer_name}?`)) {
       // Call the 'deleteCustomer' function and update after completion
       deleteCustomer(id).then(() => router.push('/customers'));
     }
