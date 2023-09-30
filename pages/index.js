@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/anchor-is-valid */
@@ -5,6 +6,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
+import { useRouter } from 'next/router';
 import { useAuth } from '../utils/context/authContext';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import carousel styles
 import { getBooksThisWeek } from '../utils/data/bookData';
@@ -12,6 +14,7 @@ import { getBooksThisWeek } from '../utils/data/bookData';
 function Home() {
   const { user } = useAuth();
   const [weeklyBooks, setWeeklyBooks] = useState([]);
+  const router = useRouter(); // Router instance from Next.js
 
   useEffect(() => {
     document.title = 'HOLD MY COMICS!'; // Set the desired title
@@ -29,7 +32,7 @@ function Home() {
   // Configure carousel options
   const carouselOptions = {
     autoPlay: true, // Enable automatic sliding
-    interval: 3000, // Slide interval in milliseconds (adjust as needed)
+    interval: 2500, // Slide interval in milliseconds (adjust as needed)
     infiniteLoop: true, // Allow infinite looping
     showArrows: false, // Hide navigation arrows
     showStatus: false, // Hide status indicators
@@ -68,7 +71,7 @@ function Home() {
             {weeklyBooks.length > 0 ? (
               <Carousel {...carouselOptions}>
                 {weeklyBooks.map((book) => (
-                  <div key={book.id}>
+                  <div key={book.id} style={{ cursor: 'pointer' }} onClick={() => router.push(`/books/${book.id}`)}>
                     <img
                       src={book.image_url}
                       alt={`Cover of ${book.title}`}
