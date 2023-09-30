@@ -3,6 +3,21 @@ import { clientCredentials } from '../client'; // Importing clientCredentials fr
 
 const endpoint = clientCredentials.databaseURL; // Assigning the database URL from clientCredentials to 'endpoint'
 
+// Function to create a new customer
+const createBook = (book) => new Promise((resolve, reject) => {
+  // Make a POST request to the customers endpoint with the provided customer data
+  fetch(`${endpoint}/books`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(book),
+  })
+    .then((response) => response.json()) // Parse the response as JSON
+    .then(resolve) // Resolve the promise with the parsed JSON data
+    .catch(reject); // Reject the promise if an error occurs
+});
+
 // Function to fetch all books from the database
 const getBooksThisWeek = () => new Promise((resolve, reject) => {
   fetch(`${endpoint}/books/booksthisweek`, {
@@ -52,6 +67,20 @@ const getSingleBook = (id) => new Promise((resolve, reject) => {
     .then((response) => response.json())
     .then((data) => resolve(data))
     .catch(reject);
+});
+
+// Function to update a customer's data
+const updateBook = (book) => new Promise((resolve, reject) => {
+  // Make a PUT request to the customers endpoint with the provided customer data
+  fetch(`${endpoint}/books/${book.id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(book),
+  })
+    .then((data) => resolve(data)) // Resolve the promise with the response data
+    .catch(reject); // Reject the promise if an error occurs
 });
 
 // Function to add a book to a customer's collection
@@ -107,9 +136,11 @@ const searchBooks = (searchQuery) => new Promise((resolve, reject) => {
 
 // Exporting the functions for use in other modules
 export {
+  createBook,
   getAllBooks,
   getBooksThisWeek,
   getSingleBook,
+  updateBook,
   addBookToCustomer,
   removeBookFromCustomer,
   searchBooks,
