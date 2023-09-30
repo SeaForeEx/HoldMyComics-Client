@@ -15,7 +15,6 @@
 <li><a href="#hdc">handleDateChange</a></li>
 <li><a href="#useeffect">useEffect</a></li>
 <li><a href="#navbar">NavBar</a></li>
-<li><a href="#gmd">getMondayDate</a></li>
 <li><a href="#useeffect2">useEffect Part 2</a></li>
 <li><a href="#getallbooks">getAllBooks</a></li>
 <li><a href="#listmethod">Updated List Method</a></li>
@@ -99,83 +98,40 @@
   <li>placeholderText="Select a date": This prop sets a placeholder text that is displayed in the date picker input field when there is no date selected. It provides a hint to the user to indicate that they should select a date.</li>
 </ul>
 
-<h2><a id="gmd">getMondayDate</a></h2>
-
-<p>We are now finally past the NavBar, ready to show the titles based on the formattedDate.  Let's move to the books/index.js file, inside my BookList function to be specific:</p>
-
-<img width="541" alt="Screen Shot 2023-09-10 at 9 01 47 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/c2cd08c2-0f9d-4aac-acd9-a80aedb5a36c">
-
-<ul>
-  <li>getMondayDate is a JavaScript function that takes a dateString as an argument.</li>
-  <li>Inside the function, it creates a selectedDate object by parsing the input dateString as a date using new Date(dateString).</li>
-  <li>dateString is the selected date from the Date Picker turned into a string, used to calculate the Monday of the week.</li>
-  <li>Overall, this code snippet takes a date string, calculates the date of the next Monday, and formats it in a human-readable "Month Day, Year" format. It's what shows the Monday for the selected date on the screen above all the releases.</li>
-</ul>
-
-<p>Let's walk through how this code plays with the dateString to get the Monday for the week of the selected date:</p>
-
-<h4>Input Date: September 20, 2023 (a Wednesday)</h4>
-<ol>
-  <li>getMondayDate("2023-09-20") is called with the input date.</li>
-  <li>It creates a selectedDate object by parsing the input date string:</li>
-    <ul>
-      <li>selectedDate is now equal to Wed Sep 20 2023 00:00:00 GMT+0000 (Coordinated Universal Time).</li>
-    </ul>
-  <li>It calculates the dayOfWeek by calling selectedDate.getDay(), which returns 3 (Wednesday).</li>
-  <li>It calculates daysUntilMonday based on the dayOfWeek value:</li>
-  <ul>
-    <li>Since dayOfWeek is 3 (Wednesday), daysUntilMonday is set to -2 (2 days until the next Monday).</li>
-  </ul>
-  <li>It creates a new mondayDate object as a copy of selectedDate:</li>
-  <ul>
-    <li>mondayDate is initially equal to Wed Sep 20 2023 00:00:00 GMT+0000 (Coordinated Universal Time).</li>
-  </ul>
-  <li>It updates mondayDate by adding daysUntilMonday days to it:</li>
-  <ul>
-    <li>mondayDate is now equal to Mon Sep 18 2023 00:00:00 GMT+0000 (Coordinated Universal Time).</li>
-  </ul>
-  <li>It defines an options object for formatting:</li>
-  <ul>
-    <li>{ year: 'numeric', month: 'long', day: 'numeric' }.</li>
-  </ul>
-  <li>It uses mondayDate.toLocaleDateString(undefined, options) to format mondayDate as a string:</li>
-  <ul>
-    <li>The formatted date string is "September 18, 2023".</li>
-  </ul>
-</ol>
-
 <img width="548" alt="Screen Shot 2023-09-10 at 9 22 55 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/72fb7243-851a-4d3e-9599-355381758641">
 
 <h2><a id="useeffect2">useEffect Part 2</a></h2>
 
-<img width="555" alt="Screen Shot 2023-09-10 at 10 34 29 AM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/2fc97d5f-e7d0-41a2-85b1-b49909fe8201">
+<p>We are now finally past the NavBar, ready to show the titles based on the formattedDate.  Let's move to the books/index.js file, inside my BookList function to be specific:</p>
+
+<img width="716" alt="Screen Shot 2023-09-30 at 1 44 25 PM" src="https://github.com/SeaForeEx/HoldMyComics-Client/assets/113273122/618a9610-77bc-4b5e-9b9e-df0d6375036d">
 
 <p>This useEffect is setup in my books/index.js, let's walk through the steps:</p>
 
-<ul>
-  <li>This useEffect function is set up to run whenever the value of router.query.formattedDate changes. It monitors changes in the query parameter formattedDate in the URL.</li>
-  <li>router.query.formattedDate is the selected date from the DatePicker.</li>
-  <li>When this useEffect is triggered:</li>
-  <ul>
-    <li>It begins by extracting the value of the formattedDate query parameter from the router.query object, storing it in the selectedDateQueryParam variable.</li>
-  </ul>
-  <li>It checks if selectedDateQueryParam is truthy, which means a date has been selected. If so:</li>
-  <ul>
-    <li>It calculates the date of the next Monday based on selectedDateQueryParam by calling the getMondayDate function, storing the result in selectedMondayDate.</li>
-    <li>It sets the pickedMondayDate state variable with the calculated selectedMondayDate.</li>
-    <li>It calls the displayBooks function with selectedDateQueryParam as a parameter. This fetches and displays books related to the selected week.</li>
-  </ul>
-  <li>If selectedDateQueryParam is falsy (no date is selected):</li>
+<dl>
+  <dt>Get the selected week from the query parameters using the 'formattedDate' parameter from the router.</dt>
+
+  <dd>If 'selectedDateQueryParam' is not null:</dd>
+  <dd>
     <ul>
-      <li>It calls the getMondayDate function without any arguments. This calculates and sets the date of the next Monday for the current week.</li>
+      <li>Calculate the day of the week (0 for Sunday to 6 for Saturday) for the selected date.</li>
+      <li>Calculate the number of days until the next Monday (0 if it's already Monday, or a positive integer if it's any other day).</li>
+      <li>Create a new Date object representing the Monday date by adding the days until Monday to the selected date.</li>
+      <li>Format the Monday date as "Month Day, Year" (e.g., "September 4, 2023").</li>
+      <li>Set the formatted Monday date in the state variable 'pickedMondayDate'.</li>
+      <li>Fetch and display books for the selected week using the 'selectedDateQueryParam'.</li>
     </ul>
-</ul>
-<p>In summary, this useEffect is responsible for managing the state and data related to the selected date, taking the following actions:</p>
-<ul>
-  <li>If a date is selected in the query parameters, it calculates the date of the next Monday for that week, updates the state, and fetches books related to that week.</li>
-  <li>If no date is selected, it calculates and sets the date of the next Monday for the current week.</li>
-</ul>
-<p>The overall goal is to ensure that the application properly handles and displays data based on the selected date, or the current week's date when no date is selected.</p>
+  </dd>
+
+  <dd>If 'selectedDateQueryParam' is null (no date is selected):</dd>
+  <dd>
+    <ul>
+      <li>Set the 'pickedMondayDate' state variable to 'Please select a date'.</li>
+    </ul>
+  </dd>
+</dl>
+
+<p>This code snippet handles the selection of a week's starting date and its associated actions. It extracts a chosen date from query parameters, calculates the corresponding Monday date for the selected week, formats it for display, and manages state changes. If no date is selected, it provides a default message. Ultimately, it facilitates the retrieval and display of books relevant to the chosen week.</p>
 
 <h2><a id="getallbooks">getAllBooks</a></h2>
 
