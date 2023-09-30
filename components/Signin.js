@@ -2,9 +2,11 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { signIn } from '../utils/auth';
 
 function Signin() {
+  const router = useRouter(); // Initialize the router
   useEffect(() => {
     document.title = 'WELCOME!'; // Set the desired title
   }, []);
@@ -22,7 +24,12 @@ function Signin() {
         paddingBlock: '0 5rem',
       }}
     >
-      <div onClick={signIn} style={{ cursor: 'pointer' }}>
+      <div
+        onClick={() => {
+          signIn(router); // Pass the router as an argument to the signIn function
+        }}
+        style={{ cursor: 'pointer' }}
+      >
         <img
           src="https://i.imgur.com/HmnFZLC.png" // Replace with the actual image source URL
           alt="Sign In"

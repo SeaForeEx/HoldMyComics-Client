@@ -35,11 +35,17 @@ const registerUser = (userInfo) => new Promise((resolve, reject) => {
 });
 
 // Function to sign in using Google authentication provider
-const signIn = () => {
+const signIn = (router) => {
   // Create a new instance of the GoogleAuthProvider
   const provider = new firebase.auth.GoogleAuthProvider();
   // Use the Google authentication provider to sign in with a popup window
-  firebase.auth().signInWithPopup(provider);
+  firebase
+    .auth()
+    .signInWithPopup(provider)
+    .then(() => {
+      // After successful sign-in, navigate to the index page using the provided 'router'
+      router.push('/');
+    });
 };
 
 // Function to sign out the current user
