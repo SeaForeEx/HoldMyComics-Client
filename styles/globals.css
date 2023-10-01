@@ -33,3 +33,24 @@ body {
   margin: 0 auto; /* Horizontally center the container on the page */
   padding: 5px; /* Add padding around the container */
 }
+
+.custom-table {
+  background-color: rgba(255, 255, 255, 0.4);
+  border: 1px solid white;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.custom-table th, .custom-table td {
+  border: 1px solid white;
+  padding: 8px;
+  text-align: left;
+  max-width: 150px; /* Set a maximum width for the cells */
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Display an ellipsis (...) for overflow */
+}
+
+.custom-table td {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adjust values as needed */
+}
