@@ -86,6 +86,7 @@ const ViewCustomer = () => {
             <h3>Customer: {customerDetails.customer_name}</h3>
             <h5>Email: {customerDetails.email}</h5>
             <h5>Phone: {formatPhoneNumber(customerDetails?.phone)}</h5>
+            <h5>Store Credit: ${formatPhoneNumber(customerDetails?.store_credit)}</h5>
           </div>
 
           {/* Right column for Edit/Delete buttons */}

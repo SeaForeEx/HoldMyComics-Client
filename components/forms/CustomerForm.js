@@ -13,6 +13,7 @@ const initialState = {
   customerName: '',
   email: '',
   phone: '',
+  storeCredit: 0.00,
 };
 
 // React functional component for rendering a customer form
@@ -30,6 +31,7 @@ const CustomerForm = ({ obj }) => {
         customerName: obj.customer_name,
         email: obj.email,
         phone: obj.phone,
+        storeCredit: obj.store_credit,
       });
     }
   }, [obj, user]);
@@ -58,6 +60,7 @@ const CustomerForm = ({ obj }) => {
         customerName: currentCustomer.customerName,
         email: currentCustomer.email,
         phone: currentCustomer.phone,
+        storeCredit: currentCustomer.storeCredit,
       };
 
       // Call 'updateCustomer' function and navigate to customer's page after completion
@@ -71,6 +74,7 @@ const CustomerForm = ({ obj }) => {
         customerName: currentCustomer.customerName,
         email: currentCustomer.email,
         phone: currentCustomer.phone,
+        storeCredit: currentCustomer.storeCredit,
       };
 
       // Call 'createCustomer' function, get the new customer's data, and navigate to the new customer's page
@@ -102,6 +106,12 @@ const CustomerForm = ({ obj }) => {
           <Form.Control name="phone" placeholder="Customer Phone" required value={currentCustomer.phone} onChange={handleChange} style={{ width: '300px', marginBottom: '10px' }} />
         </Form.Group>
 
+        {/* Form fields for customer store credit */}
+        <Form.Group className="mb-3" style={{ display: 'flex', alignItems: 'center' }}>
+          <img src="https://i.imgur.com/3YMdope.png" alt="Credit" style={{ width: '120px', marginRight: '10px' }} /> {/* Add your image source */}
+          <Form.Control name="storeCredit" placeholder="Store Credit" required value={currentCustomer.storeCredit} onChange={handleChange} style={{ width: '300px', marginBottom: '10px' }} />
+        </Form.Group>
+
         {/* Submit button */}
         <div className="text-left">
           <Button type="submit" style={{ border: 'none', background: 'none', cursor: 'pointer' }}>
@@ -125,6 +135,7 @@ CustomerForm.propTypes = {
     customer_name: PropTypes.string,
     email: PropTypes.string,
     phone: PropTypes.string,
+    store_credit: PropTypes.number,
   }),
 };
 
