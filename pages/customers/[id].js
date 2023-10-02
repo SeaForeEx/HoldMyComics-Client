@@ -8,7 +8,8 @@ import React, { useState, useEffect } from 'react'; // Importing React, 'useStat
 import Link from 'next/link';
 import { useRouter } from 'next/router'; // Importing 'useRouter' hook from 'next/router'
 import { getSingleCustomer, getCustomerBooks, deleteCustomer } from '../../utils/data/customerData'; // Importing functions for fetching customer and customer's books data
-import CustomerBookCard from '../../components/cards/CustomerBookCard'; // Importing the 'CustomerBookCard' component
+import { removeBookFromCustomer } from '../../utils/data/bookData';
+// import CustomerBookCard from '../../components/cards/CustomerBookCard'; // Importing the 'CustomerBookCard' component
 
 // Defining the 'ViewCustomer' component
 const ViewCustomer = () => {
@@ -24,6 +25,14 @@ const ViewCustomer = () => {
       // Call the 'deleteCustomer' function and update after completion
       deleteCustomer(id).then(() => router.push('/customers'));
     }
+  };
+
+  const removeBook = (bookId) => {
+    // Call the 'removeBookFromCustomer' function to remove the book using bookId and customerId
+    removeBookFromCustomer(bookId, id).then(() => {
+      // After removing the book, refresh the list of books
+      setCustomerBooks((prevCustomerBooks) => prevCustomerBooks.filter((customerBook) => customerBook.book.id !== bookId));
+    });
   };
 
   // Function to format phone number
@@ -50,6 +59,7 @@ const ViewCustomer = () => {
     const books = await getCustomerBooks(id);
     // The await keyword pauses the execution of the function until the promise returned by getCustomerBooks(id) is resolved or rejected
     setCustomerBooks(books);
+    console.warn(books);
     // Updating 'customerBooks' state with fetched data
     // Once the promise is resolved and the data is available, you use the resolved value (books) to update the customerBooks state using the setCustomerBooks function
   };
@@ -121,17 +131,24 @@ const ViewCustomer = () => {
         {/* White border for titles */}
         <div style={{ border: '1px solid rgba(255, 255, 255, 0.5)', padding: '10px', marginTop: '20px' }}>
           {customerBooks.length > 0 ? (
-            <div className="d-flex flex-wrap">
-              {customerBooks.map((customerBook) => (
-                <div
-                  key={`customerBook--${customerBook.id}`}
-                  className="customerBooks"
-                  style={{ margin: '0px' }}
-                >
-                  <CustomerBookCard customerBookObj={customerBook} onUpdate={getBooksByCustomer} />
-                </div>
-              ))}
-            </div>
+            <table className="table">
+              <tbody>
+                {customerBooks.map((customerBook) => (
+                  <tr key={`customerBook--${customerBook.id}`}>
+                    <td>{customerBook.book.title}</td>
+                    <td>${customerBook.book.price}</td>
+                    <td>
+                      <span
+                        onClick={() => removeBook(customerBook.book.id)}
+                        style={{ cursor: 'pointer', color: 'red', textDecoration: 'underline' }}
+                      >
+                        REMOVE
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           ) : (
             <img src="https://i.imgur.com/gj3Hv5s.png" alt="Gimme Some Comics" />
           )}
