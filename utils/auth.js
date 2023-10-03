@@ -49,9 +49,14 @@ const signIn = (router) => {
 };
 
 // Function to sign out the current user
-const signOut = () => {
+const signOut = (router) => {
   // Use the Firebase authentication object to sign out the user
-  firebase.auth().signOut();
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      router.push('/');
+    });
 };
 
 export {

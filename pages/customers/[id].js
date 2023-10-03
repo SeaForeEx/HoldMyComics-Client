@@ -136,7 +136,6 @@ const ViewCustomer = () => {
                 {customerBooks.map((customerBook) => (
                   <tr key={`customerBook--${customerBook.id}`}>
                     <td>{customerBook.book.title}</td>
-                    <td>${customerBook.book.price}</td>
                     <td>
                       <span
                         onClick={() => removeBook(customerBook.book.id)}
