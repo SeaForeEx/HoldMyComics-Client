@@ -107,7 +107,12 @@ export default function NavBar() {
             </Link>
             <div className="d-flex align-items-center">
               <Link href="#" passHref>
-                <a onClick={signOut} style={{ display: 'inline-block' }}>
+                <a
+                  onClick={() => {
+                    signOut(router); // Pass the router as an argument to the signIn function
+                  }}
+                  style={{ display: 'inline-block' }}
+                >
                   <img
                     src="https://i.imgur.com/QS3Ey4n.png"
                     alt="Sign Out"

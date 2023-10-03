@@ -84,7 +84,7 @@ const getCustomerBooks = (id) => new Promise((resolve, reject) => {
 });
 
 const getAllCustomerBooks = () => new Promise((resolve, reject) => {
-  // Make a GET request to the customer's endpoint to retrieve their associated books
+  // Make a GET request to the customers endpoint to retrieve all customer books
   fetch(`${endpoint}/customers/get_all_books`)
     .then((response) => response.json()) // Parse the response as JSON
     .then(resolve) // Resolve the promise with the parsed JSON data
