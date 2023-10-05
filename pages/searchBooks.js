@@ -44,7 +44,7 @@ function SearchResults() {
   // useEffect hook to set the document title when the component mounts
   useEffect(() => {
     document.title = 'SEARCH BOOKS!'; // Set the document title to 'SEARCH BOOKS!'
-  }, []);
+  }, []); // empty dependency array runs first time only
 
   return (
     <div>
